@@ -1,0 +1,119 @@
+<!-- <div class="container-fluid">
+
+    {{naacForm.valid}}
+    <form #naacForm="ngForm" required>
+        <div class="form-group">
+            <label for="description">Provide description of above-mentioned process within 500 words </label>
+            <mat-form-field [style.width.%]="100" appearance="fill">
+                <textarea [class.is-invalid]="descripId.invalid && descripId.touched" required
+                    [(ngModel)]="curriculamModel.description" #descripId="ngModel" class="form-control"
+                    name="description" (keydown)="wordCounter()" cols="92" rows="15" tabindex="101"
+                    [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+            </mat-form-field>
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is Required
+            </small>
+            <small class="text-danger" [hidden]="!descMin">
+                Minimum 100 words
+            </small>
+            <small class="text-danger" [hidden]="!descMax">
+                Maximum 500 words
+            </small>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="academicYear">Academic Year</label>
+                    <mat-form-field appearance="fill" [style.width.%]="100">
+                        <mat-label>Choose one</mat-label>
+                        <mat-select #accYear="ngModel" required [(ngModel)]="curriculamModel.academicYear"
+                            [class.is-invalid]="accYear.invalid && accYear.touched" name="academicYear">
+                            <mat-option value="">Select</mat-option>
+                            <mat-option value="2019-20">2019-20</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="accYear.valid || accYear.untouched">Academic Year is Required</mat-error>
+                    </mat-form-field>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="department">Department </label>
+                    <mat-form-field appearance="fill" [style.width.%]="100">
+                        <mat-label>Choose one</mat-label>
+                        <mat-select required #dep="ngModel" [(ngModel)]="curriculamModel.department"
+                            [class.is-invalid]="dep.invalid && dep.touched" name="department">
+                            <mat-option value="">Select</mat-option>
+                            <mat-option value="Science">Botony</mat-option>
+                            <mat-option value="commerce">Chemistry</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="dep.valid || dep.untouched"> Department is Required</mat-error>
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="program">Program </label>
+                    <mat-form-field appearance="fill" [style.width.%]="100">
+                        <mat-label>Choose one</mat-label>
+                        <mat-select required #program="ngModel" [(ngModel)]="curriculamModel.program"
+                            [class.is-invalid]="program.invalid && program.touched" name="program">
+                            <mat-option value="">Select</mat-option>
+                            <mat-option value="Botony">Botony</mat-option>
+                            <mat-option value="Chemistry">Chemistry</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="program.valid || program.untouched"> Program is Required</mat-error>
+                    </mat-form-field>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group ">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a Date</mat-label>
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="curriculamModel.date" name="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group" [style.margin-top]="'3.5%'">
+                    <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option" required
+                        [(ngModel)]="curriculamModel.oddOrEven" name="oddOrEven" #oddOrEven="ngModel">
+                        <mat-radio-button value="odd">Odd</mat-radio-button>
+                        <mat-radio-button value="even">Even</mat-radio-button>
+                    </mat-radio-group>
+
+                    <small class="text-danger" [hidden]="oddOrEven.valid || oddOrEven.untouched">
+                        Odd or Even is Required
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="upload">Uplod </label>
+            <input #fil="ngModel" requiredFileType type="file" name="curiculamFile"
+                [(ngModel)]="curriculamModel.curiculamFile" (change)="fileValidation($event)" class="form-control"
+                [class.is-invalid]="fil.invalid && fil.touched">
+            <small class="text-danger" [hidden]="fil.errors ?.formatName || fil.untouched ">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+            </small>
+            <small class="text-danger" [hidden]="!this.fileError ||  fil.untouched ">
+                File size is Not compactable
+            </small>
+        </div>
+
+
+        <div class="form-group" [style.text-align]="'center'">
+            <button type="submit" [disabled]="naacForm.invalid" class="btn btn-primary">Log In</button>
+        </div>
+
+    </form>
+</div> -->

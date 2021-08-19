@@ -1,0 +1,258 @@
+<div class="container-fluid px-md-5">
+    <form #naacFormEn4="ngForm" name="naacform" required>
+        <div class="row">
+            <div class="col">
+                <h2>
+                    <div class="custom-head-num">
+                        1.3.4
+                    </div>
+                    <div class="custom-head">
+                        Percentage of students undertaking field visits/Clinical / industry internships/research
+                        projects/industry visits/community postings (data for the preceding academic year)
+                    </div>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row seven-cols" style="word-break: break-all;">
+                    <div class="container dborder">
+                        <tr style="vertical-align: middle;">
+                            <th class="col-md-1">Programme Name</th>
+                            <th class="col-md-1">No. of students undertaking field visits</th>
+                            <th class="col-md-1">No. of students undertaking Clinical /industry internships</th>
+                            <th class="col-md-1">No. of students undertaking research projects</th>
+                            <th class="col-md-1">No. of students undertaking Industry visits</th>
+                            <th class="col-md-1">No. of students undertaking Community postings</th>
+                            <th class="col-md-1">Total No.of students undertaking field visits/clinical/industry
+                                internships/research projects, industry visits & community postings</th>
+                        </tr>
+                    </div>
+                </div>
+
+                <div class="row seven-cols">
+                    <div class="container dbordercont" style="text-align: center;">
+                        <tr *ngFor="let enrich of curriculamModel.enrichArry;let i=index ">
+                            <td class="col-md-1">
+                                <div class="form-group">
+                                    <mat-form-field appearance="fill" [style.width.%]="100">
+                                        <mat-label>Choose one</mat-label>
+                                        <mat-select required #program="ngModel" [(ngModel)]="enrich.programId"
+                                            [class.is-invalid]="program.invalid && program.touched"
+                                            name="programId_{{[i]}}">
+                                            <mat-option value="">Select</mat-option>
+                                            <mat-option *ngFor="let prog of curriculamModel.program" [value]="prog.id">
+                                                {{prog.name}}</mat-option>
+                                        </mat-select>
+                                        <mat-error [hidden]="program.valid || program.untouched"> Program is Required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                            <td class="col-md-1">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>No.students</mat-label>
+                                    <input (blur)="calculateTotal(noStudents1)" pattern="[\d{1,5}]*"
+                                        name="nostudUndertakingVisits_{{[i]}}" matInput #noStudents1="ngModel"
+                                        [(ngModel)]="enrich.nostudUndertakingVisits" required>
+                                    <mat-error *ngIf="noStudents1.errors?.required">These fields is mandatory
+                                    </mat-error>
+                                    <mat-error *ngIf="noStudents1.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="col-md-1">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>No.students</mat-label>
+                                    <input (blur)="calculateTotal(noStudents2)"
+                                        name="nostudUndertakingClinicaalVisits_{{[i]}}" matInput #noStudents2="ngModel"
+                                        [(ngModel)]="enrich.nostudUndertakingClinicaalVisits" required
+                                        pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudents2.errors?.required">These fields is mandatory
+                                    </mat-error>
+                                    <mat-error *ngIf="noStudents2.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="col-md-1">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>No.students</mat-label>
+                                    <input (blur)="calculateTotal(noStudents3)"
+                                        name="nostudUndertakingResearchProject_{{[i]}}" matInput #noStudents3="ngModel"
+                                        [(ngModel)]="enrich.nostudUndertakingResearchProject" required
+                                        pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudents3.errors?.required">These fields is mandatory
+                                    </mat-error>
+                                    <mat-error *ngIf="noStudents3.errors?.pattern">These fields is mandatory
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="col-md-1">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>No.students</mat-label>
+                                    <input (blur)="calculateTotal(noStudents4)"
+                                        name="nostudUndertakingIndustryVisits_{{[i]}}" matInput #noStudents4="ngModel"
+                                        [(ngModel)]="enrich.nostudUndertakingIndustryVisits" required
+                                        pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudents4.errors?.required">These fields is mandatory
+                                    </mat-error>
+                                    <mat-error *ngIf="noStudents4.errors?.pattern">These fields is mandatory
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="col-md-1">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>No.students</mat-label>
+                                    <input (blur)="calculateTotal(noStudents5)"
+                                        name="nostudUndertakingCommunityPosting_{{[i]}}" matInput #noStudents5="ngModel"
+                                        [(ngModel)]="enrich.nostudUndertakingCommunityPosting" required
+                                        pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudents5.errors?.required">These fields is mandatory
+                                    </mat-error>
+                                    <mat-error *ngIf="noStudents5.errors?.pattern">These fields is mandatory
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                            <td class="col-md-1">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>No.students</mat-label>
+                                    <input (blur)="calculateTotal(noStudents6)" name="nostudUndertakingInAll_{{[i]}}"
+                                        matInput #noStudents6="ngModel" [(ngModel)]="enrich.nostudUndertakingInAll"
+                                        required>
+                                    <mat-error *ngIf="noStudents6.errors?.required">These fields is mandatory
+                                    </mat-error>
+                                    <mat-error *ngIf="noStudents6.errors?.pattern">These fields is mandatory
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <div class="form-group" [style.text-align]="'left'">
+                                    <input  (click)="addMore()" class="btn btn-info"
+                                        type="button" value="Add more">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="col-md-1"
+                                style="text-align: right; font-size: large; color:darkgray;font-weight: bold;">
+                                Total:
+                            </td>
+                            <td class="col-md-1 ">
+                                <div class="form-group">
+                                    <input class="form-control result-field"
+                                        name="curriculamModel.totalNostudUndertakingVisits" #noStudents="ngModel"
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingVisits" disabled>
+                                </div>
+
+                            </td>
+
+                            <td class="col-md-1">
+                                <div class="form-group">
+                                    <input class="form-control result-field"
+                                        name="curriculamModel.totalNostudUndertakingClinicaalVisits"
+                                        #noStudents="ngModel"
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingClinicaalVisits" disabled>
+                                </div>
+
+                            </td>
+                            <td class="col-md-1">
+                                <div class="form-group">
+                                    <input class="form-control result-field"
+                                        name="curriculamModel.totalNostudUndertakingResearchProject"
+                                        #noStudents="ngModel"
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingResearchProject" disabled>
+                                </div>
+
+                            </td>
+                            <td class="col-md-1">
+                                <div class="form-group">
+                                    <input class="form-control result-field"
+                                        name="curriculamModel.totalNostudUndertakingIndustryVisits"
+                                        #noStudents="ngModel"
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingIndustryVisits" disabled>
+                                </div>
+
+                            </td>
+                            <td class="col-md-1">
+                                <div class="form-group">
+                                    <input class="form-control result-field"
+                                        name="curriculamModel.totalNostudUndertakingCommunityPosting"
+                                        #noStudents="ngModel"
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingCommunityPosting" disabled>
+                                </div>
+
+                            </td>
+                            <td class="col-md-1">
+                                <div class="form-group">
+                                    <input class="form-control result-field"
+                                        name="curriculamModel.totalNostudUndertakingInAll" #noStudents="ngModel"
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingInAll" disabled>
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col form-group d-flex flex-column justify-content-end">
+                        <label for="upload">Details of students enrolled in subject-related
+                            Certificate/Diploma/Add-on courses
+                            yearwise
+                            during the last five years </label>
+                        <input required #fil1="ngModel" requiredFileType type="file" name="nostudUndertakingInAll"
+                            [(ngModel)]="curriculamModel.nostudUndertakingInAll" (change)="fileValidation($event)"
+                            class="form-control">
+                        <small class="text-danger" *ngIf="fil1.errors?.formatName">
+                            {{fil1.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil1.untouched ">
+                            File size is Not compactable
+                        </small>
+                    </div>
+                    <div class="col form-group d-flex flex-column justify-content-end">
+                        <label for="upload">Document showing total number of students</label>
+                        <input required #fil2="ngModel" requiredFileType type="file" name="docShownostudUndertakingInAll"
+                            [(ngModel)]="curriculamModel.docShownostudUndertakingInAll"
+                            (change)="fileValidation($event)" class="form-control">
+                        <small class="text-danger" *ngIf="fil2.errors?.formatName">
+                            {{fil2.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil2.untouched ">
+                            File size is Not compactable
+                        </small>
+                    </div>
+                    <div class="col form-group d-flex flex-column justify-content-end">
+                        <label for="upload">Any other relevant information </label>
+                        <input  #fil3="ngModel" requiredFileType type="file" name="anyReleventInfo"
+                            [(ngModel)]="curriculamModel.anyReleventInfo" (change)="fileValidation($event)"
+                            class="form-control">
+                        <small class="text-danger" *ngIf="fil3.errors?.formatName">
+                            {{fil3.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil3.untouched ">
+                            File size is Not compactable
+                        </small>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="form-group" [style.text-align]="'right'">
+                            <button type="submit" [disabled]="naacFormEn4.invalid" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group" routerLink="../feedBack1" [style.text-align]="'left'">
+                            <button type="submit"  class="btn btn-info">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>

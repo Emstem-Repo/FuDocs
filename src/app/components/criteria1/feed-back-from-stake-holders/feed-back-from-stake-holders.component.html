@@ -1,0 +1,164 @@
+<div class="container-fluid px-md-5">
+    <div class="div pt-3">
+        <form #naacFormFeed="ngForm" required>
+            <div class="row">
+                <div class="col">
+                    <h2>
+                        <div class="custom-head-num">
+                            1.4.1
+                        </div>
+                        <div class="custom-head">
+                            Mechanism is in place to obtain structured feedback on curriculam/syllabi from various
+                            stakeholders
+                        </div>
+                    </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="5">(QnM)Mechanism in place to collect structured feedback on
+                                    curricula/syllabi from various stakeholders(10)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>Feedback collected from students</td>
+                                <td>Feedback collected from teachers</td>
+                                <td>Feedback collected from employers</td>
+                                <td>Feedback collected from alumni</td>
+                                <td>Feedback collected from other professionals</td>
+                            </tr> -->
+                            <tr style="text-align: center;">
+                                <td>Feedback collected from students
+                                    <div class="form-group border" [style.margin-top]="'3.5%'">
+                                        <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                            required [(ngModel)]="curriculamModel.feedBackStudent"
+                                            name="feedBackStudent" #feedBackStud="ngModel">
+                                            <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                            <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                            <mat-error [hidden]="feedBackStud.valid || feedBackStud.untouched">Field is
+                                                Required</mat-error>
+                                        </mat-radio-group>
+                                    </div>
+                                </td>
+                                <td>Feedback collected from teachers
+                                    <div class="form-group border" [style.margin-top]="'3.5%'">
+                                        <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                            required [(ngModel)]="curriculamModel.feedBackTeachers"
+                                            name="feedBackTeachers" #feedBackTeach="ngModel">
+                                            <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                            <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                            <mat-error [hidden]="feedBackTeach.valid || feedBackTeach.untouched">Field
+                                                is Required</mat-error>
+                                        </mat-radio-group>
+                                    </div>
+                                </td>
+                                <td>Feedback collected from employers
+                                    <div class="form-group border" [style.margin-top]="'3.5%'">
+                                        <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                            required [(ngModel)]="curriculamModel.feedBackEmployers"
+                                            name="feedBackEmployers" #feedBackEmp="ngModel">
+                                            <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                            <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                            <mat-error [hidden]="feedBackEmp.valid || feedBackEmp.untouched">Field is
+                                                Required</mat-error>
+                                        </mat-radio-group>
+                                    </div>
+                                </td>
+                                <td>Feedback collected from alumni
+                                    <div class="form-group border" [style.margin-top]="'3.5%'">
+                                        <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                            required [(ngModel)]="curriculamModel.feedBackAlumni" name="feedBackAlumni"
+                                            #feedBackAlumni="ngModel">
+                                            <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                            <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                            <mat-error [hidden]="feedBackAlumni.valid || feedBackAlumni.untouched">Field
+                                                is Required</mat-error>
+                                        </mat-radio-group>
+                                    </div>
+                                </td>
+                                <td>Feedback collected from other professionals
+                                    <div class="form-group border" [style.margin-top]="'3.5%'">
+                                        <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                            required [(ngModel)]="curriculamModel.feedBackProfessionals"
+                                            name="feedBackProfessionals" #feedBackOther="ngModel">
+                                            <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                            <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                            <mat-error [hidden]="feedBackOther.valid || feedBackOther.untouched">Field
+                                                is Required</mat-error>
+                                        </mat-radio-group>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <div class="col form-group d-flex flex-column justify-content-end">
+                    <label for="url">URL for stakeholder feedback report</label>
+                    <mat-form-field class="example-full-width" [style.width.%]="50" appearance="fill">
+                        <mat-label>Report URL</mat-label>
+                        <input matInput placeholder="www.google.com" name="curriculamModel.reportURL"
+                            [(ngModel)]="curriculamModel.reportURL">
+                    </mat-form-field>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col form-group d-flex flex-column justify-content-end">
+                    <label for="url">URL for stakeholder feedback report</label>
+                    <mat-form-field class="example-full-width " appearance="fill">
+                        <mat-label>Report URL</mat-label>
+                        <input matInput placeholder="www.google.com" name="curriculamModel.reportURL"
+                            [(ngModel)]="curriculamModel.reportURL">
+                    </mat-form-field>
+                </div>
+                <div class="col form-group d-flex flex-column justify-content-end">
+                    <label for="upload">Stakeholder feedback reports as stated in the minutes of meetings of the
+                        College
+                        Council/IQAC/Curriculum Committee</label>
+                    <input required #fil="ngModel" requiredFileType type="file" name="feedbackReports"
+                        [(ngModel)]="curriculamModel.feedbackReports" (change)="fileValidation($event)"
+                        class="form-control">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+                </div>
+                <div class="col form-group d-flex flex-column justify-content-end">
+                    <label for="upload">Any other relevant information file</label>
+                    <input #fil2="ngModel" requiredFileType type="file" name="feedAnyReleventInfo"
+                        [(ngModel)]="curriculamModel.feedAnyReleventInfo" (change)="fileValidation($event)"
+                        class="form-control">
+                    <small class="text-danger" *ngIf="fil2.errors?.formatName">
+                        {{fil2.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil2.untouched ">
+                        File size is Not compactable
+                    </small>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="form-group" [style.text-align]="'right'">
+                        <button type="submit" [disabled]="naacFormFeed.invalid" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group" routerLink="../feedBack2" [style.text-align]="'left'">
+                        <button type="submit"  class="btn btn-info">Next</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>

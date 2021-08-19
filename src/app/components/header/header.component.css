@@ -1,0 +1,31 @@
+/* .form-control-primary {
+    margin: 10px;
+    opacity: 0.2;
+    border-radius: 2px;
+  } */
+
+  mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+ }
+  ul li {
+    list-style: none;
+    color: #f7f7f7;
+ }
+  button {
+    outline: none;
+    border: 0;
+    background: transparent;
+ }
+  .user {
+    font-size: 14px;
+ }
+  mat-toolbar {
+    background: #f7f7f7;
+ }
+  ::ng-deep .mat-menu-content {
+    width: 160px;
+ }
+  
+  

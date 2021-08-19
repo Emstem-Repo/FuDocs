@@ -1,0 +1,124 @@
+
+<div class="container-fluid px-md-5">
+  <form #naacFormEn3="ngForm" name="naacform" required>
+    <div class="row">
+      <div class="col">
+        <h2>
+          <div class="custom-head-num">
+            1.3.3
+          </div>
+          <div class="custom-head">
+            courses as against the total number of students during the last five years
+          </div>
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+
+
+        <table class="table">
+          <thead class="c-td-i-typ">
+            <tr style="border-bottom-width: 0;">
+              <th scope="col">Year</th>
+              <th scope="col">Number of students enrolled in subject-related
+                Certificate/Diploma programs/Add-on courses</th>
+              <th scope="col">Total number of students enrolled across all
+                the programmes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let number of curriculamModel.year; let i = index">
+              <td scope="row" class="c-td-i-typ">
+
+                <mat-form-field appearance="fill">
+                  <!-- <mat-label>Year</mat-label> -->
+                  <input style="text-align: center;" matInput name="year[{{i}}]" #year[i]="ngModel"
+                    [(ngModel)]="curriculamModel.year[i]" disabled>
+
+                </mat-form-field>
+              </td>
+              <td scope="row" class="c-td-i-typ">
+                <mat-form-field appearance="fill">
+                  <mat-label>No.students</mat-label>
+                  <input name="nOfStudents{{[i]}}" matInput #noStudents="ngModel"
+                    [(ngModel)]="curriculamModel.nOfStudents[i]" required pattern="[\d{1,5}]*">
+                  <mat-error *ngIf="noStudents.errors?.required">These fields is mandatory </mat-error>
+                  <mat-error *ngIf="noStudents.errors?.pattern">Only numbers Allowed</mat-error>
+                </mat-form-field>
+
+              </td>
+              <td scope="row" class="c-td-i-typ">
+                <mat-form-field appearance="fill">
+                  <mat-label>total students</mat-label>
+                  <input name="totalNOfStudents{{[i]}}" matInput [(ngModel)]="curriculamModel.totalNOfStudents[i]"
+                    required pattern="[\d{1,5}]*" #totNoStudents="ngModel">
+                  <mat-error *ngIf="totNoStudents.errors?.required">These fields is mandatory </mat-error>
+                  <mat-error *ngIf="totNoStudents.errors?.pattern">Only numbers Allowed</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+        <div class="row">
+          <div class="col md-5">
+            <div class="form-roup">
+              <label for="result">Formula result:</label>
+              <mat-form-field appearance="fill">
+                <mat-label>result</mat-label>
+                <input matInput name="formulaResult" #result="ngModel" [(ngModel)]="curriculamModel.formulaResult"
+                  disabled>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group d-flex flex-column justify-content-end">
+            <label for="upload">Details of students enrolled in subject-related Certificate/Diploma/Add-on courses
+              yearwise
+              during the last five years </label>
+            <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+              name="curiculamFile" max-size="2000" [(ngModel)]="curriculamModel.detOfStudEnrolled" requiredFileSize
+              class="form-control">
+            <small class="text-danger" *ngIf="fil.errors?.formatName">
+              {{fil.errors ?.formatName.value}} These file extension are not allowed
+            </small>
+            <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+              File size is Not compactable
+            </small>
+          </div>
+          
+          <div class="col form-group d-flex flex-column justify-content-end">
+            <label for="upload">Any other relevant information </label>
+            <input #fil1="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+              name="curiculamFileRelevent" [(ngModel)]="curriculamModel.enrichmenntRelev" class="form-control">
+            <small class="text-danger" *ngIf="fil1.errors?.formatName">
+              {{fil.errors ?.formatName.value}} These file extension are not allowed
+            </small>
+            <small class="text-danger" [hidden]="!fileError ||  fil1.untouched ">
+              File size is Not compactable
+            </small>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <div class="form-group" [style.text-align]="'right'">
+              <button type="submit" [disabled]="naacFormEn3.invalid" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" [style.text-align]="'left'">
+              <button type="submit" routerLink="/fudocs/curriculamEnrichment4" 
+                class="btn btn-info">Next</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </form>
+</div>
