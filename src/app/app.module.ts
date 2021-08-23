@@ -18,6 +18,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CurriculamPlanning1Component } from './components/criteria1/curriculam-planning1/curriculam-planning1.component';
+import { CurriculamPlanning2Component } from './components/criteria1/curriculam-planning2/curriculam-planning2.component';
+import { CurriculamPlanning3Component } from './components/criteria1/curriculam-planning3/curriculam-planning3.component';
+import { CurriculamPlanning4Component } from './components/criteria1/curriculam-planning4/curriculam-planning4.component';
+import { CurriculamPlanning5Component } from './components/criteria1/curriculam-planning5/curriculam-planning5.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    SidebarComponent
+    SidebarComponent,
+    CurriculamPlanning1Component,
+    CurriculamPlanning2Component,
+    CurriculamPlanning3Component,
+    CurriculamPlanning4Component,
+    CurriculamPlanning5Component
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,222 @@
+<div class="container-fluid">
+    <h1><div class="custom-head">Academic Flexibility</div> <div class="custom-head-num">1.2</div></h1>
+    <h2><div class="custom-head-num">1.2.1 </div><div class="custom-head">Percentage of inter-disciplinary / inter-departmental courses /training across all the
+         Programmes offered by the College during the last five years</div><br><br>
+    </h2>
+    
+    <form #naacForm3="ngForm" name="naacForm" required>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>1.2.1.1: Number of courses offered across all programmes during the last five years: &nbsp; </label>
+                    <mat-form-field appearance="outline" [style.width.%]="10">
+                        <input matInput  #coursesOffer="ngModel" name="coursesOffer"
+                         [(ngModel)]="curriculamModel.coursesOffered" required pattern="[\d{1,5}]*">
+                         <mat-error *ngIf="coursesOffer.errors?.required">This field is required </mat-error>
+                         <mat-error *ngIf="coursesOffer.errors?.pattern">Only numbers Allowed</mat-error>                    </mat-form-field>
+                </div>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>1.2.1.2: Number of inter-disciplinary /inter-departmental courses /training offered during the last five
+                        years : &nbsp; </label>
+                    <mat-form-field appearance="outline" [style.width.%]="10">
+                        <input matInput #trainingOffer="ngModel" name="trainingOffer"
+                         [(ngModel)]="curriculamModel.trainingOffered" required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="trainingOffer.errors?.required">This field is required </mat-error>
+                        <mat-error *ngIf="trainingOffer.errors?.pattern">Only numbers Allowed</mat-error>                    </mat-form-field>
+                </div> 
+            </div>
+         </div> <br>
+
+         <div class="row">
+            <div class="col">
+                <div class="form-group">
+                <label>Result as per formula: &nbsp;</label>
+                <mat-form-field appearance="outline" [style.width.%]="10">
+                    <input matInput required name="formula" #formula="ngModel"
+                     [(ngModel)]="curriculamModel.formula3" [class.is-invalid]="formula.invalid && formula.touched">
+                     <mat-error [hidden]="formula.valid || formula.untouched">This field is Required</mat-error>
+                </mat-form-field>
+                </div>
+            </div>
+        </div><br>
+
+        <label style="font-size: large;">Template Details:</label><br><br>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Academic Year: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="50">
+                        <mat-select placeholder="Select Year" required name="year" #year="ngModel" 
+                         [(ngModel)]="curriculamModel.yearr"
+                         [class.is-invalid]="year.invalid && year.touched">
+                         <mat-option *ngFor="let y of curriculamModel.academicYear" [value]="y">{{y}}</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label>Select Programme: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="50">
+                        <mat-select placeholder="Select Programme" required #program="ngModel" name="program"
+                        [(ngModel)]="curriculamModel.selectedProgram"
+                        [class.is-invalid]="program.invalid && program.touched">
+                        <mat-option *ngFor="let p of curriculamModel.programInfo" [value]="program">{{p.name}}</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="program.valid || program.untouched">Programme is Required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <div class="formgroup">
+                    <label>No. of courses where inter-disciplinary/inter-departmental courses / training were built in the
+                        programme: &nbsp;</label>
+                        <mat-form-field appearance="outline" [style.width.%]="10">
+                            <input matInput required #interDisciplinary="ngModel" [(ngModel)]="curriculamModel.interDisciplinary"
+                            [class.is-invalid]="interDisciplinary.invalid && interDisciplinary.touched">
+                             <mat-error [hidden]="interDisciplinary.valid || interDisciplinary.untouched">This field is Required</mat-error>
+                        </mat-form-field>    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th style="width: 30%;">Year</th>
+                            <th style="width: 30%;">Programme</th>
+                            <th style="width: 30%;">InterDisciplinary Courses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;" *ngFor="let inter of curriculamModel.page3inter; let i=index">
+                            <td>
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline" [style.width.%]="80">
+                                        <mat-select required #year="ngModel" [(ngModel)]="inter.year"
+                                        [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
+                                        <mat-option *ngFor="let ye of curriculamModel.academicYear" [value]="ye">{{ye}}</mat-option>
+                                        </mat-select>
+                                        <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
+                                    </mat-form-field>
+
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="form-group" [style.text-align]="'left'">
+                                                <input  (click)="addMore()" class="btn btn-info"
+                                                    type="button" value="Add more">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div *ngFor="let pr of inter.nameOfprogram; let y=index">
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline" [style.width.%]="80">
+                                        <mat-select required #prog="ngModel" [(ngModel)]="inter.nameOfprogram[y]"
+                                        [class.is-invalid]="prog.invalid && prog.touched" name="prog[{{y}}]" >
+                                        <mat-option *ngFor="let t of curriculamModel.programInfo" [value]="t.id">{{t.name}}</mat-option>
+                                        </mat-select>
+                                        <mat-error [hidden]="prog.valid || prog.untouched">This field is Required</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                </div>
+
+
+                                <div class="form-group" [style.text-align]="'left'">
+                                    <input  (click)="addMoreProg(i)" class="btn btn-info"
+                                        type="button" value="Add more">
+                                </div>
+                            </td>
+
+                            <td>
+                                <div *ngFor="let inte of inter.interDisciplinary; let z=index">
+                                <div class="form-group" >
+                                    <mat-form-field appearance="outline" [style.width.%]="80">
+                                        <input matInput required [(ngModel)]="inter.interDisciplinary[z]" name="interDisciplinary{{[i]}}" #namefBody="ngModel">
+                                        <mat-error *ngIf="interDisciplinary.errors?.required">This field is mandatory </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                </div>
+                                <div class="form-group" [style.text-align]="'left'">
+                                    <input  (click)="addInter(i)" class="btn btn-info"
+                                        type="button" value="Add more">
+                                </div>
+                            </td>
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div><br><br>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Minutes of relevant Academic Council/BoS meetings &nbsp;</label>
+                    <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                    name="bosMeeting" [(ngModel)]="curriculamModel.page3File1" requiredFileSize 
+                    class="form-control" >
+                    <small class="text-danger" *ngIf="fil5.errors ?.formatName">
+                        {{fil5.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!this.fileError ||  fil5.untouched ">
+                        File size is Not compactable
+                    </small>
+                
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="form-group">
+                    
+                    <label> Any other relevant information. &nbsp;</label>
+                    <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                    name="relevantFile3" [(ngModel)]="curriculamModel.page3File2" requiredFileSize 
+                    class="form-control" >
+                    <small class="text-danger" *ngIf="fil6.errors ?.formatName">
+                        {{fil6.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!this.fileError ||  fil6.untouched ">
+                        File size is Not compactable
+                    </small>
+                </div>
+            </div>
+        </div><br><br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm3.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/fudocs/curriculam4" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+
+    </form> 
+
+
+</div>

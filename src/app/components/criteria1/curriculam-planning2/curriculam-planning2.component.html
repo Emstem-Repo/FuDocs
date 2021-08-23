@@ -1,0 +1,270 @@
+<div class="container-fluid">
+    <h2><div class="custom-head-num">1.1.2</div><div class="custom-head"> Percentage of fulltime teachers participating in BoS /Academic Council of Universities
+        during the last five years. (Restrict data to BoS /Academic Council only)</div>
+    </h2><br><br>
+
+    <label style="font-size: large;">Number of teachers of the Institution participating in BoS/Academic Council of universities
+        year-wise during the last five years.
+    </label><br><br><br>
+
+    <form #naacForm2="ngForm" name="naacForm" required>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th *ngFor="let year of curriculamModel.academicYear">{{year}}</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                <tr style="text-align: center;">
+                   <td>
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                        <input matInput name="noofTeacher1" placeholder="No of Teachers"  
+                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher1" required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="teacher1.errors?.required">This Field is required</mat-error>
+                        <mat-error *ngIf="teacher1.errors?.pattern">Only Numbers allowed</mat-error>
+                    </mat-form-field>
+                   </td>
+
+                   <td>
+                       <mat-form-field appearance="outline" [style.width.%]="100">
+                           <input matInput placeholder="No of Teachers" name="noofTeacher2" 
+                           #teacher2="ngModel" [(ngModel)]="curriculamModel.noofTeacher2" required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="teacher2.errors?.required">This Field is required</mat-error>
+                        <mat-error *ngIf="teacher2.errors?.pattern">Only Numbers allowed</mat-error>  
+                       </mat-form-field>
+                   </td>
+                   <td>
+                       <mat-form-field appearance="outline" [style.width.%]="100"> 
+                           <input matInput placeholder="No of Teachers" name="noofTeacher3" 
+                           #teacher3="ngModel" [(ngModel)]="curriculamModel.noofTeacher3" required pattern="[\d{1,5}]*">
+                           <mat-error *ngIf="teacher3.errors?.required">This Field is required</mat-error>
+                           <mat-error *ngIf="teacher3.errors?.pattern">Only Numbers allowed</mat-error>  
+                        </mat-form-field>
+                   </td>
+
+                   <td>
+                       <mat-form-field appearance="outline" [style.width.%]="100">
+                           <input matInput placeholder="No of Teachers" name="noofTeacher4" 
+                           #teacher4="ngModel" [(ngModel)]="curriculamModel.noofTeacher4" required pattern="[\d{1,5}]*">
+                           <mat-error *ngIf="teacher4.errors?.required">This Field is required</mat-error>
+                           <mat-error *ngIf="teacher4.errors?.pattern">Only Numbers allowed</mat-error>
+                        </mat-form-field>
+                   </td>
+
+                   <td>
+                       <mat-form-field appearance="outline" [style.width.%]="100">
+                           <input matInput placeholder="No of Teachers" name="noofTeacher5" 
+                           #teacher5="ngModel" [(ngModel)]="curriculamModel.noofTeacher5" required pattern="[\d{1,5}]*">
+                           <mat-error *ngIf="teacher5.errors?.required">This Field is required</mat-error>
+                           <mat-error *ngIf="teacher5.errors?.pattern">Only Numbers allowed</mat-error>                        </mat-form-field>
+
+                   </td>
+                </tr>  
+            </tbody>             
+            </table><br><br>
+
+            <label style="font-size: large;">List of teachers participated in BOS:</label><br><br>
+            
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th style="width: 30%;">Year</th>
+                                <th style="width: 30%;">Name of Teacher</th>
+                                <th style="width: 30%;">Name of Body</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr style="text-align: center;" *ngFor="let boS of curriculamModel.page2bos; let i=index">
+                                <td>
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline" [style.width.%]="80">
+                                            <mat-select required #year="ngModel" [(ngModel)]="boS.year"
+                                            [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
+                                            <mat-option *ngFor="let y of curriculamModel.academicYear" [value]="y">{{y}}</mat-option>
+                                            </mat-select>
+                                            <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </td>
+                                
+                                <td>
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline" [style.width.%]="80">
+                                            <mat-select required #teach="ngModel" [(ngModel)]="boS.nameOfTeacher"
+                                            [class.is-invalid]="teach.invalid && teach.touched" name="teach[{{i}}]" multiple>
+                                            <mat-option *ngFor="let t of curriculamModel.teacherName" [value]="t">{{t.name}}</mat-option>
+                                            </mat-select>
+                                            <mat-error [hidden]="teach.valid || teach.untouched">This field is Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="form-group" >
+                                        <mat-form-field appearance="outline" [style.width.%]="80">
+                                            <input matInput required [(ngModel)]="boS.nameOfBody" name="nameOfBody{{[i]}}" #namefBody="ngModel">
+                                            <mat-error *ngIf="namefBody.errors?.required">This field is mandatory </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                                <td colspan="3">
+                                    <div class="form-group" [style.text-align]="'left'">
+                                        <input  (click)="addMore()" class="btn btn-info"
+                                            type="button" value="Add more">
+                                    </div>
+                                </td>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div><br>
+
+            
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                    <label>Result as per formula: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="10">
+                        <input matInput required name="formula" #formula="ngModel"
+                         [(ngModel)]="curriculamModel.formula1" [class.is-invalid]="formula.invalid && formula.touched">
+                         <mat-error [hidden]="formula.valid || formula.untouched">This field is Required</mat-error>
+                    </mat-form-field>
+                    </div>
+                </div>
+            </div><br><br>
+
+
+            <label style="font-size: large;">List of teachers participated in Academic council:</label><br><br><br>
+
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th style="width:30%;">Year</th>
+                                <th style="width:30%;">Name of Teacher</th>
+                                <th style="width:30%;">Name of Body</th>                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="text-align: center;" *ngFor="let boSS of curriculamModel.page2bos2; let i=index">
+                                <td>
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline" [style.width.%]="80">
+                                            <mat-select required #year1="ngModel" [(ngModel)]="boSS.year"
+                                            [class.is-invalid]="year1.invalid && year1.touched" name="year1[{{i}}]">
+                                            <mat-option *ngFor="let y of curriculamModel.academicYear" [value]="y">{{y}}</mat-option>
+                                            </mat-select>
+                                            <mat-error [hidden]="year1.valid || year1.untouched">Academic Year is Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline" [style.width.%]="80">
+                                            <mat-select required #teach1="ngModel" [(ngModel)]="boSS.nameOfTeacher"
+                                            [class.is-invalid]="teach1.invalid && teach1.touched" name="teach1[{{i}}]" multiple>
+                                            <mat-option *ngFor="let t of curriculamModel.teacherName" [value]="t">{{t.name}}</mat-option>
+                                            </mat-select>
+                                            <mat-error [hidden]="teach1.valid || teach1.untouched">This field is Required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group" >
+                                        <mat-form-field appearance="outline" [style.width.%]="80">
+                                            <input matInput required [(ngModel)]="boSS.nameOfBody" name="nameofBody1{{[i]}}" #namefBody1="ngModel">
+                                            <mat-error *ngIf="namefBody1.errors?.required">This field is mandatory </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                                <td colspan="3">
+                                    <div class="form-group" [style.text-align]="'left'">
+                                        <input  (click)="addMore2()" class="btn btn-info"
+                                            type="button" value="Add more">
+                                    </div>
+                                </td>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                    <label>Result as per formula: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="10">
+                        <input matInput required name="formula1" #formula1="ngModel"
+                         [(ngModel)]="curriculamModel.formula2" [class.is-invalid]="formula1.invalid && formula1.touched">
+                         <mat-error [hidden]="formula1.valid || formula1.untouched">This field is Required</mat-error>
+                    </mat-form-field>
+                    </div>
+                </div>
+            </div><br><br>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Scanned copies of the letters supporting the participation of teachers. &nbsp;</label>
+                        <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                        name="curiculamCommittee" [(ngModel)]="curriculamModel.page2File1" requiredFileSize 
+                        class="form-control" >
+                        <small class="text-danger" *ngIf="fil3.errors ?.formatName">
+                            {{fil3.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!this.fileError ||  fil3.untouched ">
+                            File size is Not compactable
+                        </small>
+                    
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="form-group">
+                        
+                        <label>Any other relevant information.  &nbsp;</label>
+                        <input required #fil4="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                        name="relevantFile2" [(ngModel)]="curriculamModel.page2File2" requiredFileSize 
+                        class="form-control" >
+                        <small class="text-danger" *ngIf="fil4.errors ?.formatName">
+                            {{fil4.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!this.fileError ||  fil4.untouched ">
+                            File size is Not compactable
+                        </small>
+                    </div>
+                </div>
+            </div><br><br>
+
+            <div class="row mt-3">
+                <div class="col">
+                  <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" [disabled]="naacForm2.invalid" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" routerLink="/fudocs/curriculam3" 
+                      class="btn btn-info">Next</button>
+                  </div>
+                </div>
+              </div><br><br>
+
+
+        </div>
+    </div>
+
+
+</form>
+</div>
