@@ -5,7 +5,7 @@
   <mat-drawer mode="side" [opened]="sideBarOpen">
     <!-- <mat-drawer mode="side" opened="true"> -->
       
-    <app-sidebar *ngIf="!login"></app-sidebar>
+    <app-sidebar *ngIf="!hasRoute('/login')"></app-sidebar>
   </mat-drawer>
   <mat-drawer-content>
     <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
