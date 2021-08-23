@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <h1><div class="custom-head">Curricular Planning and Implementation</div><div class="custom-head-num">1.1</div></h1>
+    <h2><div class="custom-head-num">1.1.1</div><div class="custom-head">The Institution ensures effective curriculum planning, delivery and evaluation through a
+        well-defined process as prescribed by the respective regulatory councils and the affiliating
+        University.</div>
+    </h2>
+    <form #naacForm1="ngForm" name="naacForm" required>
+        <div class="form-group">
+            <label for="description">Provide description of above-mentioned process within 500 words</label>
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="description" #descripId="ngModel" class="form-control"
+                [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                [(ngModel)]="curriculamModel.descriptionn" (keydown)="wordCounter()" 
+                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+            </mat-form-field>
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is required
+            </small>
+            <small class="text-danger" [hidden]="!descMin">
+                 Minimum 100 Words
+            </small>
+            <small class="text-danger" [hidden]="!descMax">
+                Maximun 500 Words
+            </small>
+        </div><br><br>
+
+        <label style="font-size: large;">Template Details: </label><br><br>
+        
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Academic Year: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="50">
+                        <mat-select placeholder="Select Year" required name="year" #year="ngModel" 
+                         [(ngModel)]="curriculamModel.yearr"
+                         [class.is-invalid]="year.invalid && year.touched">
+                         <mat-option *ngFor="let y of curriculamModel.academicYear" [value]="y">{{y}}</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label>Select Department: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="50">
+                        <mat-select placeholder="Select Department" required #department="ngModel" name="department" 
+                        [(ngModel)]="curriculamModel.selectedDepartment"
+                        [class.is-invalid]="department.invalid && department.touched">
+                        <mat-option *ngFor="let d of curriculamModel.departmentInfo" [value]="department">{{d.name}}</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="department.valid || department.untouched">Department is Required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label>Select Programme: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="50">
+                        <mat-select placeholder="Select Programme" required #program="ngModel" name="program"
+                        [(ngModel)]="curriculamModel.selectedProgram"
+                        [class.is-invalid]="program.invalid && program.touched">
+                        <mat-option *ngFor="let p of curriculamModel.programInfo" [value]="program">{{p.name}}</mat-option>
+                        </mat-select>
+                        <mat-error [hidden]="program.valid || program.untouched">Programme is Required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Date Conducted: &nbsp;</label>
+                    <mat-form-field appearance="outline" [style.width.%]="50">
+                        <input matInput required [matDatepicker]="picker" [(ngModel)]="curriculamModel.date" #date="ngModel" name="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-error [hidden]="date.valid || date.untouched">Date is Required</mat-error>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Minutes of the meeting of the college curriculum committee. &nbsp;</label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                    name="curiculamFile" [(ngModel)]="curriculamModel.page1File1" requiredFileSize 
+                    class="form-control" >
+                    <small class="text-danger" *ngIf="fil.errors ?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!this.fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+                
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="form-group">
+                    <label>Any other relevant information. &nbsp;</label>
+                    <input required #fil1="ngModel" (change)="fileValidation($event)" requiredFileType 
+                    type="file" name="relevantFile1" [(ngModel)]="curriculamModel.page1File2" requiredFileSize 
+                    class="form-control" >
+                    <small class="text-danger" *ngIf="fil1.errors ?.formatName">
+                        {{fil1.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!this.fileError ||  fil1.untouched ">
+                        File size is Not compactable
+                    </small>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm1.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/fudocs/curriculam2" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+    </form>
+</div>

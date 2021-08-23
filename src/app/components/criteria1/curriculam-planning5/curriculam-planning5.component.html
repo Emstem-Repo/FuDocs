@@ -1,0 +1,230 @@
+<div class="container-fluid">
+    <h1><div class="custom-head">Curriculum Enrichment (25) </div><div class="custom-head-num">1.3</div></h1>
+    <h2><div class="custom-head-num">1.3.1 </div><div class="custom-head">The Institution integrates cross-cutting issues relevant to gender, environment and
+        sustainability, human values, health determinants, Right to Health and emerging demographic
+        issues and Professional Ethics into the Curriculum as prescribed by the University / respective
+        regulative councils</div></h2>
+</div>
+
+<form #naacForm5="ngForm" name="naacForm" required>
+    <div class="form-group">
+        <label for="description">Provide description of above-mentioned process within 500 words</label>
+        <mat-form-field [style.width.%]="70" appearance="outline">
+            <textarea required name="description" #descripId="ngModel" class="form-control"
+            [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+            [(ngModel)]="curriculamModel.descriptionn" (keydown)="wordCounter()" 
+            [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+        </mat-form-field>
+        <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+            Description is required
+        </small>
+        <small class="text-danger" [hidden]="!descMin">
+             Minimum 100 Words
+        </small>
+        <small class="text-danger" [hidden]="!descMax">
+            Maximun 500 Words
+        </small>
+    </div><br><br>
+
+    <h2><div class="custom-head-num">1.3.2 </div><div class="custom-head">Number of value-added courses offered during the last five years
+        that impart transferable and life skills</div>
+    </h2><br>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th style="width: 20%;">Name of the
+                            value-added
+                            courses (with
+                            15 or more
+                            contact hours)
+                            offered during
+                            the last five
+                            years</th>
+                            <th style="width: 17%;">Course Code
+                                (where ever
+                                applicable)
+                            </th>
+                            <th style="width:17%;">Year of offering</th>
+                            <th style="width: 17%;">Number
+                                of times
+                                the
+                                course
+                                occurred
+                                during
+                                the year
+                            </th>
+                            <th style="width: 17%;">Number of
+                                students who
+                                successfully
+                                completed the
+                                course in the
+                                specified year
+                            </th>
+                            <th style="width: 17%;">Upload
+                                relevant
+                                document
+                            </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let value of curriculamModel.page5val; let i=index">
+                                    
+                        <td>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <input name="valueAdded{{[i]}}" matInput #noValue="ngModel"
+                                  [(ngModel)]="value.valueAdded" required placeholder="Enter Here">
+                                <mat-error *ngIf="noValue.errors?.required">This field is mandatory </mat-error>
+                              </mat-form-field>
+                        </td>
+
+                        <td>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <input name="courseCode{{[i]}}" matInput #noCode="ngModel"
+                                  [(ngModel)]="value.courseCode" required placeholder="Enter Here">
+                                <mat-error *ngIf="noCode.errors?.required">This field is mandatory </mat-error>
+                              </mat-form-field>
+                        </td>
+
+                        <td>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <input name="yearOfOffering{{[i]}}" matInput #noYear="ngModel"
+                                  [(ngModel)]="value.yearOfOffering" required placeholder="Enter Here">
+                                <mat-error *ngIf="noYear.errors?.required">This field is mandatory </mat-error>
+                              </mat-form-field>
+                        </td>
+
+                        <td>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <input name="courseOccured{{[i]}}" matInput #noCourse="ngModel"
+                                  [(ngModel)]="value.courseOccured"  placeholder="Enter Here"  required pattern="[\d{1,5}]*">
+                                  <mat-error *ngIf="noCourse.errors?.required">This field is required </mat-error>
+                                  <mat-error *ngIf="noCourse.errors?.pattern">Only numbers Allowed</mat-error>
+                              </mat-form-field>
+                        </td>
+
+                        <td>
+                            <mat-form-field appearance="outline" style="width: 100%;">
+                                <input name="noOfStudents{{[i]}}" matInput #noStudent="ngModel"
+                                  [(ngModel)]="value.noOfStudents"  placeholder="Enter Here" required pattern="[\d{1,5}]*" >
+                                  <mat-error *ngIf="noStudent.errors?.required">This field is required </mat-error>
+                                  <mat-error *ngIf="noStudent.errors?.pattern">Only numbers Allowed</mat-error>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <br>
+                                <input #fil="ngModel" requiredFileType type="file" name="uploadDocs"
+                                [(ngModel)]="value.uploadDoc" (change)="fileValidation($event)" class="form-control"
+                                [class.is-invalid]="fil.invalid && fil.touched">
+                                <small class="text-danger" [hidden]="fil.errors ?.formatName || fil.untouched ">
+                                {{fil.errors ?.formatName.value}} 
+                                </small>
+                                <small class="text-danger" [hidden]="!this.fileError ||  fil.untouched ">
+                              File size is Not compactable
+                                </small>
+                        </td>
+                       </tr>
+                      
+                        <td colspan="6">
+                            <div class="form-group" [style.text-align]="'left'">
+                                <input  (click)="addMore()" class="btn btn-info"
+                                    type="button" value="Add more">
+                            </div>
+                        </td>
+                     
+                </tbody>
+            </table>
+        </div>
+    </div><br><br>
+
+    <label style="font-size: large;">Upload :</label><br><br>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group ">
+                <label for="upload"> Brochure or any other documents relating to value added courses. </label>
+                <input required #fil9="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                name="brochure" [(ngModel)]="curriculamModel.page5File1" requiredFileSize 
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil9.errors ?.formatName">
+                    {{fil9.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!this.fileError ||  fil9.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div>
+  
+        <div class="col">
+            <div class="form-group ">
+                <label for="upload">List of value-added courses year-wise offered during the last five years. </label>
+                <input required #fil10="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                name="curiculamFile" [(ngModel)]="curriculamModel.page5File2" requiredFileSize 
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil10.errors ?.formatName">
+                    {{fil10.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!this.fileError ||  fil10.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div>
+    </div><br><br>
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group ">
+                <label for="upload"> List of students enrolled in value-added courses year-wise during the last five years. </label>
+                <input required #fil11="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                name="curiculamFile" [(ngModel)]="curriculamModel.page5File3" requiredFileSize 
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil11.errors ?.formatName">
+                    {{fil11.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!this.fileError ||  fil11.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div>
+    
+
+
+
+    
+        <div class="col">
+            <div class="form-group ">
+                <label for="upload"> Any other relevant information. </label>
+                <input required #fil12="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                name="curiculamFile" [(ngModel)]="curriculamModel.page5File4" requiredFileSize 
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil12.errors ?.formatName">
+                    {{fil12.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!this.fileError ||  fil12.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div>
+    </div><br>
+
+    
+    <div class="row mt-3">
+        <div class="col">
+          <div class="form-group" [style.text-align]="'right'">
+            <button type="submit" [disabled]="naacForm5.invalid" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group" [style.text-align]="'left'">
+            <button type="submit"  routerLink="/fudocs/second" 
+              class="btn btn-info">Next</button>
+          </div>
+        </div>
+      </div><br><br>
+
+
+</form>
