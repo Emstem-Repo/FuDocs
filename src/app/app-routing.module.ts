@@ -14,7 +14,7 @@ import { CurriculamPlanning4Component } from './components/criteria1/curriculam-
 import { CurriculamPlanning5Component } from './components/criteria1/curriculam-planning5/curriculam-planning5.component';
 
 const routes: Routes = [
-  { path: 'fudocs/login', component: LoginComponent },
+  { path: 'FuDocs', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent},
   {path: 'fudocs/second' ,component: CurriculamEnrichment3Component},
   {path: 'fudocs/curriculamEnrichment3' ,component: CurriculamEnrichment3Component},
@@ -26,7 +26,8 @@ const routes: Routes = [
   {path:'fudocs/curriculam3',component:CurriculamPlanning3Component},
   {path:'fudocs/curriculam4',component:CurriculamPlanning4Component},
   {path:'fudocs/curriculam5',component:CurriculamPlanning5Component},
-  {path: '', redirectTo:'/login', pathMatch: 'full'},
+  {path: '', redirectTo:'/FuDocs', pathMatch: 'full'},
+  
 ];
 
 @NgModule({
