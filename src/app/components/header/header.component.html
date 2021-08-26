@@ -9,13 +9,13 @@
 </ul>
 </nav> -->
 <mat-toolbar>
-    <mat-toolbar-row class="justify-content-between bg-primary" *ngIf="!hasRoute('FuDocs')">
+    <mat-toolbar-row class="justify-content-between bg-primary" *ngIf="!hasRoute('/FuDocs')">
       <button style="color: antiquewhite;" mat-icon-button (click)="toggleSidebar()">
         <mat-icon>menu</mat-icon>
       </button>
       <div class="row mr-2 ml-auto">
         <ul class="row m-0 align-items-center">
-          <li *ngIf="!hasRoute('FuDocs')">
+          <li *ngIf="!hasRoute('/FuDocs')">
             <button
               mat-button
               [matMenuTriggerFor]="menu"
