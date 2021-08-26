@@ -14,20 +14,19 @@ import { CurriculamPlanning4Component } from './components/criteria1/curriculam-
 import { CurriculamPlanning5Component } from './components/criteria1/curriculam-planning5/curriculam-planning5.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'fudocs/login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent},
   {path: 'fudocs/second' ,component: CurriculamEnrichment3Component},
   {path: 'fudocs/curriculamEnrichment3' ,component: CurriculamEnrichment3Component},
   {path: 'fudocs/curriculamEnrichment4' ,component: CurriculamEnrichment4Component},
   {path: 'fudocs/feedBack1' ,component: FeedBackFromStakeHoldersComponent},
   {path: 'fudocs/feedBack2' ,component: FeedbadFromStakeHolder2Component},
-  {path: '', redirectTo:'/login', pathMatch: 'full'},
-
   {path: 'fudocs/curriculam1' ,component: CurriculamPlanning1Component},
   {path:'fudocs/curriculam2',component:CurriculamPlanning2Component},
   {path:'fudocs/curriculam3',component:CurriculamPlanning3Component},
   {path:'fudocs/curriculam4',component:CurriculamPlanning4Component},
   {path:'fudocs/curriculam5',component:CurriculamPlanning5Component},
+  {path: '', redirectTo:'/login', pathMatch: 'full'},
 ];
 
 @NgModule({
