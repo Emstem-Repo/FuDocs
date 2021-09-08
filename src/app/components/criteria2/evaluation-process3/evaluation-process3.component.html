@@ -1,0 +1,80 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm218="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.5.3. </div><div class="custom-head">Reforms in the process and procedure in the conduct of evaluation/examination;
+            including the automation of the examination system</div>
+        </h2>
+
+        <div style="font-size: large;">Describe the reforms implemented in internal evaluation/ examinations with reference to the
+            following within 500 words
+        </div><br>  
+
+        <div class="col">
+            <ul>
+                <li>Examination procedures</li>
+                <li>Processes integrating IT</li>
+                <li>Continuous internal assessment system</li>
+                <li>Competency-based assessment</li>
+                <li>Workplace-based assessment</li>
+                <li>Self assessment</li>
+                <li>OSCE/OSPE</li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="description4" #descripId="ngModel" class="form-control"
+                [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                [(ngModel)]="teachinglearning.description4" (keydown)="wordCounter()" 
+                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+            </mat-form-field>
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is required
+            </small>
+            <small class="text-danger" [hidden]="!descMin">
+                 Minimum 100 Words
+            </small>
+            <small class="text-danger" [hidden]="!descMax">
+                Maximun 500 Words
+            </small>
+        </div><br>
+        <div style="font-size: large;">Provide weblink:</div>
+        <div class="col">
+            <ul>
+                <li>
+                    Information on examination reforms&nbsp;
+                    <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
+                          <input matInput  name="teachinglearning.examReforms"
+                            [(ngModel)]="teachinglearning.examReforms">
+                    </mat-form-field>                  
+                
+                </li><br>                  
+                <li>
+                    <label>Any other relevant information
+                    </label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile18" requiredFileSize
+                    class="form-control" [style.width.%]="49">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                     File size is Not compactable
+                     </small>        
+                </li>
+            </ul>  
+        </div> <br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm218.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page19" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+    </form>
+</div>        

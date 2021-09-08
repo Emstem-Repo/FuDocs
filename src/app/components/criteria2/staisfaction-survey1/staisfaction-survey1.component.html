@@ -1,0 +1,62 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm224="ngForm" name="naacForm" required>
+        <h1><div class="custom-head">Key Indicator-</div><div class="custom-head-num">2.7 </div>
+            <div class="custom-head">Student Satisfaction Survey </div><div class="custom-head-num">(50)</div>
+        </h1>
+        <h2><div class="custom-head-num">2.7.1 </div><div class="custom-head">Online student satisfaction survey regarding teaching learning process</div>
+        </h2><br>
+        <div style="font-size: large;">Data Requirement: (As per Data Template)</div><br>
+        <div class="col">
+            <ul>
+                <li>Name/Class/Gender</li>
+                <li>Student Id Number</li>
+                <li>Mobile number</li>
+                <li>Email Id</li>
+                <li>Degree Programme</li>
+            </ul>
+        </div><br>
+        <div >(Database of all currently enrolled students need to be prepared and shared with NAAC along
+            with the online submission of QIF)
+        </div><br>
+        <div style="font-size: large;">Upload:</div><br>
+        <div class="col">
+            <ul>
+                <li>
+                    <label>List of opportunities provided for the students for midcourse improvement of
+                        performance in the examinations
+                    </label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page24File1" requiredFileSize
+                    class="form-control" [style.width.%]="49">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                    </small>
+                </li><br>
+                <li>
+                    Any other relevant information &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:28px; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.relevantInfo"
+                            [(ngModel)]="teachinglearning.relevantInfo24">
+                    </mat-form-field>
+                </li>
+            </ul>
+        </div><br>
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm224.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page7" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+    </form>
+</div>          
+

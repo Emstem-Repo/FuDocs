@@ -1,0 +1,101 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm24="ngForm" name="naacForm" required>
+        <h1><div class="custom-head">Catering to Student Diversity </div><div class="custom-head-num">(25)</div>
+        </h1>
+        <h2><div class="custom-head-num">2.2.1. </div><div class="custom-head">The Institution assesses the learning levels of the students, after admission and
+            organises special Programmes for advanced learners and slow performers</div>
+        </h2>
+
+        <h2>The Institution:</h2>
+
+        <section>
+            <label style="margin-right: 5%;" >1. Follows measurable criteria to identify slow performers &nbsp;</label>
+            <mat-checkbox></mat-checkbox>
+        </section>
+        <section>    
+            <label style="margin-right: 3.9%;">2. Follows measurable criteria to identify advanced learners &nbsp;</label>
+            <mat-checkbox ></mat-checkbox>
+        </section>
+        <section>    
+            <label style="margin-right: 7.1%;">3. Organizes special programmes for slow performers &nbsp;</label>
+            <mat-checkbox ></mat-checkbox>
+        </section>
+        <section>    
+            <label style="margin-right: 7.9%;">4. Follows protocol to measure student achievement &nbsp;</label>
+            <mat-checkbox ></mat-checkbox>
+        </section><br><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Criteria to identify slow performers and advanced learners and assessment methodology</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File1" requiredFileSize
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+
+            <div class="col">
+                <label>Details of special programmes for slow performers and advanced learners</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File2" requiredFileSize
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Student participation details and outcome records</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File3" requiredFileSize
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+
+            <div class="col">
+                <label>Any other relevant information</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile4" requiredFileSize
+                class="form-control" >
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div><br><br>
+
+        
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm24.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page5" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+      
+    </form>
+</div>

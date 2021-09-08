@@ -1,0 +1,280 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm22="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.1.2 </div><div class="custom-head">Average percentage of seats filled in for the various programmes as against the
+            approved intake</div>
+        </h2>
+        <div style="font-size: large;">Number of seats filled-in for various programmes offered by the College as against the
+            approved intake during the last five years:
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th style="width: 20%;">Year</th>
+                            <th *ngFor="let year of teachinglearning.academicYear">{{year}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <th rowspan="3" scope="row" style="text-align: center;">Number of
+                                seats filled in
+                            </th>
+                            
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                </mat-form-field>                                
+                            </td>
+                        </tr>
+
+                        <tr style="text-align: center;">                              
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                </mat-form-field>                                
+                            </td>
+                            
+                        </tr>
+
+                        <tr style="text-align: center;">                           
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                </mat-form-field>                                
+                            </td>
+                        </tr>
+
+                        <tr style="text-align: center;">
+                            <th rowspan="3" scope="row" style="text-align: center;">Number of
+                                approved seats
+                            </th>
+                            
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                </mat-form-field>                                
+                            </td>
+                        </tr>
+                        
+                        <tr style="text-align: center;">                           
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                </mat-form-field>                                
+                            </td>
+                        </tr>
+
+                        
+                        <tr style="text-align: center;">                           
+                            <td>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required>
+                                </mat-form-field>                                
+                            </td>
+                            <td>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required>
+                                </mat-form-field>                                
+                            </td>
+                            <td>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required>
+                                </mat-form-field>                                
+                            </td>
+                            <td>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required>
+                                </mat-form-field>                                
+                            </td>
+                            <td>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required>
+                                </mat-form-field>                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Average percentage = &nbsp;</label>
+                <mat-form-field appearance="outline">
+                    <input required matInput>
+                </mat-form-field>
+            </div>
+        </div><br>
+
+        
+        <div class="row">
+            <div class="col">
+                <label>
+                    Relevant details certified by the Head of the Institution clearly mentioning the programs
+                    that are not covered under CET and the number of applications received for the same
+                </label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile1" requiredFileSize
+                class="form-control" [style.width.%]="30">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th style="width: 22%;">Year</th>
+                            <th style="width: 30%;">Programme code
+                                (where applicable)
+                            </th>
+                            <th style="width: 25%;">
+                                Number of seats sanctioned/available
+                            </th>
+                            <th style="width: 35%;">Number of students
+                                enrolled
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;" *ngFor="let enrol of teachinglearning.studentEnrolment ; let i=index">
+                            <td>
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <mat-select required #year=ngModel [(ngModel)]="enrol.year"
+                                        [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
+                                        <mat-option *ngFor="let yea of teachinglearning.academicYear" [value]="yea">{{yea}}</mat-option> 
+                                        </mat-select>
+                                        <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
+                                    </mat-form-field>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group" [style.text-align]="'left'">
+                                                <input (click)="addMoreYear()" class="btn btn-info"
+                                                type="button" value="Add more">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div *ngFor="let code of enrol.programCode; let y=index">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline" [style.width.%]="70">
+                                            <mat-select required #pcode="ngModel" [(ngModel)]="enrol.programCode[y]"
+                                            [class.is-invalid]="pcode.invalid && pcode.touched" name="pcode[{{y}}]">
+                                            <mat-option *ngFor="let t of teachinglearning.programId" [value]="t.id">{{t.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group" [style.text-align]="'left'">
+                                    <input  (click)="addMoreProgCode(i)" class="btn btn-info"
+                                        type="button" value="Add more">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline" [style.width.%]="80">
+                                        <input  matInput name="seatsAvailable{{[i]}}" #noSeats="ngModel" 
+                                        [(ngModel)]="enrol.noOfSeatsAvailable" required pattern="[\d{1,5}]*">
+                                        <mat-error *ngIf="noSeats.errors?.required">This field is required </mat-error>
+                                        <mat-error *ngIf="noSeats.errors?.pattern">Only numbers Allowed</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="form-group">
+                                    <mat-form-field appearance="outline" [style.width.%]="90">
+                                        <input  matInput name="studentsEnrol{{[i]}}" #noStudentsEnrol="ngModel" 
+                                        [(ngModel)]="enrol.noOfStudentsEnrolled" required pattern="[\d{1,5}]*">
+                                        <mat-error *ngIf="noStudentsEnrol.errors?.required">This field is required </mat-error>
+                                        <mat-error *ngIf="noStudentsEnrol.errors?.pattern">Only numbers Allowed</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Data pertaining to the number of sanctioned seats for the various programmes year-wise
+                    during the last five years</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page2File1" requiredFileSize
+                class="form-control" [style.width.%]="48">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div><br><br>
+        <div class="row">   
+            <div class="col">
+                <label>Institutional data in prescribed format.</label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page2File2" requiredFileSize
+                    class="form-control" >
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                    </small>
+            </div>
+            
+            <div class="col">
+                <label>Any other relevant information.</label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile2" requiredFileSize
+                    class="form-control" >
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                    </small>
+            </div>
+        </div><br><br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm22.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page3" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+
+
+
+
+    </form>
+</div>
+
