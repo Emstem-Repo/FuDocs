@@ -1,0 +1,158 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm28="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.3.2 </div><div class="custom-head">(QnM) Use of clinical skills laboratory / simulation-based learning (10)</div>
+        </h2>
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead></thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <td>The Institution has
+                                Clinical Skills /
+                                Simulation Training
+                                Models and Trainers for
+                                skills in the relevant
+                                disciplines.
+                                <div class="form-group border" [style.margin-top]="'3.5%'">
+                                <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                required [(ngModel)]="teachinglearning.modelsTrainers"
+                                name="modelsTrainers" #modelTrainer="ngModel">
+                                <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                <mat-error [hidden]="modelTrainer.valid || modelTrainer.untouched">Field is
+                                    Required</mat-error>
+                            </mat-radio-group>
+                        </div>
+                        </td>
+                        <td>The Institution has
+                            advanced simulators
+                            for simulation-based
+                            training
+                            <div class="form-group border" [style.margin-top]="'3.5%'">
+                                <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                    required [(ngModel)]="teachinglearning.advanceStimulators"
+                                    name="advanceStimulators" #advancedStim="ngModel">
+                                    <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                    <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                    <mat-error [hidden]="advancedStim.valid || advancedStim.untouched">Field
+                                        is Required</mat-error>
+                                </mat-radio-group>
+                            </div>
+                        </td>
+                        <td>Structured programs
+                            for training and
+                            assessment of students
+                            in Clinical Skills Lab /
+                            Simulation based
+                            learning
+                            <div class="form-group border" [style.margin-top]="'3.5%'">
+                                <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                    required [(ngModel)]="teachinglearning.structuredPrograms"
+                                    name="structuredPrograms" #structuredProgram="ngModel">
+                                    <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                    <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                    <mat-error [hidden]="structuredProgram.valid || structuredProgram.untouched">Field
+                                        is Required</mat-error>
+                                </mat-radio-group>
+                            </div>
+                        </td>
+                        <td>Training programs for the
+                            faculty in the use of clinical
+                            skills lab and simulation
+                            methods of teachinglearning
+                            <div class="form-group border" [style.margin-top]="'3.5%'">
+                                <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
+                                    required [(ngModel)]="teachinglearning.trainingPrograms"
+                                    name="trainingPrograms" #trainingProgram="ngModel">
+                                    <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
+                                    <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                    <mat-error [hidden]="trainingProgram.valid || trainingProgram.untouched">Field
+                                        is Required</mat-error>
+                                </mat-radio-group>
+                            </div>
+                        </td>
+                        </tr>
+                    </tbody>
+            </table>
+            </div>
+        </div><br>
+        <div style="font-size: large;">Upload:</div><br>
+
+        <div class="row">
+            <div class="col">
+                <label>List of clinical skills training models</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize
+                class="form-control" [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div> <br>
+        <div class="row">  
+            <div class="col">
+                <label>List of training programmes conducted in the clinical skills/simulator labs during the last
+                    five years
+                </label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page8File2" requiredFileSize
+                class="form-control" [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Geotagged photographs of clinical skills lab facilities, clinical skills models and patient
+                    simulators</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page8File3" requiredFileSize
+                class="form-control" [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div><br>
+        <div class="row">    
+            <div class="col">
+                <label>Other relevant information</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile8" requiredFileSize
+                class="form-control" [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+                </small>
+            </div>
+        </div><br>
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm28.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page9" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+        
+    </form>
+</div>

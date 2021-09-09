@@ -1,0 +1,78 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm29="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.3.3. </div><div class="custom-head">Teachers use ICT-enabled tools for effective teaching and learning process including
+            online e-resources</div>
+        </h2>
+
+        <div class="form-group">
+            <div>Response in 500 words..</div>
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="descriptionn" #descripId="ngModel" class="form-control"
+                [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                [(ngModel)]="teachinglearning.description1" (keydown)="wordCounter()" 
+                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+            </mat-form-field>
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is required
+            </small>
+            <small class="text-danger" [hidden]="!descMin">
+                 Minimum 100 Words
+            </small>
+            <small class="text-danger" [hidden]="!descMax">
+                Maximun 500 Words
+            </small>
+        </div><br>
+
+        <div style="font-size: large;">Provide web link to:</div><br>  
+
+        <div class="col">
+            <ul>
+                <li>
+                    Details of ICT-enabled tools used for teaching and learning &nbsp;
+                    <mat-form-field  appearance="outline" style=" margin-left:3%;width: 50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.itcEnableDetails"
+                            [(ngModel)]="teachinglearning.itcEnableDetails">
+                    </mat-form-field>
+                </li>
+                <li>
+                    List of teachersusing ICT-enabled tools (including LMS) &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:5%; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.itcEnableTeachers"
+                            [(ngModel)]="teachinglearning.itcEnableTeachers">
+                    </mat-form-field>
+                </li>
+                <li>
+                    Webpage describing the “LMS/ Academic Management System” &nbsp;
+                    <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.lmsSystem"
+                            [(ngModel)]="teachinglearning.lmsSystem">
+                    </mat-form-field>
+                </li>
+                <li>
+                    Any other relevant information &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:20%; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.relevantInfo2="
+                            [(ngModel)]="teachinglearning.relevantInfo2">
+                    </mat-form-field>
+                </li>
+            </ul>
+        </div><br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm29.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page10" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+
+    </form>
+
+</div>

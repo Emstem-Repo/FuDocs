@@ -1,0 +1,317 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm21="ngForm" name="naacForm" required>
+        <h1><div class="custom-head">Key Indicator-</div> <div class="custom-head-num">2.1 </div><div class="custom-head">Student Enrolment and Profile </div><div class="custom-head-num">(20)</div></h1>
+        <h2><div class="custom-head-num">2.1.1</div><div class="custom-head"> Due consideration is given to equity and inclusiveness by providing reservation of seats
+            to all categories during the admission process.</div>
+        </h2>
+        <h2>
+            Average percentage of seats filled against seats reserved for various categories as per
+            applicable reservation policy during the last five years
+        </h2>
+        <div style="font-size: large;">Average percentage of students admitted from the reserved categories as per GOI or State
+            Government norms year-wise during last five years
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead class="c-td-i-typ">
+                        <tr style="text-align: center;">
+                            <th style="width: 30%;">Year</th>
+                            <th *ngFor= "let year of teachinglearning.academicYear">{{year}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td scope="row" class="c-td-i-typ">
+                            <div style="margin-top: 1%;"><h3>Number of students admitted under the reserved
+                                categories</h3> </div>
+                        </td>
+                        <td scope="row">
+                            <mat-form-field appearance="outline">
+                                <input matInput pattern="[\d{1,5}]*" required>
+                            </mat-form-field>
+                        </td>
+                        <td scope="row">
+                            <mat-form-field appearance="outline">
+                                <input matInput required>
+                            </mat-form-field>
+                        </td>
+                        <td scope="row">
+                            <mat-form-field appearance="outline">
+                                <input matInput required>
+                            </mat-form-field>
+                        </td>
+                        <td scope="row">
+                            <mat-form-field appearance="outline">
+                                <input matInput required>
+                            </mat-form-field>
+                        </td>
+                        <td scope="row">
+                            <mat-form-field appearance="outline">
+                                <input matInput required>
+                            </mat-form-field>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row" class="c-td-i-typ">
+                                <div style="margin-top: 1%;"><h3>Total number of seats earmarked for reserved
+                                    categories</h3> </div>
+                            </td>
+                            <td scope="row">
+                                <mat-form-field appearance="outline">
+                                    <input matInput required>
+                                </mat-form-field>
+                            </td>
+                            <td scope="row">
+                                <mat-form-field appearance="outline">
+                                    <input matInput required>
+                                </mat-form-field>
+                            </td>
+                            <td scope="row">
+                                <mat-form-field appearance="outline">
+                                    <input matInput required>
+                                </mat-form-field>
+                            </td>
+                            <td scope="row">
+                                <mat-form-field appearance="outline">
+                                    <input matInput required>
+                                </mat-form-field>
+                            </td>
+                            <td scope="row">
+                                <mat-form-field appearance="outline">
+                                    <input matInput required>
+                                </mat-form-field>
+                            </td>
+                            </tr>                    
+                    </tbody>
+                </table>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <h2 style="margin-left: 25%;">Number of seats earmarked for students from
+                    reserved category as per GOI or State
+                    Government rules</h2>
+            </div>
+            <div class="col">
+                <h2 style="text-align: right;">Number of students admitted from the
+                    reserved category</h2>
+            </div>
+        </div>
+
+
+        
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead class="c-td-i-typ">
+                        <tr style="border-bottom-width: 0;">
+                            <th scope="col" style="width: 10%;">Year</th>
+                            <th scope="col" style="width: 10%;">SC</th>
+                            <th scope="col" style="width: 10%;">ST</th>
+                            <th scope="col" style="width: 10%;">OBC</th>
+                            <th scope="col" style="width: 10%;">Others(Specify)</th><br>                            
+                            <th scope="col" style="width: 10%;">SC</th>
+                            <th scope="col" style="width: 10%;">ST</th>
+                            <th scope="col" style="width: 10%;">OBC</th>
+                            <th scope="col" style="width: 10%;">Others(Specify)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let number of teachinglearning.academicYear; let i=index">
+                            <td scope="row" class="c-td-i-typ">
+                                <mat-form-field appearance="fill">
+                                    <input style="text-align: center; font-family: fantasy;" matInput name="academicYear[{{i}}]"
+                                    #academicYear[i]="ngModel" [(ngModel)]="teachinglearning.academicYear[i]" disabled>
+                                </mat-form-field>
+                            </td>
+
+                           <td scope="row" class="c-td-i-typ">
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
+                                [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="seatsSC.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="seatsSC.errors?.pattern">Only numbers Allowed</mat-error>
+                 
+
+                                </mat-form-field>
+                           </td>
+
+                           <td scope="row" class="c-td-i-typ">
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="seatsOfST{{[i]}}" matInput #seatsST="ngModel"
+                                [(ngModel)]="teachinglearning.seatsOfST[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="seatsST.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="seatsST.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                           </td>
+                           <td scope="row" class="c-td-i-typ" >
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="seatsOfOBC{{[i]}}" matInput #seatsOBC="ngModel"
+                                [(ngModel)]="teachinglearning.seatsOfOBC[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="seatsOBC.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="seatsOBC.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                           </td>
+
+                           <td scope="row" class="c-td-i-typ">
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;" >
+                                <input name="seatsOfOthers{{[i]}}" matInput #seatsOthers="ngModel"
+                                [(ngModel)]="teachinglearning.seatsOfOthers[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="seatsOthers.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="seatsOthers.errors?.pattern">Only numbers Allowed</mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="seatsOfOthers1{{[i]}}" matInput #seatsOthers1="ngModel"
+                                [(ngModel)]="teachinglearning.seatsOfOthers1[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="seatsOthers1.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="seatsOthers1.errors?.pattern">Only numbers Allowed</mat-error>
+                            </mat-form-field>
+
+                           </td><br>
+
+                           <td scope="row" class="c-td-i-typ">
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="studentsOfSC{{[i]}}" matInput #studentsSC="ngModel"
+                                [(ngModel)]="teachinglearning.studentsOfSC[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="studentsSC.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="studentsSC.errors?.pattern">Only numbers Allowed</mat-error>
+                            </mat-form-field>
+                           </td>
+
+                           <td scope="row" class="c-td-i-typ">
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="studentsOfST{{[i]}}" matInput #studentsST="ngModel"
+                                [(ngModel)]="teachinglearning.studentsOfST[i]" required pattern="[\d{1,5}]*">
+                                <mat-error *ngIf="studentsST.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="studentsST.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                           </td>
+
+                           <td scope="row" class="c-td-i-typ" >
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="studentsOfOBC{{[i]}}" matInput #studentsOBC="ngModel"
+                                [(ngModel)]="teachinglearning.studentsOfOBC[i]" required pattern="[\d{1,5}]*">                                
+                                <mat-error *ngIf="studentsOBC.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="studentsOBC.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                           </td>
+
+                           <td scope="row" class="c-td-i-typ">
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;" >
+                                <input name="studentsOfOthers{{[i]}}" matInput #studentsOthers="ngModel"
+                                [(ngModel)]="teachinglearning.studentsOfOthers[i]" required pattern="[\d{1,5}]*">                            
+                                <mat-error *ngIf="studentsOthers.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="studentsOthers.errors?.pattern">Only numbers Allowed</mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;" >
+                                <input name="studentsOfOthers1{{[i]}}" matInput #studentsOthers1="ngModel"
+                                [(ngModel)]="teachinglearning.studentsOfOthers1[i]" required pattern="[\d{1,5}]*">                                                           
+                                <mat-error *ngIf="studentsOthers1.errors?.required">This field is mandatory </mat-error>
+                                <mat-error *ngIf="studentsOthers1.errors?.pattern">Only numbers Allowed</mat-error>
+                                
+                                </mat-form-field>
+                           </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <label>Average percentage = &nbsp;</label>
+                <mat-form-field appearance="outline">
+                    <input required matInput>
+                </mat-form-field>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Copy of the letter issued by state/central govt. indicating reservations (English).</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page1File1" requiredFileSize
+                class="form-control">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+            <div class="col">
+                <label>Final admission list published by the HEI.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page1File1" requiredFileSize
+                class="form-control">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Admission extract submitted to the state OBC, SC and ST cell every year.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page1File1" requiredFileSize
+                class="form-control">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+
+            <div class="col">
+                <label>Annual Report/ BOM report/ Admission report duly certified by the Head of the Institution.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page1File1" requiredFileSize
+                class="form-control">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Any other relevant information.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page1File1" requiredFileSize
+                class="form-control" [style.width.%]="50">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br><br>  
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm21.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page2" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div>
+    </form><br><br>
+
+</div>

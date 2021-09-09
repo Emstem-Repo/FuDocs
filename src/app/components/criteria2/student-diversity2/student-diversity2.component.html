@@ -1,0 +1,168 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm25="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.2.2. </div><div class="custom-head">Student - Fulltime teacher ratio (data for the preceding academic year)</div>
+        </h2>
+        <div style="font-size: large;">Data Requirement:</div><br>
+       
+            <div class="col">
+                <ul>
+                    <li>
+                        Total number of students enrolled in the College 
+                        <mat-form-field appearance="outline" style="font-size: 8px; width: 50px;" >
+                            <input matInput pattern="[\d{1,5}]*" required>
+                        </mat-form-field>
+                    </li>
+                    <li>
+                        Total number of fulltime teachers in the College 
+                        <mat-form-field appearance="outline" style="font-size: 8px; width: 50px;"  >
+                            <input matInput pattern="[\d{1,5}]*" required>
+                        </mat-form-field>
+                    </li>
+                    
+                </ul>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                   <table class="table">
+                       <thead>
+                           <th style="width: 25%;">Number of students enrolled in the
+                            Institution (Undergraduates)
+                           </th>
+                           <th style="width: 25%;">
+                              Number of students
+                              enrolled in the
+                              Institution
+                              (Postgraduates)
+                           </th>
+                           <th style="width: 25%;">Number of full-time teachers
+                            in the Institution
+                           </th>
+                           <th style="text-align: right;">
+                            Student :Teacher Ratio
+                           </th>
+                       </thead>
+                       <tbody>
+                           <tr *ngFor="let ratio of teachinglearning.stuTeaRatio; let i=index">
+                           <td>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <input  matInput name="noStudentsEnrolledUG{{[i]}}" #noStudentEnroUG="ngModel" 
+                                    [(ngModel)]="ratio.noStudentsEnrolledUG" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudentEnroUG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="noStudentEnroUG.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <input  matInput name="noStudentsEnrolledPG{{[i]}}" #noStudentEnroPG="ngModel" 
+                                    [(ngModel)]="ratio.noStudentsEnrolledPG" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudentEnroPG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="noStudentEnroPG.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <input  matInput name="noFullTimeTeachers{{[i]}}" #noFullTeachers="ngModel" 
+                                    [(ngModel)]="ratio.noFullTimeTeachers" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noFullTeachers.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="noFullTeachers.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <input  matInput name="studentRatio{{[i]}}" #stuRatio="ngModel" 
+                                    [(ngModel)]="ratio.studentRatio" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="stuRatio.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="stuRatio.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <input  matInput name="teacherRatio{{[i]}}" #teaRatio="ngModel" 
+                                    [(ngModel)]="ratio.teacherRatio" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="teaRatio.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="teaRatio.errors?.pattern">Only numbers Allowed</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                        </tr>
+                     </tbody>
+                   </table>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label>Formula: No. of Students : No. of Teachers &nbsp;</label>
+                    <mat-form-field appearance="outline">
+                        <input required matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Copy of the letter issued by state/central govt. indicating reservations (English).</label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page5File1" requiredFileSize
+                    class="form-control">
+                  <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                  </small>
+                  <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                  </small>
+                </div>
+                <div class="col">
+                    <label>Copy of the letter issued by state/central govt. indicating reservations (English).</label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page5File2" requiredFileSize
+                    class="form-control">
+                  <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                  </small>
+                  <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                  </small>
+                </div>
+            </div><br><br>
+            <div class="row">
+                <div class="col">
+                    <label>Copy of the letter issued by state/central govt. indicating reservations (English).</label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile5" requiredFileSize
+                    class="form-control" [style.width.%]="49">
+                  <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                  </small>
+                  <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                  </small>
+                </div>
+            </div><br><br>
+
+            <div class="row mt-3">
+                <div class="col">
+                  <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" [disabled]="naacForm25.invalid" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" routerLink="/criteria2/page6" 
+                      class="btn btn-info">Next</button>
+                  </div>
+                </div>
+              </div><br><br>
+            
+       
+    </form>
+</div>

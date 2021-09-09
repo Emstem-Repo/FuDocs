@@ -1,0 +1,135 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm23="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.1.3 </div><div class="custom-head">Average percentage of Students enrolled demonstrates a national spread and includes
+            students from other states</div>
+        </h2>
+        <div style="font-size: large;">
+            Number of students enrolled from other states year-wise during the last five years
+        </div><br>
+        
+        <div style="font-size: medium; margin-left: 30px;">
+            <div>
+                2.1.3.1 Number of students from other states year-wise; during the last five years
+            </div>
+            <div >
+                2.1.3.2 Total number of students enrolled in the specified year
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th style="width: 30%;">Year</th>
+                            <th *ngFor="let year of teachinglearning.academicYear">{{year}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <th >Number of students enrolled from other states</th>
+
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="studentsOtherState{{i}}" 
+                                    #otherState="ngModel" [(ngModel)]="teachinglearning.studentsOtherState[i]"
+                                    pattern="[\d{1,5}]*">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <th>Total number of students enrolled in the specified year</th>
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="noStudentsSpecifiedYear{{i}}" 
+                                    #noStudentsSpecified="ngModel" [(ngModel)]="teachinglearning.noStudentsSpecifiedYear[i]"
+                                    pattern="[\d{1,5}]*">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col">
+                <label>Average percentage = &nbsp;</label>
+                <mat-form-field appearance="outline">
+                    <input required matInput>
+                </mat-form-field>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <label>List of students enrolled from other states year-wise during the last 5 years</label>
+                
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page3File1" requiredFileSize
+                class="form-control" >
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+
+            <div class="col">
+                <label>E-copies of admission letters of the students enrolled from other states</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page3File2" requiredFileSize
+                class="form-control" >
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                <label>Institutional data in prescribed format ( Template)</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page3File3" requiredFileSize
+                class="form-control" >
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+
+            <div class="col">
+                <label>Any other relevant information</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile3" requiredFileSize
+                class="form-control" >
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br><br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm23.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page4" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+    </form>   
+</div>

@@ -1,0 +1,58 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm222="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.6.3 </div><div class="custom-head">The teaching learning and assessment processes of the Institution are aligned with the
+            stated learning outcomes.</div>
+        </h2>
+        <div>Provide details on how teaching learning and assessment processes are mapped to achieve the
+            generic and program-specific learning outcomes (for each program) within 500 words.
+        </div>
+        <div class="form-group">
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="description6" #descripId="ngModel" class="form-control"
+                [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                [(ngModel)]="teachinglearning.description6" (keydown)="wordCounter()" 
+                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+            </mat-form-field>
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is required
+            </small>
+            <small class="text-danger" [hidden]="!descMin">
+                 Minimum 100 Words
+            </small>
+            <small class="text-danger" [hidden]="!descMax">
+                Maximun 500 Words
+            </small>
+        </div><br>
+
+        <div style="font-size: large;">Provide web link to</div><br>
+        <div class="col">
+            <ul>
+                <li>
+                    Programme-specific learning outcomes &nbsp;
+                    <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.reportURL"
+                            [(ngModel)]="teachinglearning.learningOutcomes">
+                    </mat-form-field>
+                </li>
+                <li>
+                    Any other relevant information &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:28px; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.relevantInfo"
+                            [(ngModel)]="teachinglearning.relevantInfo21">
+                    </mat-form-field>
+                </li>
+            </ul>
+        </div><br>
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm222.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page23" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>

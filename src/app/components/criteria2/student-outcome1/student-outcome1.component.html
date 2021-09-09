@@ -1,0 +1,80 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm220="ngForm" name="naacForm" required>
+        <h1><div class="custom-head-num">6 </div><div class="custom-head">Student Performance and Learning Outcome</div><div class="custom-head-num">(45)</div>
+        </h1>
+        <h2><div class="custom-head-num">2.6.1. </div><div class="custom-head">The Institution has stated the learning outcomes (generic and programme-specific) and
+            graduate attributes as per the provisions of the Regulatory bodies and the University; which
+            are communicated to the students and teachers through the website and other documents</div>
+        </h2><br>
+        <div style="font-size: large;">Provide details of the stated learning outcomes for each programme / course as stipulated by
+            the appropriate Regulatory bodies and the University and the methods followed by the
+            Institution for assessment of the same within 500 words.
+        </div><br>
+        <div class="form-group">
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="description5" #descripId="ngModel" class="form-control"
+                [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                [(ngModel)]="teachinglearning.description5" (keydown)="wordCounter()" 
+                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+            </mat-form-field>
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is required
+            </small>
+            <small class="text-danger" [hidden]="!descMin">
+                 Minimum 100 Words
+            </small>
+            <small class="text-danger" [hidden]="!descMax">
+                Maximun 500 Words
+            </small>
+        </div><br>
+        <div style="font-size: large;">Provide Weblink to:</div><br>
+
+        <div class="col">
+            <ul>
+                <li>
+                    Relevant documents pertaining to learning outcomes and graduate attributes &nbsp;
+                    <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.learningOutcomesDocs"
+                            [(ngModel)]="teachinglearning.learningOutcomesDocs">
+                    </mat-form-field>
+                </li>
+                <li>
+                    Methods of the assessment of learning outcomes and graduate attributes &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:18px; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.learningOutcomesMethod"
+                            [(ngModel)]="teachinglearning.learningOutcomesMethod">
+                    </mat-form-field>
+                </li>
+                <li>
+                    Upload Course Outcomes for all courses (exemplars from Glossary) &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:56px; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.courseOutcomes"
+                            [(ngModel)]="teachinglearning.courseOutcomes">
+                    </mat-form-field>
+                </li>
+                <li>
+                    Any other relevant information &nbsp;
+                    <mat-form-field  appearance="outline" style= "margin-left:289px; width:50%; font-size: 10px;">
+                        <input matInput  name="teachinglearning.relevantInfo20"
+                            [(ngModel)]="teachinglearning.relevantInfo20">
+                    </mat-form-field>
+                </li>
+            </ul>
+        </div><br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm220.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page21" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+    </form>
+</div>        

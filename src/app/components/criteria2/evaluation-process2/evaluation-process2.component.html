@@ -1,0 +1,88 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm217="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.5.2. </div><div class="custom-head">Mechanism to deal with examination-related grievances is transparent, time-bound
+            and efficient</div>
+        </h2>
+        <div style="font-size: large;">Provide a description on Grievance redressal mechanism with reference to continuous internal
+            evaluation, matters relating to University examination for submission of appeals, providing
+            access to answer scripts, provision of re-totaling and provision for re-assessment within 500
+            words</div><br>
+            <div class="form-group">
+                <mat-form-field [style.width.%]="70" appearance="outline">
+                    <textarea required name="description3" #descripId="ngModel" class="form-control"
+                    [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                    [(ngModel)]="teachinglearning.description3" (keydown)="wordCounter()" 
+                    [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+                </mat-form-field>
+                <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                    Description is required
+                </small>
+                <small class="text-danger" [hidden]="!descMin">
+                     Minimum 100 Words
+                </small>
+                <small class="text-danger" [hidden]="!descMax">
+                    Maximun 500 Words
+                </small>
+            </div><br>
+
+            <div style="font-size: large;">Data requirement for the last five years:</div>
+            <div class="col">
+                <ul>
+                    <li>
+                        <label>Details of University examinations / Continuous Internal Evaluations (CIE) conducted
+                            during the last five years
+                        </label>
+                        <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                        name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page17File1" requiredFileSize
+                        class="form-control" [style.width.%]="49">
+                        <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                         File size is Not compactable
+                         </small>
+                    </li><br>
+                    <li>
+                        <label>Number of grievances regarding University examinations/Internal Evaluation
+                        </label>
+                        <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                        name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page17File2" requiredFileSize
+                        class="form-control" [style.width.%]="49">
+                        <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                         File size is Not compactable
+                         </small>                 
+                    </li><br>
+                    <li>
+                        <label>Any other relevant information
+                        </label>
+                        <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                        name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile17" requiredFileSize
+                        class="form-control" [style.width.%]="49">
+                        <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                         File size is Not compactable
+                         </small>        
+                    </li>
+                </ul>  
+            </div>   <br>
+
+            <div class="row mt-3">
+                <div class="col">
+                  <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" [disabled]="naacForm217.invalid" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" routerLink="/criteria2/page18" 
+                      class="btn btn-info">Next</button>
+                  </div>
+                </div>
+              </div><br><br>
+    </form>
+</div>       

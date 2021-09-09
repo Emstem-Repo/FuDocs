@@ -1,0 +1,145 @@
+<div class="container-fluid px-md-5">
+    <form #naacForm212="ngForm" name="naacForm" required>
+        <h2><div class="custom-head-num">2.4.2.</div></h2>
+        <h2><div class="custom-head">
+            Average percentage of fulltime teachers with Ph.D./D.Sc./D.Lit./DM/M Ch/DNB in super
+            specialities /other PG degrees (like MD/ MS/ MDS etc.,) in Health Sciences (like MD/ MS/ MDS
+            etc.,) for recognition as Ph.D guides as per the eligibility criteria stipulated by the Regulatory
+            Councils/Affiliating Universities.</div>
+        </h2>
+        <div style="font-size: large;">Number of fulltime teachers with Ph.D/D.Sc./D.Lit./DM/M Ch/DNB in super specialities / other
+            PG degrees in Health Sciences (like MD/ MS/ MDS etc.,)for recognition as Ph.D guides as per the
+            eligibility criteria stipulated by the Regulatory Councils. Last five years data to be entered.
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th style="width: 30%;">Year</th>
+                            <th *ngFor="let year of teachinglearning.academicYear">{{year}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="text-align: center;">
+                            <th >Number fulltime teachers</th>
+
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="nofulltTeachers{{i}}" 
+                                    #ftTeacher="ngModel" [(ngModel)]="teachinglearning.nofulltTeachers[i]"
+                                    pattern="[\d{1,5}]*">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <th style="word-break: break-all;">Number of fulltime teachers with
+                                Ph.D/D.Sc./D.Lit./DM/M Ch/DNB in super
+                                specialities /other PG degrees in Health
+                                Sciences (like MD/ MS/ MDS etc.,) for
+                                recognition as Ph.D guides as per the
+                                eligibility criteria stipulated by the Regulatory
+                                Councils/Affiliating Universities.
+                            </th>
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                    <input matInput required name="ftTeachersPhd{{i}}" 
+                                    #ftTeachPhd="ngModel" [(ngModel)]="teachinglearning.ftTeachersPhd[i]"
+                                    pattern="[\d{1,5}]*">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <label>Formula &nbsp;</label>
+                <mat-form-field appearance="outline">
+                    <input required matInput>
+                </mat-form-field>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <label>List of fulltime teachers with Ph.D/D.Sc./D.Lit./DM/M Ch/DNB in super specialities / other
+                    PG degrees inHealth Sciences (like MD/ MS/ MDS etc.,) for recognition as Ph.D guides as
+                    per the eligibility criteria stipulated by the Regulatory Councils/Affiliating
+                    Universitiesand the number of fulltime teachers for 5 years
+                </label>
+                
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File1" requiredFileSize
+                class="form-control" [style.width.%]="49">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div> <br>
+
+        <div class="row">
+            <div class="col">
+                <label>Copies of Guide-ship letters or authorization of research guide provide by the
+                    university
+                </label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File2" requiredFileSize
+                class="form-control" [style.width.%]="49">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div>   
+
+        <div class="row">
+            <div class="col">
+                <label>Any other relevant information</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile12" requiredFileSize
+                class="form-control" >
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        
+    
+            <div class="col">
+                <label>Institution data in prescribed format</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File3" requiredFileSize
+                class="form-control">
+              <small class="text-danger" *ngIf="fil.errors?.formatName">
+                {{fil.errors ?.formatName.value}} These file extension are not allowed
+              </small>
+              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                File size is Not compactable
+              </small>
+            </div>
+        </div><br>
+
+        <div class="row mt-3">
+            <div class="col">
+              <div class="form-group" [style.text-align]="'right'">
+                <button type="submit" [disabled]="naacForm212.invalid" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" routerLink="/criteria2/page13" 
+                  class="btn btn-info">Next</button>
+              </div>
+            </div>
+          </div><br><br>
+
+    </form>
+</div>
