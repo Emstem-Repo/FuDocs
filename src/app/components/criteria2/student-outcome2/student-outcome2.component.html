@@ -28,6 +28,8 @@
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
                                     <input matInput required name="finalYearUG{{[i]}}" matInput #studentFinalYearUG="ngModel"
                                     [(ngModel)]="teachinglearning.finalYearUG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="studentFinalYearUG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="studentFinalYearUG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field> 
                             </td>
                         </tr>   
@@ -37,6 +39,8 @@
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
                                     <input matInput required name="finalYearPG{{[i]}}" matInput #studentFinalYearPG="ngModel"
                                     [(ngModel)]="teachinglearning.finalYearPG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="studentFinalYearPG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="studentFinalYearPG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                         </tr>    
@@ -48,7 +52,10 @@
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
                                     <input matInput required name="studentUGPG{{[i]}}" matInput #totalUGPG="ngModel"
                                     [(ngModel)]="teachinglearning.studentUGPG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="totalUGPG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="totalUGPG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field> 
+                                
                             </td>
                     </tbody>
                 </table>

@@ -34,6 +34,8 @@
                                     <input matInput required name="studentsOtherState{{i}}" 
                                     #otherState="ngModel" [(ngModel)]="teachinglearning.studentsOtherState[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="otherState.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="otherState.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -44,6 +46,9 @@
                                     <input matInput required name="noStudentsSpecifiedYear{{i}}" 
                                     #noStudentsSpecified="ngModel" [(ngModel)]="teachinglearning.noStudentsSpecifiedYear[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noStudentsSpecified.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="noStudentsSpecified.errors?.pattern">Only numbers Allowed</mat-error>
+                               
                                 </mat-form-field>
                             </td>
                         </tr>

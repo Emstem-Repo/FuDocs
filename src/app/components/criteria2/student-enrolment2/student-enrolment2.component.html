@@ -22,28 +22,37 @@
                             </th>
                             
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <span>UG: &nbsp;</span>
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
-                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                    <input matInput required name="seatsFilledUG{{[i]}}" matInput #seatFilledUG="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsFilledUG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="seatFilledUG.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="seatFilledUG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                         </tr>
 
-                        <tr style="text-align: center;">                              
+                        <tr style="text-align: center;">  
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                            <span>PG: &nbsp;</span>                            
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
-                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                    <input matInput required name="seatsFilledPG{{[i]}}" matInput #seatFilledPG="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsFilledPG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="seatFilledPG.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="seatFilledPG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                             
                         </tr>
 
-                        <tr style="text-align: center;">                           
-                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                        <tr style="text-align: center;">  
+                           <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                            <span>Super Speciality: &nbsp;</span>                            
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
-                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                    <input matInput required name="seatsFilledSS{{[i]}}" matInput #seatFilledSS="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsFilledSS[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="seatFilledSS.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="seatFilledSS.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                         </tr>
@@ -54,50 +63,42 @@
                             </th>
                             
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <span>UG: &nbsp;</span>                            
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
-                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                    <input matInput required name="seatsApprovedUG{{[i]}}" matInput #seatApprovedUG="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsApprovedUG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="seatApprovedUG.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="seatApprovedUG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                         </tr>
                         
                         <tr style="text-align: center;">                           
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <span>PG: &nbsp;</span>                            
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required name="seatsOfSC{{[i]}}" matInput #seatsSC="ngModel"
-                                    [(ngModel)]="teachinglearning.seatsOfSC[i]" required pattern="[\d{1,5}]*">
+                                    <input matInput required name="seatsApprovedPG{{[i]}}" matInput #seatApprovedUG="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsApprovedPG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="seatApprovedUG.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="seatApprovedUG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                         </tr>
 
                         
                         <tr style="text-align: center;">                           
-                            <td>
+                            <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
+                                <span>Super Speciality: &nbsp;</span>                            
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required>
+                                    <input matInput required name="seatsApprovedSS{{[i]}}" matInput #seatApprovedSS="ngModel"
+                                    [(ngModel)]="teachinglearning.seatsApprovedSS[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="seatApprovedSS.errors?.required">This field is mandatory </mat-error>
+                                    <mat-error *ngIf="seatApprovedSS.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
-                            <td>
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required>
-                                </mat-form-field>                                
-                            </td>
-                            <td>
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required>
-                                </mat-form-field>                                
-                            </td>
-                            <td>
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required>
-                                </mat-form-field>                                
-                            </td>
-                            <td>
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
-                                    <input matInput required>
-                                </mat-form-field>                                
-                            </td>
-                        </tr>
+                        </tr>                          
+                                                         
+                      
                     </tbody>
                 </table>
             </div>

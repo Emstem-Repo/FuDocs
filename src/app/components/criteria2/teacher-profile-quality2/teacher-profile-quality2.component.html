@@ -29,6 +29,8 @@
                                     <input matInput required name="nofulltTeachers{{i}}" 
                                     #ftTeacher="ngModel" [(ngModel)]="teachinglearning.nofulltTeachers[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="ftTeacher.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="ftTeacher.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -46,6 +48,8 @@
                                     <input matInput required name="ftTeachersPhd{{i}}" 
                                     #ftTeachPhd="ngModel" [(ngModel)]="teachinglearning.ftTeachersPhd[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="ftTeachPhd.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="ftTeachPhd.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -96,7 +100,7 @@
                 File size is Not compactable
               </small>
             </div>
-        </div>   
+        </div>   <br>
 
         <div class="row">
             <div class="col">

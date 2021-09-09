@@ -1,6 +1,6 @@
 <div class="container-fluid px-md-5">
     <form #naacForm215="ngForm" name="naacForm" required>
-        <h2><div class="custom-head-num">2.4.5</div><div class="custom-head">Average Percentage of fulltime teachers who received awards and recognitions
+        <h2><div class="custom-head-num">2.4.5 </div><div class="custom-head">Average Percentage of fulltime teachers who received awards and recognitions
             for excellence in teaching, student mentoring, scholarships, professional achievements
             and academic leadership at State, National, International levels from Government /
             Government-recognized agencies / registered professional associations / academies
@@ -30,6 +30,8 @@
                                     <input matInput required name="noteachersAwarded{{i}}" 
                                     #noOfteacherAwarded="ngModel" [(ngModel)]="teachinglearning.noteachersAwarded[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noOfteacherAwarded.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="noOfteacherAwarded.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -40,6 +42,8 @@
                                     <input matInput required name="fullTimeTeachersNo{{i}}" 
                                     #fullTTeacherNo="ngModel" [(ngModel)]="teachinglearning.fullTimeTeachersNo[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="fullTTeacherNo.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="fullTTeacherNo.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>

@@ -39,7 +39,7 @@
                             in the Institution
                            </th>
                            <th style="text-align: right;">
-                            Student :Teacher Ratio
+                            Student : Teacher Ratio
                            </th>
                        </thead>
                        <tbody>
@@ -75,6 +75,7 @@
                             </div>
                         </td>
                         <td>
+                            <label>UG</label>
                             <div class="form-group">
                                 <mat-form-field appearance="outline" [style.width.%]="85">
                                     <input  matInput name="studentRatio{{[i]}}" #stuRatio="ngModel" 
@@ -85,8 +86,9 @@
                             </div>
                         </td>
                         <td>
+                            <label >PG</label>
                             <div class="form-group">
-                                <mat-form-field appearance="outline" [style.width.%]="85">
+                                <mat-form-field appearance="outline" [style.width.%]="85"q>
                                     <input  matInput name="teacherRatio{{[i]}}" #teaRatio="ngModel" 
                                     [(ngModel)]="ratio.teacherRatio" required pattern="[\d{1,5}]*">
                                     <mat-error *ngIf="teaRatio.errors?.required">This field is required </mat-error>

@@ -25,6 +25,12 @@ export class TeachingLearningModel {
     public page2File1:File|null;
     public page2File2:File|null;
     public relevantFile2:File|null;
+    public seatsFilledUG:number[];
+    public seatsFilledPG:number[];
+    public seatsFilledSS:number[];
+    public seatsApprovedUG:number[];
+    public seatsApprovedPG:number[];
+    public seatsApprovedSS:number[];
 
 
     public studentsOtherState:number[];
@@ -195,6 +201,9 @@ export class TeachingLearningModel {
     public page24File1:File|null;
     public relevantInfo24:String|'';
 
+   
+    //new
+
 
 
 
@@ -244,6 +253,12 @@ export class TeachingLearningModel {
         this.page2File1=null;
         this.page2File2=null;
         this.relevantFile2=null;
+        this.seatsFilledUG=[];
+        this.seatsFilledPG=[];
+        this.seatsFilledSS=[];
+        this.seatsApprovedUG=[];
+        this.seatsApprovedPG=[];
+        this.seatsApprovedSS=[];
 
 
         this.studentsOtherState=[];
@@ -422,6 +437,7 @@ export class TeachingLearningModel {
 
         this.page24File1=null;
         this.relevantInfo24='';
+
 
 
 

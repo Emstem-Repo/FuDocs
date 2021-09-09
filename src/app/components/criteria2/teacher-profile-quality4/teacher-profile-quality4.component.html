@@ -26,6 +26,8 @@
                                     <input matInput required name="noTeachersTrained{{i}}" 
                                     #noOfTeachersTrained="ngModel" [(ngModel)]="teachinglearning.noTeachersTrained[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="noOfTeachersTrained.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="noOfTeachersTrained.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>
@@ -36,6 +38,8 @@
                                     <input matInput required name="totalNoTeachers{{i}}" 
                                     #totalNoOfTeachers="ngModel" [(ngModel)]="teachinglearning.totalNoTeachers[i]"
                                     pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="totalNoOfTeachers.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="totalNoOfTeachers.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
                         </tr>
