@@ -38,20 +38,19 @@ import { StudentOutcome4Component } from './components/criteria2/student-outcome
 import { StaisfactionSurvey1Component } from './components/criteria2/staisfaction-survey1/staisfaction-survey1.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'FuDocs', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent},
   {path: 'fudocs/second' ,component: CurriculamEnrichment3Component},
   {path: 'fudocs/curriculamEnrichment3' ,component: CurriculamEnrichment3Component},
   {path: 'fudocs/curriculamEnrichment4' ,component: CurriculamEnrichment4Component},
   {path: 'fudocs/feedBack1' ,component: FeedBackFromStakeHoldersComponent},
   {path: 'fudocs/feedBack2' ,component: FeedbadFromStakeHolder2Component},
-  {path: '', redirectTo:'/login', pathMatch: 'full'},
-
   {path: 'fudocs/curriculam1' ,component: CurriculamPlanning1Component},
   {path:'fudocs/curriculam2',component:CurriculamPlanning2Component},
   {path:'fudocs/curriculam3',component:CurriculamPlanning3Component},
   {path:'fudocs/curriculam4',component:CurriculamPlanning4Component},
   {path:'fudocs/curriculam5',component:CurriculamPlanning5Component},
+
 
   {path:'criteria2/page1',component:StudentEnrolment1Component},  
   {path:'criteria2/page2',component:StudentEnrolment2Component},
@@ -93,6 +92,9 @@ const routes: Routes = [
 
 
 
+
+  {path: '', redirectTo:'/FuDocs', pathMatch: 'full'},
+  
 
 ];
 
