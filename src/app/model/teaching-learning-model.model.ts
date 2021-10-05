@@ -7,6 +7,7 @@ export class TeachingLearningModel {
     
     public academicYear:number[];
     public nOfStudents: number[];
+    public page1Institutional:File|null;
     public page1File1:File |null;
     public seatsOfSC: number[];
     public seatsOfST: number[];
@@ -155,6 +156,7 @@ export class TeachingLearningModel {
     public description4:String|'';
     public examReforms:String|'';
     public relevantFile18:File|null;
+    public relevantInfo18:String|'';
 
 
 
@@ -225,6 +227,7 @@ export class TeachingLearningModel {
     constructor(){
         this.academicYear=[2021,2020,2019,2018,2017];
         this.nOfStudents = [];
+        this.page1Institutional=null;
         this.page1File1=null;
         this.seatsOfSC = [];
         this.seatsOfST =[];
@@ -395,6 +398,7 @@ export class TeachingLearningModel {
         this.description4='';
         this.examReforms='';
         this.relevantFile18=null;
+        this.relevantInfo18='';
 
 
         this.page19File1=null;

@@ -48,6 +48,7 @@ import { StudentOutcome3Component } from './components/criteria2/student-outcome
 import { StudentOutcome4Component } from './components/criteria2/student-outcome4/student-outcome4.component';
 import { StaisfactionSurvey1Component } from './components/criteria2/staisfaction-survey1/staisfaction-survey1.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

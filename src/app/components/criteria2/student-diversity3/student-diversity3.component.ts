@@ -12,6 +12,7 @@ export class StudentDiversity3Component implements OnInit {
   words:any;
   descMin= false;
   descMax = false;
+  fileError=false;
 
   teachinglearning = new TeachingLearningModel();
 
@@ -30,6 +31,20 @@ export class StudentDiversity3Component implements OnInit {
     if(this.words>500)
       this.descMax=true;
     else this.descMax=false;  
+  }
+
+  fileValidation(event:any):boolean {
+    var file: File = event.target.files[0];
+    console.log(event.target);
+    if(file.size>1000000){
+        //this.fileError=true;
+        return true;
+    }
+    else {
+        this.fileError=false;
+        return false;
+    }
+
   }
 
 }

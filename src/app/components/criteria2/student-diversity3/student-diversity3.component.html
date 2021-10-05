@@ -1,6 +1,6 @@
 <div class="container-fluid px-md-5">
     <form #naacForm26="ngForm" name="naacForm" required>
-        <h2><div class="custom-head-num">2.2.3</div><div class="custom-head">Institution facilitates building and sustenance of innate talent /aptitude of individual
+        <h2><div class="custom-head-num">2.2.3 </div><div class="custom-head">Institution facilitates building and sustenance of innate talent /aptitude of individual
             students (extramural activities/beyond the classroom activities such as student clubs, cultural
             societies, etc)</div>
         </h2>
@@ -15,16 +15,21 @@
                 [(ngModel)]="teachinglearning.description" (keydown)="wordCounter()" 
                 [attr.disabled]="words >500 ? '' : null" matInput></textarea>
             </mat-form-field>
+            <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
+            
+            
+            
             <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
                 Description is required
             </small>
-            <small class="text-danger" [hidden]="!descMin">
+            <!-- <small class="text-danger" [hidden]="!descMin">
                  Minimum 100 Words
-            </small>
+            </small> -->
             <small class="text-danger" [hidden]="!descMax">
                 Maximun 500 Words
             </small>
-        </div><br><br>
+
+        </div><br>
 
         <div style="font-size: large;">Provide web link to:</div><br>  
 
@@ -36,18 +41,47 @@
                         <input matInput  name="teachinglearning.reportURL"
                             [(ngModel)]="teachinglearning.reportURL">
                     </mat-form-field>
-                </li>
+                    <div style="text-align: center;">
+                        <label> OR: </label>
+                        <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                            max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
+                            [style.width.%]="24" style="margin-left: 39%;">
+                        <small class="text-danger" *ngIf="fil.errors?.formatName">
+                            {{fil.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                            File size is Not compactable
+                        </small>
+                    </div>
+                </li><br>
                 <li>
                     Any other relevant information &nbsp;
                     <mat-form-field  appearance="outline" style= "margin-left:28px; width:50%; font-size: 10px;">
                         <input matInput  name="teachinglearning.relevantInfo"
                             [(ngModel)]="teachinglearning.relevantInfo">
                     </mat-form-field>
+                    <div style="text-align: center;">
+                        <label> OR: </label>
+                        <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                            max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
+                            [style.width.%]="24" style="margin-left: 39%;">
+                        <small class="text-danger" *ngIf="fil.errors?.formatName">
+                            {{fil.errors ?.formatName.value}} These file extension are not allowed
+                        </small>
+                        <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                            File size is Not compactable
+                        </small>
+                    </div>
                 </li>
             </ul>
         </div><br>
 
         <div class="row mt-3">
+            <div class="col">
+                <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" routerLink="/criteria2/page5" class="btn btn-info">Prev</button>
+                </div>
+            </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm26.invalid" class="btn btn-primary">Save</button>
@@ -59,6 +93,11 @@
                   class="btn btn-info">Next</button>
               </div>
             </div>
-          </div><br><br>
+            <div class="col">
+                <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" class="btn btn-info">Cancel</button>
+                </div>
+            </div>
+          </div><br>
        </form>
 </div>

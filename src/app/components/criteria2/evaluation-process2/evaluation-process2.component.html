@@ -14,18 +14,19 @@
                     [(ngModel)]="teachinglearning.description3" (keydown)="wordCounter()" 
                     [attr.disabled]="words >500 ? '' : null" matInput></textarea>
                 </mat-form-field>
+                <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
                 <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
                     Description is required
                 </small>
-                <small class="text-danger" [hidden]="!descMin">
+                <!-- <small class="text-danger" [hidden]="!descMin">
                      Minimum 100 Words
-                </small>
+                </small> -->
                 <small class="text-danger" [hidden]="!descMax">
                     Maximun 500 Words
                 </small>
             </div><br>
 
-            <div style="font-size: large;">Data requirement for the last five years:</div>
+            <div style="font-size: large;">Data requirement for the last five years:</div><br>
             <div class="col">
                 <ul>
                     <li>
@@ -34,7 +35,7 @@
                         </label>
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page17File1" requiredFileSize
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="24">
                         <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
                         </small>
@@ -47,7 +48,7 @@
                         </label>
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page17File2" requiredFileSize
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="24">
                         <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
                         </small>
@@ -60,7 +61,7 @@
                         </label>
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile17" requiredFileSize
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="24">
                         <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
                         </small>
@@ -69,9 +70,14 @@
                          </small>        
                     </li>
                 </ul>  
-            </div>   <br>
+            </div> 
 
             <div class="row mt-3">
+                <div class="col">
+                    <div class="form-group" [style.text-align]="'right'">
+                        <button type="submit" routerLink="/criteria2/page16" class="btn btn-info">Prev</button>
+                    </div>
+                </div>
                 <div class="col">
                   <div class="form-group" [style.text-align]="'right'">
                     <button type="submit" [disabled]="naacForm217.invalid" class="btn btn-primary">Save</button>
@@ -83,6 +89,11 @@
                       class="btn btn-info">Next</button>
                   </div>
                 </div>
-              </div><br><br>
+                <div class="col">
+                    <div class="form-group" [style.text-align]="'left'">
+                        <button type="submit"  class="btn btn-info">Cancel</button>
+                    </div>
+                </div>
+              </div><br>
     </form>
 </div>       

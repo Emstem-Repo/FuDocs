@@ -3,11 +3,6 @@
         <h2><div class="custom-head-num">2.4.4. </div><div class="custom-head">Average percentage of teachers trained for development and delivery of e-content / ecourses
             during the last 5 years</div>
         </h2>
-        <div style="font-size: medium;">Number of fulltime teachers in the Institution during the last 5 years
-        </div><br>
-        <div style="font-size: medium;">Number of teachers trained for development and delivery of e-content / e-courses during the
-            last 5 years
-        </div><br>
         <div class="row">
             <div class="col">
                 <table class="table">
@@ -19,10 +14,12 @@
                     </thead>
                     <tbody>
                         <tr style="text-align: center;">
-                            <th >Number of teachers trained</th>
+                            <th >Number of teachers trained for development and delivery of e-content / e-courses during the
+                            last 5 years
+                          </th>
 
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="noTeachersTrained{{i}}" 
                                     #noOfTeachersTrained="ngModel" [(ngModel)]="teachinglearning.noTeachersTrained[i]"
                                     pattern="[\d{1,5}]*">
@@ -32,9 +29,9 @@
                             </td>
                         </tr>
                         <tr style="text-align: center;">
-                            <th>Total number of teachers</th>
+                            <th>Number of fulltime teachers in the Institution during the last 5 years</th>
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="totalNoTeachers{{i}}" 
                                     #totalNoOfTeachers="ngModel" [(ngModel)]="teachinglearning.totalNoTeachers[i]"
                                     pattern="[\d{1,5}]*">
@@ -51,7 +48,7 @@
         <div class="row">
             <div class="col">
                 <label>Average percentage = &nbsp;</label>
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                     <input required matInput>
                 </mat-form-field>
             </div>
@@ -72,13 +69,11 @@
                 File size is Not compactable
               </small>
             </div>
-        </div>   <br> 
-        <div class="row">
             <div class="col">
-                <label>e-contents / e-courses developed</label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page14File2" requiredFileSize
-                class="form-control">
+              <label>e-contents / e-courses developed</label>
+              <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                max-size="2000" [(ngModel)]="teachinglearning.page14File2" requiredFileSize class="form-control"
+                [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -86,12 +81,14 @@
                 File size is Not compactable
               </small>
             </div>
+        </div>   <br> 
         
+        <div class="row">    
             <div class="col">
                 <label>Year –wise list of full time teachers trained during the last 5 years</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page14File3" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -107,7 +104,7 @@
                 </label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page14File4" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -131,7 +128,7 @@
                 </label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile14" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -140,8 +137,34 @@
               </small>
             </div>
         </div><br>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Institutional data in prescribed format.</label>        
+            <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+              max-size="2000" [(ngModel)]="teachinglearning.page14File1" requiredFileSize class="form-control"
+              [style.width.%]="74">
+            <small class="text-danger" *ngIf="fil.errors?.formatName">
+              {{fil.errors ?.formatName.value}} These file extension are not allowed
+            </small>
+            <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+              File size is Not compactable
+            </small>
+          </div>
+          <div class="col-md-8">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
+              (mouseout)="changeText=false" style="margin-top: 2%;">
+              <mat-icon>download</mat-icon>
+            </button>
+            <span *ngIf="changeText">Download Template</span>
+          </div>
+        </div>
 
         <div class="row mt-3">
+          <div class="col">
+            <div class="form-group" [style.text-align]="'right'">
+              <button type="submit" routerLink="/criteria2/page13" class="btn btn-info">Prev</button>
+            </div>
+          </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm214.invalid" class="btn btn-primary">Save</button>
@@ -151,6 +174,11 @@
               <div class="form-group" [style.text-align]="'left'">
                 <button type="submit" routerLink="/criteria2/page15" 
                   class="btn btn-info">Next</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit"  class="btn btn-info">Cancel</button>
               </div>
             </div>
           </div><br><br>

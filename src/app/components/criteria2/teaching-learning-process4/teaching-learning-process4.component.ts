@@ -8,10 +8,14 @@ import { TeachingLearningModel } from 'src/app/model/teaching-learning-model.mod
 })
 export class TeachingLearningProcess4Component implements OnInit {
   fileError=false;
+  changeText: boolean;
 
   teachinglearning = new TeachingLearningModel();
 
-  constructor() { }
+  constructor() { 
+    this.changeText = false;
+
+  }
 
   ngOnInit(): void {
   }

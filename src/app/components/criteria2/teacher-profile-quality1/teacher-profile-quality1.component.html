@@ -25,7 +25,7 @@
                                 teacher</th>
 
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="noOfFullTimeTeachers{{i}}" 
                                     #fTeachers="ngModel" [(ngModel)]="teachinglearning.noOfFullTimeTeachers[i]"
                                     pattern="[\d{1,5}]*">
@@ -39,7 +39,7 @@
                                 sanctioned
                                 posts</th>
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="noOfsanctionedPost{{i}}" 
                                     #nosactionedPost="ngModel" [(ngModel)]="teachinglearning.noOfsanctionedPost[i]"
                                     pattern="[\d{1,5}]*">
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col">
                 <label>Average percentage = &nbsp;</label>
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                     <input required matInput>
                 </mat-form-field>
             </div>
@@ -66,7 +66,7 @@
                 
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page11File1" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -81,7 +81,7 @@
                 <label>Sanction letters approving the posts issued by competent authority.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page11File2" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -95,7 +95,7 @@
                 <label>Appointment letters of fulltime faculty during the last five years</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page11File3" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -106,11 +106,11 @@
         </div><br>
 
         <div class="row">
-            <div class="col">
+            <div class="col-md-4">
                 <label>Institutional data in prescribed format.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page11File4" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="75" >
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -118,14 +118,22 @@
                 File size is Not compactable
               </small>
             </div>
+            <div class="col-md-8">
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
+                (mouseout)="changeText=false" style="margin-top: 2%;">
+                <mat-icon>download</mat-icon>
+              </button>
+              <span *ngIf="changeText">Download Template</span>
+            </div>
+           </div> <br>
      
 
-   
+           <div class="row">
             <div class="col">
                 <label>Any other relevant information</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile11" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="24" >
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -133,9 +141,14 @@
                 File size is Not compactable
               </small>
             </div>
-        </div><br>
+        </div>
 
         <div class="row mt-3">
+          <div class="col">
+            <div class="form-group" [style.text-align]="'right'">
+              <button type="submit" routerLink="/criteria2/page10" class="btn btn-info">Prev</button>
+            </div>
+          </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm211.invalid" class="btn btn-primary">Save</button>
@@ -145,6 +158,11 @@
               <div class="form-group" [style.text-align]="'left'">
                 <button type="submit" routerLink="/criteria2/page12" 
                   class="btn btn-info">Next</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit" class="btn btn-info">Cancel</button>
               </div>
             </div>
           </div><br><br>

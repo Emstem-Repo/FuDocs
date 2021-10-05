@@ -1,12 +1,12 @@
 <div class="container-fluid px-md-5">
     <form #naacForm212="ngForm" name="naacForm" required>
-        <h2><div class="custom-head-num">2.4.2.</div></h2>
-        <h2><div class="custom-head">
-            Average percentage of fulltime teachers with Ph.D./D.Sc./D.Lit./DM/M Ch/DNB in super
-            specialities /other PG degrees (like MD/ MS/ MDS etc.,) in Health Sciences (like MD/ MS/ MDS
-            etc.,) for recognition as Ph.D guides as per the eligibility criteria stipulated by the Regulatory
-            Councils/Affiliating Universities.</div>
-        </h2>
+        <h2><div class="custom-head-num">2.4.2. </div>
+        <div class="custom-head">
+          Average percentage of fulltime teachers with Ph.D./D.Sc./D.Lit./DM/M Ch/DNB in super
+          specialities /other PG degrees (like MD/ MS/ MDS etc.,) in Health Sciences (like MD/ MS/ MDS
+          etc.,) for recognition as Ph.D guides as per the eligibility criteria stipulated by the Regulatory
+          Councils/Affiliating Universities.</div></h2>
+        
         <div style="font-size: large;">Number of fulltime teachers with Ph.D/D.Sc./D.Lit./DM/M Ch/DNB in super specialities / other
             PG degrees in Health Sciences (like MD/ MS/ MDS etc.,)for recognition as Ph.D guides as per the
             eligibility criteria stipulated by the Regulatory Councils. Last five years data to be entered.
@@ -25,7 +25,7 @@
                             <th >Number fulltime teachers</th>
 
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="nofulltTeachers{{i}}" 
                                     #ftTeacher="ngModel" [(ngModel)]="teachinglearning.nofulltTeachers[i]"
                                     pattern="[\d{1,5}]*">
@@ -44,7 +44,7 @@
                                 Councils/Affiliating Universities.
                             </th>
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px; margin-top: 25%;">
                                     <input matInput required name="ftTeachersPhd{{i}}" 
                                     #ftTeachPhd="ngModel" [(ngModel)]="teachinglearning.ftTeachersPhd[i]"
                                     pattern="[\d{1,5}]*">
@@ -56,11 +56,11 @@
                     </tbody>
                 </table>
             </div>
-        </div><br>
+        </div>
         <div class="row">
             <div class="col">
-                <label>Formula &nbsp;</label>
-                <mat-form-field appearance="outline">
+                <label>Formula: &nbsp;</label>
+                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                     <input required matInput>
                 </mat-form-field>
             </div>
@@ -75,7 +75,7 @@
                 
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File1" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -92,7 +92,7 @@
                 </label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File2" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -107,7 +107,7 @@
                 <label>Any other relevant information</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile12" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -118,10 +118,9 @@
         
     
             <div class="col">
-                <label>Institution data in prescribed format</label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File3" requiredFileSize
-                class="form-control">
+              <label>Recognition Letter</label>
+              <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                max-size="2000" [(ngModel)]="teachinglearning.page12File2" requiredFileSize class="form-control" [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -130,8 +129,34 @@
               </small>
             </div>
         </div><br>
+        <div class="row">
+          <div class="col-md-4">
+                  <label>Institution data in prescribed format</label>
+                  <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.page12File3" requiredFileSize
+                     class="form-control" [style.width.%]="75">
+                  <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                  </small>
+                  <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                  </small>
+          </div>
+          <div class="col-md-8">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
+              (mouseout)="changeText=false" style="margin-top: 2%;">
+              <mat-icon>download</mat-icon>
+            </button>
+            <span *ngIf="changeText">Download Template</span>
+          </div>
+        </div>
 
         <div class="row mt-3">
+          <div class="col">
+            <div class="form-group" [style.text-align]="'right'">
+              <button type="submit" routerLink="/criteria2/page11" class="btn btn-info">Prev</button>
+            </div>
+          </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm212.invalid" class="btn btn-primary">Save</button>
@@ -141,6 +166,11 @@
               <div class="form-group" [style.text-align]="'left'">
                 <button type="submit" routerLink="/criteria2/page13" 
                   class="btn btn-info">Next</button>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [style.text-align]="'left'">
+                <button type="submit"  class="btn btn-info">Cancel</button>
               </div>
             </div>
           </div><br><br>

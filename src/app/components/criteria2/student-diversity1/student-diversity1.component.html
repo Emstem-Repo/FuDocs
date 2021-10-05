@@ -21,7 +21,7 @@
             <mat-checkbox ></mat-checkbox>
         </section>
         <section>    
-            <label style="margin-right: 7.9%;">4. Follows protocol to measure student achievement &nbsp;</label>
+            <label style="margin-right: 7.93%;">4. Follows protocol to measure student achievement &nbsp;</label>
             <mat-checkbox ></mat-checkbox>
         </section><br><br>
 
@@ -30,7 +30,7 @@
                 <label>Criteria to identify slow performers and advanced learners and assessment methodology</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File1" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
                 </small>
@@ -43,7 +43,7 @@
                 <label>Details of special programmes for slow performers and advanced learners</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File2" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
                 </small>
@@ -51,14 +51,14 @@
                 File size is Not compactable
                 </small>
             </div>
-        </div><br><br>
+        </div><br>
 
         <div class="row">
             <div class="col">
                 <label>Student participation details and outcome records</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File3" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
                 </small>
@@ -71,7 +71,7 @@
                 <label>Any other relevant information</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile4" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
                 </small>
@@ -79,10 +79,15 @@
                 File size is Not compactable
                 </small>
             </div>
-        </div><br><br>
+        </div><br>
 
         
         <div class="row mt-3">
+            <div class="col">
+                <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" routerLink="/criteria2/page3" class="btn btn-info">Prev</button>
+                </div>
+            </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm24.invalid" class="btn btn-primary">Save</button>
@@ -94,7 +99,12 @@
                   class="btn btn-info">Next</button>
               </div>
             </div>
-          </div><br><br>
+            <div class="col">
+                <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" class="btn btn-info">Cancel</button>
+                </div>
+            </div>
+          </div>
 
       
     </form>
