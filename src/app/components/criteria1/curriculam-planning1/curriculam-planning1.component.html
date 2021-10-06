@@ -1,30 +1,32 @@
 <div class="container-fluid">
+    <form #naacForm1="ngForm" name="naacForm" required>
     <h1><div class="custom-head">Curricular Planning and Implementation</div><div class="custom-head-num">1.1</div></h1>
     <h2><div class="custom-head-num">1.1.1</div><div class="custom-head">The Institution ensures effective curriculum planning, delivery and evaluation through a
         well-defined process as prescribed by the respective regulatory councils and the affiliating
         University.</div>
     </h2>
-    <form #naacForm1="ngForm" name="naacForm" required>
+    
         <div class="form-group">
-            <label for="description">Provide description of above-mentioned process within 500 words</label>
+            <div>Provide description of above-mentioned process within 500 words</div>
             <mat-form-field [style.width.%]="70" appearance="outline">
-                <textarea required name="description" #descripId="ngModel" class="form-control"
+                <textarea required name="descriptionn" #descripId="ngModel" class="form-control"
                 [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
                 [(ngModel)]="curriculamModel.descriptionn" (keydown)="wordCounter()" 
                 [attr.disabled]="words >500 ? '' : null" matInput></textarea>
             </mat-form-field>
+            <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
             <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
                 Description is required
             </small>
-            <small class="text-danger" [hidden]="!descMin">
+            <!-- <small class="text-danger" [hidden]="!descMin">
                  Minimum 100 Words
-            </small>
+            </small> -->
             <small class="text-danger" [hidden]="!descMax">
-                Maximun 500 Words
+                Maximum 500 Words
             </small>
         </div><br><br>
 
-        <label style="font-size: large;">Template Details: </label><br><br>
+        <!-- <label style="font-size: large;">Template Details: </label><br><br>
         
 
         <div class="row">
@@ -80,39 +82,51 @@
                     <mat-error [hidden]="date.valid || date.untouched">Date is Required</mat-error>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div> -->
+        
             <div class="col">
-                <div class="form-group">
-                    <label>Minutes of the meeting of the college curriculum committee. &nbsp;</label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                    name="curiculamFile" [(ngModel)]="curriculamModel.page1File1" requiredFileSize 
-                    class="form-control" >
-                    <small class="text-danger" *ngIf="fil.errors ?.formatName">
-                        {{fil.errors ?.formatName.value}} These file extension are not allowed
-                    </small>
-                    <small class="text-danger" [hidden]="!this.fileError ||  fil.untouched ">
-                        File size is Not compactable
-                    </small>
-                
-                </div>
-            </div>
+                <ul>
+                    <li>
+                        Minutes of the meeting of the college curriculum committee. &nbsp;
+                        <mat-form-field appearance="outline" style="width: 50%; font-size: 10px;">
+                            <input matInput name="curriculamModel.minutesMeeting" [(ngModel)]="curriculamModel.minutesMeeting">
+                        </mat-form-field>
+                        <div style="text-align: center;">
+                            <label> OR: </label>
+                            <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamFile"
+                                [(ngModel)]="curriculamModel.page1File1" requiredFileSize
+                                 class="form-control" [style.width.%]="24" style="margin-left: 39%;">
+                            <small class="text-danger" *ngIf="fil.errors ?.formatName">
+                                {{fil.errors ?.formatName.value}} These file extension are not allowed
+                            </small>
+                            <small class="text-danger" [hidden]="!this.fileError ||  fil.untouched ">
+                                File size is Not compactable
+                            </small>
+                         </div>   
+                    </li><br>
+                    <li>
+                        Any other relevant information. &nbsp;
+                        <mat-form-field appearance="outline" style="width: 50%; font-size: 10px;">
+                            <input matInput name="curriculamModel.relevantInfo1" [(ngModel)]="curriculamModel.relevantInfo1">
+                        </mat-form-field>
+                        <div style="text-align: center;">
+                            <label> OR: </label>
+                            <input required #fil1="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="relevantFile1"
+                                [(ngModel)]="curriculamModel.page1File2" requiredFileSize
+                                 class="form-control" [style.width.%]="24" style="margin-left: 39%;">
+                            <small class="text-danger" *ngIf="fil1.errors ?.formatName">
+                                {{fil1.errors ?.formatName.value}} These file extension are not allowed
+                            </small>
+                            <small class="text-danger" [hidden]="!this.fileError ||  fil1.untouched ">
+                                File size is Not compactable
+                            </small>
+                        </div>    
+                    </li>
+                </ul>          
+             </div><br>
             
-            <div class="col">
-                <div class="form-group">
-                    <label>Any other relevant information. &nbsp;</label>
-                    <input required #fil1="ngModel" (change)="fileValidation($event)" requiredFileType 
-                    type="file" name="relevantFile1" [(ngModel)]="curriculamModel.page1File2" requiredFileSize 
-                    class="form-control" >
-                    <small class="text-danger" *ngIf="fil1.errors ?.formatName">
-                        {{fil1.errors ?.formatName.value}} These file extension are not allowed
-                    </small>
-                    <small class="text-danger" [hidden]="!this.fileError ||  fil1.untouched ">
-                        File size is Not compactable
-                    </small>
-                </div>
-            </div>
-        </div><br><br>
+            
+        
         <div class="row mt-3">
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">

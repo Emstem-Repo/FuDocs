@@ -46,7 +46,9 @@ export class CurriculamPlanningModel {
 
   //My code
 
-  public descriptionn:string |'';
+    public descriptionn:string |'';
+    public minutesMeeting:string|'';
+    public relevantInfo1:string|'';
     public academicYear:number[];
     public yearr:number |'';
     public departmentInfo:{id:number,name:string}[];
@@ -155,6 +157,8 @@ export class CurriculamPlanningModel {
     //my code
 
     this.descriptionn = '';
+    this.minutesMeeting='';
+    this.relevantInfo1='';
         this.academicYear=[2021,2020,2019,2018,2017];
         this.yearr='';
         this.departmentInfo=[{ id: 1, name: 'Accounts' }, { id: 2, name: 'Fees' }, { id: 3, name: 'IT'}, { id: 4, name: 'Office Administration' },{ id: 5, name: 'Anatomy' },{ id: 6, name: 'Physiology'},{ id: 5, name: 'BioChemistry' },{ id: 6, name: 'Pathalogy'}];

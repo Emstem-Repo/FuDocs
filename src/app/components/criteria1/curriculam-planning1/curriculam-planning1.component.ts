@@ -23,7 +23,7 @@ export class CurriculamPlanning1Component implements OnInit {
 
   @ViewChild("descripId") descrip!: ElementRef;
   wordCounter(){
-    this.wordCount=this.curriculamModel.description ? this.curriculamModel.description.split(/\s+/) :0;
+    this.wordCount=this.curriculamModel.descriptionn ? this.curriculamModel.descriptionn.split(/\s+/) :0;
     this.words = this.wordCount ? this.wordCount.length : 0;
     if(this.words < 100)
       this.descMin=true;
