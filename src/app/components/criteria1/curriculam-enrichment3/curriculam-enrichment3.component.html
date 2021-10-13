@@ -8,39 +8,37 @@
             1.3.3
           </div>
           <div class="custom-head">
-            courses as against the total number of students during the last five years
-          </div>
+            Average percentage of students enrolled in the value-added courses during the last five years
+          </div> 
         </h2>
       </div>
     </div>
     <div class="row">
       <div class="col">
-
-
         <table class="table">
           <thead class="c-td-i-typ">
             <tr style="border-bottom-width: 0;">
-              <th scope="col">Year</th>
-              <th scope="col">Number of students enrolled in subject-related
+              <th scope="col" style="width: 20%;" >Year</th>
+              <th scope="col" style="width: 20%;">Number of students enrolled in subject-related
                 Certificate/Diploma programs/Add-on courses</th>
-              <th scope="col">Total number of students enrolled across all
+              <th scope="col" style="width: 20%;">Total number of students enrolled across all
                 the programmes</th>
+              <th scope="col" style="width: 30%;">Provide web link to the relevant info</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let number of curriculamModel.year; let i = index">
               <td scope="row" class="c-td-i-typ">
 
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" style="font-size: 10px; width: 100px;">
                   <!-- <mat-label>Year</mat-label> -->
                   <input style="text-align: center;" matInput name="year[{{i}}]" #year[i]="ngModel"
                     [(ngModel)]="curriculamModel.year[i]" disabled>
 
                 </mat-form-field>
               </td>
-              <td scope="row" class="c-td-i-typ">
-                <mat-form-field appearance="fill">
-                  <mat-label>No.students</mat-label>
+              <td scope="row" class="c-td-i-typ" style="font-size: 10px; width: 100px;">
+                <mat-form-field appearance="outline">
                   <input name="nOfStudents{{[i]}}" matInput #noStudents="ngModel"
                     [(ngModel)]="curriculamModel.nOfStudents[i]" required pattern="[\d{1,5}]*">
                   <mat-error *ngIf="noStudents.errors?.required">These fields is mandatory </mat-error>
@@ -48,13 +46,19 @@
                 </mat-form-field>
 
               </td>
-              <td scope="row" class="c-td-i-typ">
-                <mat-form-field appearance="fill">
-                  <mat-label>total students</mat-label>
+              <td scope="row" class="c-td-i-typ" style="font-size: 10px; width: 100px;">
+                <mat-form-field appearance="outline">
                   <input name="totalNOfStudents{{[i]}}" matInput [(ngModel)]="curriculamModel.totalNOfStudents[i]"
                     required pattern="[\d{1,5}]*" #totNoStudents="ngModel">
                   <mat-error *ngIf="totNoStudents.errors?.required">These fields is mandatory </mat-error>
                   <mat-error *ngIf="totNoStudents.errors?.pattern">Only numbers Allowed</mat-error>
+                </mat-form-field>
+              </td>
+              <td scope="row" class="c-td-i-typ">
+                <mat-form-field appearance="outline" style="width: 70%; font-size: 10px;">
+                  <input name="weblink{{[i]}}" matInput [(ngModel)]="curriculamModel.weblink[i]" required
+                     #weblinks="ngModel">
+                  <mat-error *ngIf="weblinks.errors?.required">These fields is mandatory </mat-error>
                 </mat-form-field>
               </td>
             </tr>
@@ -64,15 +68,14 @@
         <div class="row">
           <div class="col md-5">
             <div class="form-roup">
-              <label for="result">Formula result:</label>
-              <mat-form-field appearance="fill">
-                <mat-label>result</mat-label>
+              <label for="result">Formula result: &nbsp;</label>
+              <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                 <input matInput name="formulaResult" #result="ngModel" [(ngModel)]="curriculamModel.formulaResult"
                   disabled>
               </mat-form-field>
             </div>
           </div>
-        </div>
+        </div><br>
         <div class="row">
           <div class="col form-group d-flex flex-column justify-content-end">
             <label for="upload">Details of students enrolled in subject-related Certificate/Diploma/Add-on courses
@@ -80,7 +83,7 @@
               during the last five years </label>
             <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
               name="curiculamFile" max-size="2000" [(ngModel)]="curriculamModel.detOfStudEnrolled" requiredFileSize
-              class="form-control">
+              class="form-control" [style.width.%]="49">
             <small class="text-danger" *ngIf="fil.errors?.formatName">
               {{fil.errors ?.formatName.value}} These file extension are not allowed
             </small>
@@ -92,7 +95,8 @@
           <div class="col form-group d-flex flex-column justify-content-end">
             <label for="upload">Any other relevant information </label>
             <input #fil1="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-              name="curiculamFileRelevent" [(ngModel)]="curriculamModel.enrichmenntRelev" class="form-control">
+              name="curiculamFileRelevent" [(ngModel)]="curriculamModel.enrichmenntRelev" 
+              class="form-control" [style.width.%]="49">
             <small class="text-danger" *ngIf="fil1.errors?.formatName">
               {{fil.errors ?.formatName.value}} These file extension are not allowed
             </small>
@@ -100,11 +104,21 @@
               File size is Not compactable
             </small>
           </div>
-        </div>
+        </div> <br><br>
         <div class="row mt-3">
           <div class="col">
             <div class="form-group" [style.text-align]="'right'">
+              <button type="submit" routerLink="/fudocs/curriculam6" class="btn btn-info">Prev</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" [style.text-align]="'right'">
               <button type="submit" [disabled]="naacFormEn3.invalid" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" [style.text-align]="'left'">
+              <button type="submit" class="btn btn-info">Cancel</button>
             </div>
           </div>
           <div class="col">
@@ -113,11 +127,12 @@
                 class="btn btn-info">Next</button>
             </div>
           </div>
+         
         </div>
 
 
       </div>
-    </div>
+    </div><br><br>
 
 
   </form>

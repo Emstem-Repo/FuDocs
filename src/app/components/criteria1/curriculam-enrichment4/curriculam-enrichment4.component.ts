@@ -7,15 +7,18 @@ import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model
   styleUrls: ['./curriculam-enrichment4.component.css']
 })
 export class CurriculamEnrichment4Component implements OnInit {
+  
 
   curriculamModel=new CurriculamPlanningModel();
   el_name:String='';
   studentsNo:Number=0;
   file!: File;
   fileError=false;
+  changeText: boolean;
   
-  
-  constructor() { }
+  constructor() { 
+    this.changeText = false;
+  }
 
   ngOnInit(): void {
   }

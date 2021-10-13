@@ -1,20 +1,16 @@
-h1{
-    text-align: center;
-    margin-top: 20px;
+h1 {
+  text-align: center;
+  margin-top: 20px;
 }
-h2{
-    text-align: center;
-    margin-top: 20px;
+h2 {
+  margin-top: 20px;
 }
-.container{
-    text-align: center;
-    margin-top: 20px;
-    
-    
+.container {
+  text-align: center;
+  margin-top: 20px;
 }
 
-.side{
-    text-align: center;
-    margin-left: 20px;
-    
+.side {
+  text-align: center;
+  margin-left: 20px;
 }

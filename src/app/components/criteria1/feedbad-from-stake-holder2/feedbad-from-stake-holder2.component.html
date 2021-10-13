@@ -89,18 +89,18 @@
 
                     </table>
                 </div>
-            </div>
+            </div><br>
             <div class="row">
                 
                 <div class="col form-group d-flex flex-column justify-content-end">
                     <label for="upload"> URL for stakeholder feedback report</label>
-                    <mat-form-field class="example-full-width" [style.width.%]="50" appearance="fill">
+                    <mat-form-field class="example-full-width" style="width: 40%;font-size: 11px;" appearance="outline">
                         <mat-label>Report URL</mat-label>
-                        <input matInput placeholder="www.google.com" name="curriculamModel.feedbackResultURL"
-                            [(ngModel)]="curriculamModel.feedbackResultURL">
+                        <input matInput name="curriculamModel.feedbackResultURL"
+                            [(ngModel)]="curriculamModel.feedbackResultURL" >
                     </mat-form-field>
                 </div>
-            </div>
+            </div><br>
             <div class="row">
                 <div class="col form-group d-flex flex-column justify-content-end">
                     <label for="upload">Action taken report of the Institution on the feedback report as stated in the
@@ -108,7 +108,7 @@
                         meetings of the College Council/IQAC</label>
                     <input required #fil="ngModel" requiredFileType type="file" name="actionTakenFeedbackReports"
                         [(ngModel)]="curriculamModel.actionTakenFeedbackReports" (change)="fileValidation($event)"
-                        class="form-control">
+                        class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
                     </small>
@@ -120,7 +120,7 @@
                     <label for="upload">Any other relevant information file</label>
                     <input #fil2="ngModel" requiredFileType type="file" name="feedBack2ReleventIno"
                         [(ngModel)]="curriculamModel.feedBack2ReleventIno" (change)="fileValidation($event)"
-                        class="form-control">
+                        class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil2.errors?.formatName">
                         {{fil2.errors ?.formatName.value}} These file extension are not allowed
                     </small>
@@ -128,13 +128,24 @@
                         File size is Not compactable
                     </small>
                 </div>
-            </div>
+            </div><br><br>
             <div class="row mt-3">
                 <div class="col">
-                    <div class="form-group" [style.text-align]="'center'">
+                    <div class="form-group" [style.text-align]="'right'">
+                        <button type="submit" routerLink="/fudocs/feedBack1" class="btn btn-info">Prev</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group" [style.text-align]="'right'">
                         <button type="submit" [disabled]="naacFormFeed2.invalid" class="btn btn-primary">Save</button>
                     </div>
                 </div>
+                <div class="col" style="margin-right: 25%;">
+                    <div class="form-group" [style.text-align]="'left'">
+                        <button type="submit"  class="btn btn-info">Cancel</button>
+                    </div>
+                </div>
+             
                 <!-- <div class="col">
             <div class="form-group" [style.text-align]="'left'">
                 <button type="submit" [disabled]="naacFormFeed2.invalid" class="btn btn-info">Next</button>

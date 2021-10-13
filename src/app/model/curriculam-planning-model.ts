@@ -9,6 +9,7 @@ export class CurriculamPlanningModel {
   public year: number[];
   public totalNOfStudents: number[];
   public nOfStudents: number[];
+  public weblink:string[];
   public formulaResult: number | '';
   public detOfStudEnrolled: File | null;
   public enrichmenntRelev: File | null;
@@ -24,6 +25,10 @@ export class CurriculamPlanningModel {
   public docShownostudUndertakingInAll: File | null;
   public nostudUndertakingInAll: File | null;
   public anyReleventInfo: File | null;
+  public page8Institutional:File|null;
+  public numberOfStudents8:string|'';
+  public result8:string|'';
+ 
 
   //feed back
   public feedBackStudent:boolean |'';
@@ -46,9 +51,14 @@ export class CurriculamPlanningModel {
 
   //My code
 
+
+  public descriptionn:string |'';
+  public minutesMeeting:string|'';
+  public relevantInfo1:|'';
     public descriptionn:string |'';
     public minutesMeeting:string|'';
     public relevantInfo1:string|'';
+
     public academicYear:number[];
     public yearr:number |'';
     public departmentInfo:{id:number,name:string}[];
@@ -63,20 +73,31 @@ export class CurriculamPlanningModel {
     public page1File2:File | null;
     public page2File1:File |null;
     public page2File2:File |null;
+    public teacherBos:File|null;
+    public teacherAcademic:File|null;
     public page3File1:File |null;
     public page3File2:File |null;
+    public page3File3:File |null;
+    public page3File4:File |null;
+    public page3Institutional:File|null;
     public page4File1:File |null;
     public page4File2:File |null;
     public page5File1:File |null;
     public page5File2:File |null;
-    public page5File3:File |null;
-    public page5File4:File |null;
+    public listCourses:string|'';
+    public relevantInfo5:string|'';
+    public page6File1:File |null;
+    public page6File2:File |null;
+    public page6File3:File |null;
+    public page6File4:File |null;
+    public page6Institutional:File|null;
 
     public noofTeacher1:number |'';
     public noofTeacher2:number |'';
     public noofTeacher3:number |'';
     public noofTeacher4:number |'';
     public noofTeacher5:number |'';
+
 
     public page2bos:Page2Bos[];
     public teacherName:{id:number ,name:string}[]
@@ -101,7 +122,7 @@ export class CurriculamPlanningModel {
     public curiculamFile:File | null;
 
     public page5val: Page5value[];
-
+     public valueaddedOffered:number[];
   
 
 
@@ -111,6 +132,7 @@ export class CurriculamPlanningModel {
     //this.year=[];
     this.totalNOfStudents = [];
     this.nOfStudents = [];
+    this.weblink=[];
     this.formulaResult = '';
     this.detOfStudEnrolled = null;
     this.enrichmenntRelev = null;
@@ -135,6 +157,9 @@ export class CurriculamPlanningModel {
     this.docShownostudUndertakingInAll=null;
     this.nostudUndertakingInAll=null;
     this.anyReleventInfo=null;
+    this.page8Institutional=null;
+    this.numberOfStudents8='';
+    this.result8='';
     
     ///feed back component
     this.feedBackStudent='';
@@ -173,14 +198,24 @@ export class CurriculamPlanningModel {
         this.page1File2=null;
         this.page2File1=null;
         this.page2File2=null;
+        this.teacherBos=null;
+        this.teacherAcademic=null;
         this.page3File1=null;
         this.page3File2=null;
+        this.page3File3=null;
+        this.page3File4=null;
+        this.page3Institutional=null;
         this.page4File1=null;
         this.page4File2=null;
         this.page5File1=null;
         this.page5File2=null;
-        this.page5File3=null;
-        this.page5File4=null;
+        this.listCourses='';
+        this.relevantInfo5='';
+        this.page6File1=null;
+        this.page6File2=null;
+        this.page6File3=null;
+        this.page6File4=null;
+        this.page6Institutional=null;
         this.noofTeacher1='';
         this.noofTeacher2='';
         this.noofTeacher3='';
@@ -239,7 +274,7 @@ export class CurriculamPlanningModel {
             uploadDoc: null
         }]
 
-
+        this.valueaddedOffered=[];
   }
 }
 
