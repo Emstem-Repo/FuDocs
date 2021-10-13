@@ -47,6 +47,7 @@ import { StudentOutcome2Component } from './components/criteria2/student-outcome
 import { StudentOutcome3Component } from './components/criteria2/student-outcome3/student-outcome3.component';
 import { StudentOutcome4Component } from './components/criteria2/student-outcome4/student-outcome4.component';
 import { StaisfactionSurvey1Component } from './components/criteria2/staisfaction-survey1/staisfaction-survey1.component';
+import { CurriculamPlanning6Component } from './components/criteria1/curriculam-planning6/curriculam-planning6.component';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { StaisfactionSurvey1Component } from './components/criteria2/staisfactio
     StudentOutcome3Component,
     StudentOutcome4Component,
     StaisfactionSurvey1Component,
+    CurriculamPlanning6Component,
     
     
   ],

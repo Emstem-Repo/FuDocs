@@ -97,7 +97,7 @@
 
                     </table>
                 </div>
-            </div>
+            </div><br><br>
 
             <!-- <div class="row">
                 <div class="col form-group d-flex flex-column justify-content-end">
@@ -112,9 +112,10 @@
             <div class="row">
                 <div class="col form-group d-flex flex-column justify-content-end">
                     <label for="url">URL for stakeholder feedback report</label>
-                    <mat-form-field class="example-full-width " appearance="fill">
+                    <mat-form-field class="example-full-width " appearance="outline"
+                    style=" font-size: 11px;">
                         <mat-label>Report URL</mat-label>
-                        <input matInput placeholder="www.google.com" name="curriculamModel.reportURL"
+                        <input matInput  name="curriculamModel.reportURL"
                             [(ngModel)]="curriculamModel.reportURL">
                     </mat-form-field>
                 </div>
@@ -124,7 +125,7 @@
                         Council/IQAC/Curriculum Committee</label>
                     <input required #fil="ngModel" requiredFileType type="file" name="feedbackReports"
                         [(ngModel)]="curriculamModel.feedbackReports" (change)="fileValidation($event)"
-                        class="form-control">
+                        class="form-control" [style.width.%]="80">
                     <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
                     </small>
@@ -136,7 +137,7 @@
                     <label for="upload">Any other relevant information file</label>
                     <input #fil2="ngModel" requiredFileType type="file" name="feedAnyReleventInfo"
                         [(ngModel)]="curriculamModel.feedAnyReleventInfo" (change)="fileValidation($event)"
-                        class="form-control">
+                        class="form-control" [style.width.%]="80">
                     <small class="text-danger" *ngIf="fil2.errors?.formatName">
                         {{fil2.errors ?.formatName.value}} These file extension are not allowed
                     </small>
@@ -144,11 +145,21 @@
                         File size is Not compactable
                     </small>
                 </div>
-            </div>
+            </div><br><br>
             <div class="row mt-3">
                 <div class="col">
                     <div class="form-group" [style.text-align]="'right'">
+                        <button type="submit" routerLink="/fudocs/curriculamEnrichment4" class="btn btn-info">Prev</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group" [style.text-align]="'right'">
                         <button type="submit" [disabled]="naacFormFeed.invalid" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group" [style.text-align]="'left'">
+                        <button type="submit" class="btn btn-info">Cancel</button>
                     </div>
                 </div>
                 <div class="col">
@@ -156,7 +167,8 @@
                         <button type="submit"  class="btn btn-info">Next</button>
                     </div>
                 </div>
-            </div>
+               
+            </div><br><br><br>
 
 
         </form>

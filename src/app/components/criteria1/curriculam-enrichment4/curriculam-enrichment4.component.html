@@ -14,6 +14,28 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-4">
+                <label>Institutional data in prescribed format.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.page8Institutional" requiredFileSize
+                    class="form-control" [style.width.%]="94">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+            <div class="col-md-8">
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"
+                    (mouseover)="changeText=true" (mouseout)="changeText=false" style="margin-top: 2%;">
+                    <mat-icon>download</mat-icon>
+                </button>
+                <span *ngIf="changeText">Download Template</span>
+            </div><br>
+            <span style="margin-top: 1%; font-size: large;">OR:</span>
+        </div> <br>
+        <div class="row">
             <div class="col">
                 <div class="row seven-cols" style="word-break: break-all;">
                     <div class="container dborder">
@@ -35,8 +57,7 @@
                         <tr *ngFor="let enrich of curriculamModel.enrichArry;let i=index ">
                             <td class="col-md-1">
                                 <div class="form-group">
-                                    <mat-form-field appearance="fill" [style.width.%]="100">
-                                        <mat-label>Choose one</mat-label>
+                                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                         <mat-select required #program="ngModel" [(ngModel)]="enrich.programId"
                                             [class.is-invalid]="program.invalid && program.touched"
                                             name="programId_{{[i]}}">
@@ -50,8 +71,7 @@
                                 </div>
                             </td>
                             <td class="col-md-1">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>No.students</mat-label>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input (blur)="calculateTotal(noStudents1)" pattern="[\d{1,5}]*"
                                         name="nostudUndertakingVisits_{{[i]}}" matInput #noStudents1="ngModel"
                                         [(ngModel)]="enrich.nostudUndertakingVisits" required>
@@ -61,8 +81,7 @@
                                 </mat-form-field>
                             </td>
                             <td class="col-md-1">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>No.students</mat-label>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input (blur)="calculateTotal(noStudents2)"
                                         name="nostudUndertakingClinicaalVisits_{{[i]}}" matInput #noStudents2="ngModel"
                                         [(ngModel)]="enrich.nostudUndertakingClinicaalVisits" required
@@ -73,8 +92,7 @@
                                 </mat-form-field>
                             </td>
                             <td class="col-md-1">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>No.students</mat-label>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input (blur)="calculateTotal(noStudents3)"
                                         name="nostudUndertakingResearchProject_{{[i]}}" matInput #noStudents3="ngModel"
                                         [(ngModel)]="enrich.nostudUndertakingResearchProject" required
@@ -86,8 +104,7 @@
                                 </mat-form-field>
                             </td>
                             <td class="col-md-1">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>No.students</mat-label>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input (blur)="calculateTotal(noStudents4)"
                                         name="nostudUndertakingIndustryVisits_{{[i]}}" matInput #noStudents4="ngModel"
                                         [(ngModel)]="enrich.nostudUndertakingIndustryVisits" required
@@ -99,8 +116,7 @@
                                 </mat-form-field>
                             </td>
                             <td class="col-md-1">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>No.students</mat-label>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input (blur)="calculateTotal(noStudents5)"
                                         name="nostudUndertakingCommunityPosting_{{[i]}}" matInput #noStudents5="ngModel"
                                         [(ngModel)]="enrich.nostudUndertakingCommunityPosting" required
@@ -112,8 +128,7 @@
                                 </mat-form-field>
                             </td>
                             <td class="col-md-1">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>No.students</mat-label>
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input (blur)="calculateTotal(noStudents6)" name="nostudUndertakingInAll_{{[i]}}"
                                         matInput #noStudents6="ngModel" [(ngModel)]="enrich.nostudUndertakingInAll"
                                         required>
@@ -132,7 +147,7 @@
                                         type="button" value="Add more">
                                 </div>
                             </td>
-                        </tr>
+                        </tr><br>
 
                         <tr>
                             <td class="col-md-1"
@@ -143,7 +158,8 @@
                                 <div class="form-group">
                                     <input class="form-control result-field"
                                         name="curriculamModel.totalNostudUndertakingVisits" #noStudents="ngModel"
-                                        [(ngModel)]="curriculamModel.totalNostudUndertakingVisits" disabled>
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingVisits" 
+                                        disabled appearance="outline" style="font-size: 10px; width: 100px;">
                                 </div>
 
                             </td>
@@ -153,7 +169,8 @@
                                     <input class="form-control result-field"
                                         name="curriculamModel.totalNostudUndertakingClinicaalVisits"
                                         #noStudents="ngModel"
-                                        [(ngModel)]="curriculamModel.totalNostudUndertakingClinicaalVisits" disabled>
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingClinicaalVisits"
+                                         disabled appearance="outline" style="font-size: 10px; width: 100px;">
                                 </div>
 
                             </td>
@@ -162,7 +179,8 @@
                                     <input class="form-control result-field"
                                         name="curriculamModel.totalNostudUndertakingResearchProject"
                                         #noStudents="ngModel"
-                                        [(ngModel)]="curriculamModel.totalNostudUndertakingResearchProject" disabled>
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingResearchProject"
+                                         disabled appearance="outline" style="font-size: 10px; width: 100px;">
                                 </div>
 
                             </td>
@@ -171,7 +189,8 @@
                                     <input class="form-control result-field"
                                         name="curriculamModel.totalNostudUndertakingIndustryVisits"
                                         #noStudents="ngModel"
-                                        [(ngModel)]="curriculamModel.totalNostudUndertakingIndustryVisits" disabled>
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingIndustryVisits" 
+                                        disabled appearance="outline" style="font-size: 10px; width: 100px;">
                                 </div>
 
                             </td>
@@ -180,7 +199,8 @@
                                     <input class="form-control result-field"
                                         name="curriculamModel.totalNostudUndertakingCommunityPosting"
                                         #noStudents="ngModel"
-                                        [(ngModel)]="curriculamModel.totalNostudUndertakingCommunityPosting" disabled>
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingCommunityPosting" 
+                                        disabled appearance="outline" style="font-size: 10px; width: 100px;">
                                 </div>
 
                             </td>
@@ -188,12 +208,38 @@
                                 <div class="form-group">
                                     <input class="form-control result-field"
                                         name="curriculamModel.totalNostudUndertakingInAll" #noStudents="ngModel"
-                                        [(ngModel)]="curriculamModel.totalNostudUndertakingInAll" disabled>
+                                        [(ngModel)]="curriculamModel.totalNostudUndertakingInAll"
+                                         disabled appearance="outline" style="font-size: 10px; width: 100px;">
                                 </div>
 
                             </td>
                         </tr>
 
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Total number of students in the institution &nbsp;</label>
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
+                                <input matInput required name="student" #student="ngModel" [(ngModel)]="curriculamModel.numberOfStudents8"
+                                    [class.is-invalid]="student.invalid && student.touched">
+                                <mat-error [hidden]="student.valid || student.untouched">This field is Required</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Result  &nbsp;</label>
+                            <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
+                                <input matInput required name="result" #result="ngModel" [(ngModel)]="curriculamModel.result8"
+                                    [class.is-invalid]="result.invalid && result.touched">
+                                <mat-error [hidden]="result.valid || result.untouched">This field is Required</mat-error>
+                            </mat-form-field>
+                        </div>
                     </div>
                 </div>
 
@@ -237,11 +283,21 @@
                             File size is Not compactable
                         </small>
                     </div>
-                </div>
+                </div><br>
                 <div class="row mt-3">
                     <div class="col">
                         <div class="form-group" [style.text-align]="'right'">
+                            <button type="submit" routerLink="/fudocs/second" class="btn btn-info">Prev</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group" [style.text-align]="'right'">
                             <button type="submit" [disabled]="naacFormEn4.invalid" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group" [style.text-align]="'left'">
+                            <button type="submit" class="btn btn-info">Cancel</button>
                         </div>
                     </div>
                     <div class="col">
@@ -249,9 +305,10 @@
                             <button type="submit"  class="btn btn-info">Next</button>
                         </div>
                     </div>
+                           
                 </div>
             </div>
-        </div>
+        </div><br><br>
 
 
     </form>
