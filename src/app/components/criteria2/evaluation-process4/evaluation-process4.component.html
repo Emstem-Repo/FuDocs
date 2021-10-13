@@ -11,7 +11,7 @@
             <mat-checkbox></mat-checkbox>
         </section>
         <section>    
-            <label style="margin-right: 3.4%;">2. On time assessment and feedback &nbsp;</label>
+            <label style="margin-right: 3.3%;">2. On time assessment and feedback &nbsp;</label>
             <mat-checkbox ></mat-checkbox>
         </section>
         <section>    
@@ -24,75 +24,98 @@
         </section><br>
 
         <div style="font-size: large;">Upload:</div><br>
-        <div class="col">
-            <ul>
-                <li>
-                    <label>List of opportunities provided for the students for midcourse improvement of
-                        performance in the examinations
-                    </label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page19File1" requiredFileSize
-                    class="form-control" [style.width.%]="49">
-                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+        <div class="row">
+            <div class="col">
+                <label>List of opportunities provided for the students for midcourse improvement of
+                    performance in the examinations
+                </label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.page19File1" requiredFileSize class="form-control"
+                    [style.width.%]="24">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
                     {{fil.errors ?.formatName.value}} These file extension are not allowed
-                    </small>
-                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                     File size is Not compactable
-                    </small>
-                </li><br>
-                     
-                <li>
-                    <label>Information as per Data Template.</label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page19File2" requiredFileSize
-                class="form-control" [style.width.%]="49" >
-                <small class="text-danger" *ngIf="fil.errors?.formatName">
-                {{fil.errors ?.formatName.value}} These file extension are not allowed
                 </small>
-                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                File size is Not compactable
-                </small>
-                </li><br>
-                <li>
-                    <label>Policy document of midcourse improvement of performance of students</label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page19File3" requiredFileSize
-                class="form-control" [style.width.%]="49">
-                <small class="text-danger" *ngIf="fil.errors?.formatName">
-                {{fil.errors ?.formatName.value}} These file extension are not allowed
-                </small>
-                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                File size is Not compactable
-                </small>
-                </li><br>
-                <li>
-                    <label>Re-test and Answer sheets</label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page19File4" requiredFileSize
-                class="form-control" [style.width.%]="49">
-                <small class="text-danger" *ngIf="fil.errors?.formatName">
-                {{fil.errors ?.formatName.value}} These file extension are not allowed
-                </small>
-                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                File size is Not compactable
-                </small>
-                </li><br>
-                <li>
-                    <label>Any other relevant information</label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile19" requiredFileSize
-                class="form-control" [style.width.%]="49">
-                <small class="text-danger" *ngIf="fil.errors?.formatName">
-                {{fil.errors ?.formatName.value}} These file extension are not allowed
-                </small>
-                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                File size is Not compactable
-                </small>
-                </li>
-            </ul>
+            </div>
         </div><br>
+        <div class="row">    
+            <div class="col">
+                <label>Information as per Data Template.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.page19File2" requiredFileSize class="form-control"
+                    [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+            <div class="col">
+                <label>Policy document of midcourse improvement of performance of students</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.page19File3" requiredFileSize class="form-control"
+                    [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>   
+        </div><br>
+        
+            
+                     
+        <div class="row">
+            <div class="col">
+                <label>Re-test and Answer sheets</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.page19File4" requiredFileSize class="form-control"
+                    [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+            <div class="col">
+                <label>Any other relevant information</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.relevantFile19" requiredFileSize class="form-control"
+                    [style.width.%]="49">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
+                <label>List of initiatives provided to students for mid-course improvement of academic performance</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.relevantFile19" requiredFileSize class="form-control"
+                    [style.width.%]="24">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div>
 
         <div class="row mt-3">
+            <div class="col">
+                <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" routerLink="/criteria2/page18" class="btn btn-info">Prev</button>
+                </div>
+            </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm219.invalid" class="btn btn-primary">Save</button>
@@ -104,7 +127,12 @@
                   class="btn btn-info">Next</button>
               </div>
             </div>
-          </div><br><br>
+            <div class="col">
+                <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" class="btn btn-info">Cancel</button>
+                </div>
+            </div>
+          </div><br>
 
 
 

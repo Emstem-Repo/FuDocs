@@ -4,9 +4,15 @@
         </h2>
         <div style="font-size: large;">2.6.2.1: Number of final year students of all the programmes, who have qualified in the
             university examinations in each of the last five years.
+            <mat-form-field appearance="outline" style="width: 100px; font-size: 10px;">
+                <input matInput name="teachinglearning.learningOutcomesDocs" [(ngModel)]="teachinglearning.learningOutcomesDocs">
+            </mat-form-field>
         </div><br>
-        <div style="font-size: medium;">Number of final year students of all the programmes, who appeared for the examinations in
-            each of the last five years.
+        <div style="font-size: large;">2.6.2.2: Number of final year students of all the programmes, who appeared for the examinations in
+        each of the last five years.
+            <mat-form-field appearance="outline" style="width: 100px; font-size: 10px;">
+                <input matInput name="teachinglearning.learningOutcomesDocs" [(ngModel)]="teachinglearning.learningOutcomesDocs">
+            </mat-form-field>
         </div><br>
         <div class="row">
             <div class="col">
@@ -25,18 +31,22 @@
                             </th>
                             <th>UG</th>
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="finalYearUG{{[i]}}" matInput #studentFinalYearUG="ngModel"
                                     [(ngModel)]="teachinglearning.finalYearUG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="studentFinalYearUG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="studentFinalYearUG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field> 
                             </td>
                         </tr>   
                         <tr style="text-align: center;"> 
                             <th>PG</th>                             
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="finalYearPG{{[i]}}" matInput #studentFinalYearPG="ngModel"
                                     [(ngModel)]="teachinglearning.finalYearPG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="studentFinalYearPG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="studentFinalYearPG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>                                
                             </td>
                         </tr>    
@@ -45,10 +55,13 @@
                             </th> 
                             <th></th>
                             <td *ngFor="let year of teachinglearning.academicYear ; let i= index">
-                                <mat-form-field appearance="outline" style="font-size: 10px; width: 60px;">
+                                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="studentUGPG{{[i]}}" matInput #totalUGPG="ngModel"
                                     [(ngModel)]="teachinglearning.studentUGPG[i]" required pattern="[\d{1,5}]*">
+                                    <mat-error *ngIf="totalUGPG.errors?.required">This field is required </mat-error>
+                                    <mat-error *ngIf="totalUGPG.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field> 
+                                
                             </td>
                     </tbody>
                 </table>
@@ -56,86 +69,119 @@
         </div><br>
         <div style="font-size: large;">Upload:</div><br>  
 
-        <div class="col">
-            <ul>
-                <li>
-                    <label>
-                        List of Programmes and the number of students passed and appeared in the final year
-                        examination each year for the last five years.
-                    </label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page21File1" requiredFileSize
-                     class="form-control" [style.width.%]="49">
-                     <small class="text-danger" *ngIf="fil.errors?.formatName">
+        <div class="row">
+            <div class="col">
+                <label>
+                    List of Programmes and the number of students passed and appeared in the final year
+                    examination each year for the last five years.
+                </label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                    max-size="2000" [(ngModel)]="teachinglearning.page21File1" requiredFileSize class="form-control"
+                    [style.width.%]="24">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
                     {{fil.errors ?.formatName.value}} These file extension are not allowed
-                     </small>
-                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                     File size is Not compactable
-                     </small>
-                </li><br>
-                <li>
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
                     <label>
                         Link for the annual report of examination results as placed before BoM/ Syndicate/ Governing
-                           Council for the last five years
+                        Council for the last five years
                     </label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page21File2" requiredFileSize
-                     class="form-control" [style.width.%]="49">
-                     <small class="text-danger" *ngIf="fil.errors?.formatName">
-                    {{fil.errors ?.formatName.value}} These file extension are not allowed
-                     </small>
-                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                     File size is Not compactable
-                     </small>
-                </li><br>
-                <li>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                        max-size="2000" [(ngModel)]="teachinglearning.page21File2" requiredFileSize class="form-control"
+                        [style.width.%]="24">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col">
                     <label>
                         Reports from Controller of Exam (COE) office/ Registrar evaluation mentioning the
                         relevant details and the result analysis performed by the institution duly attested by
                         the Head of the Institution
                     </label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page21File3" requiredFileSize
-                     class="form-control" [style.width.%]="49">
-                     <small class="text-danger" *ngIf="fil.errors?.formatName">
-                    {{fil.errors ?.formatName.value}} These file extension are not allowed
-                     </small>
-                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                     File size is Not compactable
-                     </small>
-                </li><br>
-                <li>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                        max-size="2000" [(ngModel)]="teachinglearning.page21File3" requiredFileSize class="form-control"
+                        [style.width.%]="24">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
                     <label>
                         Trend analysis for the last five years in graphical form
                     </label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page21File4" requiredFileSize
-                     class="form-control" [style.width.%]="49">
-                     <small class="text-danger" *ngIf="fil.errors?.formatName">
-                    {{fil.errors ?.formatName.value}} These file extension are not allowed
-                     </small>
-                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                     File size is Not compactable
-                     </small>
-                </li><br>
-                <li>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                        max-size="2000" [(ngModel)]="teachinglearning.page21File4" requiredFileSize class="form-control"
+                        [style.width.%]="49">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+            </div>
+            <div class="col">
                     <label>
                         Any other relevant information
                     </label>
-                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile21" requiredFileSize
-                     class="form-control" [style.width.%]="49">
-                     <small class="text-danger" *ngIf="fil.errors?.formatName">
-                    {{fil.errors ?.formatName.value}} These file extension are not allowed
-                     </small>
-                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                     File size is Not compactable
-                     </small>
-                </li>
-            </ul>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
+                        max-size="2000" [(ngModel)]="teachinglearning.relevantFile21" requiredFileSize class="form-control"
+                        [style.width.%]="49">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+            </div>
         </div><br>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Institutional data in prescribed format.</label>
+                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page12File2" requiredFileSize
+                    class="form-control" [style.width.%]="74">
+                <small class="text-danger" *ngIf="fil.errors?.formatName">
+                    {{fil.errors ?.formatName.value}} These file extension are not allowed
+                </small>
+                <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                    File size is Not compactable
+                </small>
+            </div>
+            <div class="col-md-8">
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"
+                    (mouseover)="changeText=true" (mouseout)="changeText=false" style="margin-top: 2%;">
+                    <mat-icon>download</mat-icon>
+                </button>
+                <span *ngIf="changeText">Download Template</span>
+            </div>
+        </div>
+               
+        
 
-        <div class="row mt-3">
+        <div class="row mt-4">
+            <div class="col">
+                <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" routerLink="/criteria2/page20" class="btn btn-info">Prev</button>
+                </div>
+            </div>
             <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm221.invalid" class="btn btn-primary">Save</button>
@@ -146,6 +192,11 @@
                 <button type="submit" routerLink="/criteria2/page22" 
                   class="btn btn-info">Next</button>
               </div>
+            </div>
+            <div class="col">
+                <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" class="btn btn-info">Cancel</button>
+                </div>
             </div>
           </div><br><br>
     </form>

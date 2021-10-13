@@ -36,6 +36,7 @@ import { StudentOutcome2Component } from './components/criteria2/student-outcome
 import { StudentOutcome3Component } from './components/criteria2/student-outcome3/student-outcome3.component';
 import { StudentOutcome4Component } from './components/criteria2/student-outcome4/student-outcome4.component';
 import { StaisfactionSurvey1Component } from './components/criteria2/staisfaction-survey1/staisfaction-survey1.component';
+import { CurriculamPlanning6Component } from './components/criteria1/curriculam-planning6/curriculam-planning6.component';
 
 const routes: Routes = [
   { path: 'FuDocs', component: LoginComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
   {path:'fudocs/curriculam3',component:CurriculamPlanning3Component},
   {path:'fudocs/curriculam4',component:CurriculamPlanning4Component},
   {path:'fudocs/curriculam5',component:CurriculamPlanning5Component},
+    {path:'fudocs/curriculam6',component:CurriculamPlanning6Component},
 
 
   {path:'criteria2/page1',component:StudentEnrolment1Component},  

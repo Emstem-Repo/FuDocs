@@ -9,7 +9,8 @@ import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model
 export class CurriculamPlanning3Component implements OnInit {
   file!: File;
   fileError = false;
-
+  changeText: boolean;
+  
   curriculamModel=new CurriculamPlanningModel();
 
   addMore():void{
@@ -52,7 +53,9 @@ export class CurriculamPlanning3Component implements OnInit {
 
 
 
-  constructor() { }
+  constructor() {
+    this.changeText = false;
+   }
 
   ngOnInit(): void {
   }

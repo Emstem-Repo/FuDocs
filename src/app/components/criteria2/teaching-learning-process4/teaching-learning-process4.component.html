@@ -6,23 +6,46 @@
         <div class="col">
             <ul>
                 <li>
-                    Number of mentors
-                    <mat-form-field appearance="outline" style="font-size: 8px; width: 50px;" >
+                    Number of mentors &nbsp;
+                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput pattern="[\d{1,5}]*" required>
                     </mat-form-field>
                 </li>
                 <li>
-                    Number of students assigned to each Mentor
-                    <mat-form-field appearance="outline" style="font-size: 8px; width: 50px;"  >
+                    Number of students assigned to each Mentor &nbsp;
+                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput pattern="[\d{1,5}]*" required>
                     </mat-form-field>
-                </li>
-                <li>Data Template</li>     
+                </li>       
             </ul>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>
+                        Institutional data in prescribed format
+                    </label>
+                    <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                        name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page10File3" requiredFileSize
+                        class="form-control" [style.width.%]="94">
+                    <small class="text-danger" *ngIf="fil.errors?.formatName">
+                        {{fil.errors ?.formatName.value}} These file extension are not allowed
+                    </small>
+                    <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
+                        File size is Not compactable
+                    </small>
+                </div>
+                <div class="col-md-8">
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
+                        (mouseout)="changeText=false" style="margin-top: 2%;">
+                        <mat-icon>download</mat-icon>
+                    </button>
+                    <span *ngIf="changeText">Download Template</span>
+                </div><br>
+                <span style="margin-top: 1%; font-size: large;">OR:</span>
+            </div>    
         </div><br>
         <div class="row">
             <div class="col">
-                <table class="table">
+                <table class="table" style="width: 95%; margin-left: 4%;">
                     <thead style="text-align: center;">
                         <th style="width: 25%;" >Number of fulltime
                             teachers/other recognized
@@ -39,12 +62,12 @@
                         </th>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let mentor of teachinglearning.stuMentorRatio; let i = index">
+                        <tr *ngFor="let mentor of teachinglearning.stuMentorRatio; let i = index" style="text-align: center;">
                             <td>
                                 <div class="form-group">
-                                    <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                         <input  matInput name="noOfFTTeachers{{[i]}}" #noFTT="ngModel" 
-                                        [(ngModel)]="mentor.noOfFTTeachers" required pattern="[\d{1,5}]*">
+                                        [(ngModel)]="mentor.noOfFTTeachers" required pattern="[\d{1,5}]*" >
                                         <mat-error *ngIf="noFTT.errors?.required">This field is required </mat-error>
                                         <mat-error *ngIf="noFTT.errors?.pattern">Only numbers Allowed</mat-error>
                                     </mat-form-field>
@@ -52,7 +75,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                         <input  matInput name="noStudentsEnroll{{[i]}}" #noSE="ngModel" 
                                         [(ngModel)]="mentor.noStudentsEnroll" required pattern="[\d{1,5}]*">
                                         <mat-error *ngIf="noSE.errors?.required">This field is required </mat-error>
@@ -62,7 +85,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                         <input  matInput name="noStudentsAssignToMentor{{[i]}}" #noSAssign="ngModel" 
                                         [(ngModel)]="mentor.noStudentsAssignToMentor" required pattern="[\d{1,5}]*">
                                         <mat-error *ngIf="noSAssign.errors?.required">This field is required </mat-error>
@@ -72,7 +95,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <mat-form-field appearance="outline" [style.width.%]="85">
+                                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                         <input  matInput name="mentorRatio{{[i]}}" #mRatio="ngModel" 
                                         [(ngModel)]="mentor.mentorRatio" required pattern="[\d{1,5}]*">
                                         <mat-error *ngIf="mRatio.errors?.required">This field is required </mat-error>
@@ -84,11 +107,11 @@
                     </tbody>
                 </table>
             </div>
-        </div><br>
+        </div>
         <div class="row">
             <div class="col">
                 <label>Formula: Mentor : Mentee Ratio &nbsp;</label>
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                     <input required matInput>
                 </mat-form-field>
             </div>
@@ -101,7 +124,7 @@
                 </label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page10File1" requiredFileSize
-                class="form-control">
+                class="form-control" [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -115,7 +138,7 @@
                 </label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page10File2" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="49">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -126,27 +149,13 @@
         </div><br>
 
         <div class="row">
-            <div class="col">
-                <label>
-                    Institutional data in prescribed format
-                </label>
-                <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page10File3" requiredFileSize
-                class="form-control">
-              <small class="text-danger" *ngIf="fil.errors?.formatName">
-                {{fil.errors ?.formatName.value}} These file extension are not allowed
-              </small>
-              <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
-                File size is Not compactable
-              </small>
-              </div>
-            <div class="col">
+           <div class="col">
                 <label>
                     Any other relevant information
                 </label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile10" requiredFileSize
-                class="form-control" >
+                class="form-control" [style.width.%]="24">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
@@ -158,6 +167,11 @@
 
         <div class="row mt-3">
             <div class="col">
+                <div class="form-group" [style.text-align]="'right'">
+                    <button type="submit" routerLink="/criteria2/page9" class="btn btn-info">Prev</button>
+                </div>
+            </div>
+            <div class="col">
               <div class="form-group" [style.text-align]="'right'">
                 <button type="submit" [disabled]="naacForm210.invalid" class="btn btn-primary">Save</button>
               </div>
@@ -167,6 +181,11 @@
                 <button type="submit" routerLink="/criteria2/page11" 
                   class="btn btn-info">Next</button>
               </div>
+            </div>
+            <div class="col">
+                <div class="form-group" [style.text-align]="'left'">
+                    <button type="submit" class="btn btn-info">Cancel</button>
+                </div>
             </div>
           </div><br><br>
 

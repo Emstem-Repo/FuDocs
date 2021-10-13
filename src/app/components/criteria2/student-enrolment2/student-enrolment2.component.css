@@ -1,4 +1,9 @@
-h2{
-    margin-top: 25px;
-    margin-bottom: 20px;
+h2 {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  font-size: 10px;
+  width: 100px;
 }

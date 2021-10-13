@@ -8,10 +8,14 @@ import { TeachingLearningModel } from 'src/app/model/teaching-learning-model.mod
 })
 export class TeacherProfileQuality3Component implements OnInit {
   fileError=false;
+  changeText: boolean;
+
 
   teachinglearning = new TeachingLearningModel();
 
-  constructor() { }
+  constructor() { 
+    this.changeText = false;
+  }
 
   ngOnInit(): void {
   }
