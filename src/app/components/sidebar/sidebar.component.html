@@ -5,7 +5,7 @@
   <mat-divider></mat-divider>
   
 
-  \
+  
    
     <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
       <span  class="full-width" *ngIf="isExpanded || isShowing">Criteria 1</span>
@@ -24,7 +24,7 @@
       <a mat-list-item routerLinkActive="list-item-active" routerLink="fudocs/feedBack1">Criteria 1.4.1</a>
       <a mat-list-item routerLinkActive="list-item-active" routerLink="fudocs/feedBack2">Criteria 1.4.2</a>
       
-     
+
       
       
     </div>
@@ -44,7 +44,7 @@
   <mat-divider></mat-divider>
   
 
-  \
+  
    
     <mat-list-item (click)="showSubSubMenu2 = !showSubSubMenu2" class="parent">
       <span  class="full-width" *ngIf="isExpanded2 || isShowing2">Criteria 2</span>
@@ -75,13 +75,27 @@
       <a mat-list-item routerLinkActive="list-item-active" routerLink="criteria2/page22">Criteria 2.6.3</a>
       <a mat-list-item routerLinkActive="list-item-active" routerLink="criteria2/page23">Criteria 2.6.4</a>
       <a mat-list-item routerLinkActive="list-item-active" routerLink="criteria2/page24">Criteria 2.7</a>
-
-      
+     
       
     </div>  
 </mat-nav-list>
 
+<mat-nav-list>
 
+  <mat-divider></mat-divider>
+
+
+  
+  <mat-list-item (click)="showSubSubMenu3 = !showSubSubMenu3" class="parent">
+    <span class="full-width" *ngIf="isExpanded3 || isShowing3">Master Screen</span>
+    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu3}" *ngIf="isExpanded || isShowing3">expand_more
+    </mat-icon>
+  </mat-list-item>
+<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu3}" *ngIf="isShowing3 || isExpanded3">
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="masterscreen/year">Academic Year</a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="masterscreen/reports">Reports</a>
+</div>
+</mat-nav-list>
 
 
 

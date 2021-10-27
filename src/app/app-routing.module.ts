@@ -37,6 +37,8 @@ import { StudentOutcome3Component } from './components/criteria2/student-outcome
 import { StudentOutcome4Component } from './components/criteria2/student-outcome4/student-outcome4.component';
 import { StaisfactionSurvey1Component } from './components/criteria2/staisfaction-survey1/staisfaction-survey1.component';
 import { CurriculamPlanning6Component } from './components/criteria1/curriculam-planning6/curriculam-planning6.component';
+import { MasterAcademicyearComponent } from './components/masterscreen/master-academicyear/master-academicyear.component';
+import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
 
 const routes: Routes = [
   { path: 'FuDocs', component: LoginComponent },
@@ -89,6 +91,14 @@ const routes: Routes = [
 
   
   {path:'criteria2/page24',component:StaisfactionSurvey1Component},
+
+
+
+  {path:'masterscreen/year',component:MasterAcademicyearComponent},
+  
+  {path:'masterscreen/reports',component:MasterReportsComponent},
+  
+  
 
 
 

@@ -48,7 +48,9 @@ import { StudentOutcome3Component } from './components/criteria2/student-outcome
 import { StudentOutcome4Component } from './components/criteria2/student-outcome4/student-outcome4.component';
 import { StaisfactionSurvey1Component } from './components/criteria2/staisfaction-survey1/staisfaction-survey1.component';
 import { CurriculamPlanning6Component } from './components/criteria1/curriculam-planning6/curriculam-planning6.component';
-
+import { MasterAcademicyearComponent } from './components/masterscreen/master-academicyear/master-academicyear.component';
+import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -95,6 +97,8 @@ import { CurriculamPlanning6Component } from './components/criteria1/curriculam-
     StudentOutcome4Component,
     StaisfactionSurvey1Component,
     CurriculamPlanning6Component,
+    MasterAcademicyearComponent,
+    MasterReportsComponent,
     
     
   ],
@@ -103,7 +107,8 @@ import { CurriculamPlanning6Component } from './components/criteria1/curriculam-
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

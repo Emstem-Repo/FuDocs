@@ -17,6 +17,16 @@ export class SidebarComponent implements OnInit {
   isShowing2 = false;
   showSubSubMenu2: boolean = false;
 
+  isExpanded3 = true;
+  showSubmenu3: boolean = false;
+  isShowing3 = false;
+  showSubSubMenu3: boolean = false;
+
+   isExpanded4 = true;
+  showSubmenu4: boolean = false;
+  isShowing4 = false;
+  showSubSubMenu4: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

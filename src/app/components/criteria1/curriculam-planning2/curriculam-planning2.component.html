@@ -266,33 +266,34 @@
 
             <div class="row mt-3">
                 <div class="col">
-                    <div class="form-group" [style.text-align]="'right'">
-                        <button type="submit" routerLink="/fudocs/curriculam1" class="btn btn-primary">Prev</button>
+                    <div class="form-group" [style.text-align]="'left'" style="margin-left: 20%;">
+                        <button type="submit" routerLink="/fudocs/curriculam1" class="btn btn-light text-info"
+                        ><div style="display: flex;">
+                            <mat-icon style="transform: rotate(180deg)">play_circle_filled</mat-icon>&nbsp; Prev
+                        </div></button>
                     </div>
                 </div>
                 <div class="col">
                   <div class="form-group" [style.text-align]="'right'">
-                    <button type="submit" [disabled]="naacForm2.invalid" class="btn btn-success">Save</button>
+                    <button type="submit" [disabled]="naacForm2.invalid" class="btn btn-primary">Save</button>
                   </div>
                 </div>
                 <div class="col">
                     <div class="form-group" [style.text-align]="'left'">
-                        <button type="submit" class="btn btn-danger">Cancel</button>
+                        <button type="submit" class=" btn btn-light text-info" style="background-color:#DCE6E6;">Cancel</button>
                     </div>
                 </div>
                 <div class="col">
-                  <div class="form-group" [style.text-align]="'left'">
+                  <div class="form-group" [style.text-align]="'right'" style="margin-right: 20%;">
                     <button type="submit" routerLink="/fudocs/curriculam3" 
-                      class="btn btn-primary">Next</button>
+                     class="btn btn-light text-info" ><div style="display: flex;">Next &nbsp;
+                    <mat-icon >play_circle_filled</mat-icon></div>
+                </button>
                   </div>
                 </div>
                
               </div><br><br>
-
-
         </div>
     </div>
-
-
 </form>
 </div>
