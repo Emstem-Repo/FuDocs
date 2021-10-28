@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <form #naacFormMasterYear="ngForm" name="naacForm" required>
+        <h2>
+            Reports
+        </h2>
+        <h3>
+            Criteria 1
+        </h3>
+        
+
+                <div class="form-group">
+            <label for="description">1.1 The Institution ensures effective curriculum planning, delivery and evaluation through a well-defined process as
+            prescribed by the respective regulatory councils and the affiliating University.
+            </label>
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="description" #descripId="ngModel" class="form-control"
+                [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
+                [(ngModel)]="masterscreens.description" (keydown)="wordCounter()" 
+                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+                <button cdkCopyToClipboard="{{masterscreens.description}}" class="btn btn-primary" style="margin-left: 80%; margin-top: 2%;">Copy</button>
+            </mat-form-field>
+            
+            <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
+            
+            
+            
+            <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
+                Description is required
+            </small>
+            <!-- <small class="text-danger" [hidden]="!descMin">
+                 Minimum 100 Words
+            </small> -->
+            <small class="text-danger" [hidden]="!descMax">
+                Maximun 500 Words
+            </small>
+
+        </div><br>
+    </form>
+</div>        
