@@ -52,9 +52,7 @@ export class CurriculamPlanningModel {
   //My code
 
 
-  public descriptionn:string |'';
-  public minutesMeeting:string|'';
-  public relevantInfo1:|'';
+  
     public descriptionn:string |'';
     public minutesMeeting:string|'';
     public relevantInfo1:string|'';

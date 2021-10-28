@@ -1,61 +1,71 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.custom-head{
-    color: cornflowerblue;
-    display: inline;
+html,
+body {
+  height: 100%;
 }
-.custom-head-num{
-    color:crimson;
-    display: inline;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.c-td-i-typ{
-    text-align: center;
+.custom-head {
+  color: cornflowerblue;
+  display: inline;
+}
+.custom-head-num {
+  color: crimson;
+  display: inline;
+}
+.c-td-i-typ {
+  text-align: center;
 }
 .mat-form-field-infix {
-    width: auto !important;
+  width: auto !important;
 }
-.btn{
-    color: white;
-}   
+.btn {
+  color: white;
+}
+
 /* equal columns for enrichment4 */
 /* Equal width */
 .coleq {
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
-  }
-  
-  /* Add gutters */
-  .dborder {
-    /* border-bottom: 3px solid blue; */
-    border-style: outset;
-    margin-bottom: 10px;
-    vertical-align: bottom;
-  }
-  .dborder th,.dbordercont td{
-   padding-right: 5px;
-  }
-  .dbordercont {
-    /* border-style: ridge; */
-    margin-bottom: 10px;
-    vertical-align: bottom;
-  }
-  .result-field{
-      border-style: ridge;
-      width: 80%;
-  }
-  .mat-form-field,.mat-option,.mat-select-value,.mat-form-field-empty.mat-form-field-label {
-      color: cadetblue;
-  }
-
-  .mat-input-element:disabled{
-    color: black;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
 }
 
+/* Add gutters */
+.dborder {
+  /* border-bottom: 3px solid blue; */
+  border-style: outset;
+  margin-bottom: 10px;
+  vertical-align: bottom;
+}
+.dborder th,
+.dbordercont td {
+  padding-right: 5px;
+}
+.dbordercont {
+  /* border-style: ridge; */
+  margin-bottom: 10px;
+  vertical-align: bottom;
+}
+.result-field {
+  border-style: ridge;
+  width: 80%;
+}
+.mat-form-field,
+.mat-option,
+.mat-select-value,
+.mat-form-field-empty.mat-form-field-label {
+  color: cadetblue;
+}
+
+.mat-input-element:disabled {
+  color: black;
+}
 
 .page {
   color: white;
@@ -66,7 +76,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   min-height: 120px;
   background: #1e293b;
   margin: 0 -1rem;
-  
 }
 .page__content {
   min-height: calc(100vh - 178px);
@@ -74,7 +83,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: -2rem;
   background: white;
   color: black;
-  
 }
 .page__content-data {
   top: 50%;
@@ -82,7 +90,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translate(-50%, -50%);
 }
 
-  /* @media (min-width: 768px){
+/* @media (min-width: 768px){
   .seven-cols .col-md-1,
   .seven-cols .col-sm-1,
   .seven-cols .col-lg-1  {
@@ -103,7 +111,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /**
  *  The following is not really needed in this case
  *  Only to demonstrate the usage of @media for large screens
- */    
+ */
 /* @media (min-width: 1200px) {
   .seven-cols .col-md-1,
   .seven-cols .col-sm-1,
@@ -113,10 +121,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 } */
 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
