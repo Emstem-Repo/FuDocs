@@ -58,7 +58,7 @@
                     File size is Not compactable
                 </small>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"
                     (mouseover)="changeText=true" (mouseout)="changeText=false" style="margin-top: 2%;">
                     <mat-icon>download</mat-icon>
@@ -81,7 +81,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="text-align: center;" *ngFor="let inter of curriculamModel.page3inter; let i=index">
+                        <tr style="text-align: center;" *ngFor="let inter of curriculamModel.page3inter; let i=index;last as islast">
                             <td>
                                 <div class="form-group">
                                     <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
@@ -99,6 +99,7 @@
                                                     type="button" value="Add more"  style="margin-top: 20%;" >
                                             </div>
                                         </td>
+                                      
                                     </tr>
                                 </div>
                             </td>
@@ -131,9 +132,14 @@
                                         <mat-error *ngIf="interDisciplinary.errors?.required">This field is mandatory </mat-error>
                                     </mat-form-field>
                                 </div>
-                                </div>
-                               
+                                </div>         
                             </td>
+                            <td width="5%" style="text-align: left;" *ngIf="islast"><input (click)="del()" class="btn btn-info" type="button"
+                                    value="Delete"></td>
+                            
+                          </tr>
+                        
+                            
                     </tbody>
 
 

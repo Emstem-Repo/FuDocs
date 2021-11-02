@@ -93,7 +93,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let value of curriculamModel.page5val; let i=index" style="text-align: center;">
+                        <tr *ngFor="let value of curriculamModel.page5val; let i=index; last as islast" style="text-align: center;">
         
                             <td>
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
@@ -137,6 +137,8 @@
                                     <mat-error *ngIf="noStudent.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>
                             </td>
+                            <td width="5%" style="text-align: left;" *ngIf="islast"><input (click)="del()" class="btn btn-info" type="button"
+                                    value="Delete"></td>
                         </tr>
         
                         <td colspan="6">

@@ -37,6 +37,13 @@ export class CurriculamPlanning3Component implements OnInit {
    
   }
 
+    del():void{
+      console.log(this.curriculamModel.page3inter.length)
+      if(this.curriculamModel.page3inter.length > 1){
+     this.curriculamModel.page3inter.pop();
+    }
+  }
+
   addInter(index:number):void{
     console.log(index);
     var i: number=0;
@@ -50,7 +57,10 @@ export class CurriculamPlanning3Component implements OnInit {
       console.log(element.interDisciplinary);
     })
   }
+  
 
+
+  
 
 
   constructor() {
