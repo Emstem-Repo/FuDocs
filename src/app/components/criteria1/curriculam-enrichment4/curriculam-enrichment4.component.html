@@ -18,7 +18,8 @@
                 <label>Institutional data in prescribed format.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                     name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.page8Institutional" requiredFileSize
-                    class="form-control" [style.width.%]="94">
+                    class="form-control" [style.width.%]="100">
+                    
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                     {{fil.errors ?.formatName.value}} These file extension are not allowed
                 </small>
@@ -54,7 +55,7 @@
 
                 <div class="row seven-cols">
                     <div class="container dbordercont" style="text-align: center;">
-                        <tr *ngFor="let enrich of curriculamModel.enrichArry;let i=index ">
+                        <tr *ngFor="let enrich of curriculamModel.enrichArry;let i=index;last as islast">
                             <td class="col-md-1">
                                 <div class="form-group">
                                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
@@ -138,6 +139,8 @@
                                     </mat-error>
                                 </mat-form-field>
                             </td>
+                            <td width="5%" style="text-align: left;" *ngIf="islast"><input (click)="del()" class="btn btn-info" type="button"
+                                    value="Delete"></td>
 
                         </tr>
                         <tr>

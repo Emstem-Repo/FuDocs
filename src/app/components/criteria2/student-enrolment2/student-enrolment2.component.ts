@@ -42,6 +42,13 @@ addMoreYear():void{
   )
 }
 
+del():void{
+      console.log(this.teachinglearning.studentEnrolment.length)
+      if(this.teachinglearning.studentEnrolment.length > 1){
+     this.teachinglearning.studentEnrolment.pop();
+    }
+  }
+
 
 addMoreProgCode(index:number):void{
   console.log(index);
@@ -55,7 +62,7 @@ addMoreProgCode(index:number):void{
     i++;
     console.log(element.programCode);
   });
- 
 }
+
 
 }

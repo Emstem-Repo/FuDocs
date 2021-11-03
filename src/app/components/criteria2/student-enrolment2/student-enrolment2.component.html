@@ -173,7 +173,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="text-align: center;" *ngFor="let enrol of teachinglearning.studentEnrolment ; let i=index">
+                        <tr style="text-align: center;" *ngFor="let enrol of teachinglearning.studentEnrolment ; let i=index; last as islast">
                             <td>
                                 <div class="form-group">
                                     <mat-form-field appearance="outline" [style.width.%]="100">
@@ -232,6 +232,8 @@
                                     </mat-form-field>
                                 </div>
                             </td>
+                            <td width="5%" style="text-align: left;" *ngIf="islast"><input (click)="del()" class="btn btn-info" type="button"
+                                    value="Delete"></td>
                         </tr>
                     </tbody>
                 </table>

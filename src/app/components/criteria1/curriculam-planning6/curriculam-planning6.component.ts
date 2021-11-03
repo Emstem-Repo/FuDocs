@@ -27,7 +27,13 @@ export class CurriculamPlanning6Component implements OnInit {
       }
     )
   }
-
+   
+  del():void{
+      console.log(this.curriculamModel.page5val.length)
+      if(this.curriculamModel.page5val.length > 1){
+     this.curriculamModel.page5val.pop();
+    }
+  }
   constructor() { 
     this.changeText = false;
   }

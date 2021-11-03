@@ -25,6 +25,15 @@ export class CurriculamPlanning2Component implements OnInit {
     })
   }
 
+  del():void{
+      console.log(this.curriculamModel.page2bos.length)
+      if(this.curriculamModel.page2bos.length > 1){
+     this.curriculamModel.page2bos.pop();
+    }
+  }
+
+  
+
   addMore2():void{
     this.curriculamModel.page2bos2.push({
      year:'',
@@ -33,6 +42,18 @@ export class CurriculamPlanning2Component implements OnInit {
 
     })
   }
+
+    del2():void{
+      console.log(this.curriculamModel.page2bos2.length)
+      if(this.curriculamModel.page2bos2.length > 1){
+     this.curriculamModel.page2bos2.pop();
+    }
+  }
+
+
+  
+
+  
 
   fileValidation(event: any) {
     this.file = event.target.files[0];

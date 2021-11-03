@@ -88,7 +88,7 @@
                         </thead>
                         <tbody>
 
-                            <tr style="text-align: center;" *ngFor="let boS of curriculamModel.page2bos; let i=index">
+                            <tr style="text-align: center;" *ngFor="let boS of curriculamModel.page2bos; let i=index; last as islast">
                                 <td>
                                     <div class="form-group">
                                         <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
@@ -121,6 +121,8 @@
                                         </mat-form-field>
                                     </div>
                                 </td>
+                                <td width="5%" style="text-align: left;" *ngIf="islast"><input (click)="del()" class="btn btn-info" type="button"
+                                        value="Delete"></td>
                             </tr>
                             
                                 <td colspan="3">
@@ -129,6 +131,7 @@
                                             type="button" value="Add more">
                                     </div>
                                 </td>
+                                  
                             
                         </tbody>
                     </table>
@@ -172,7 +175,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="text-align: center;" *ngFor="let boSS of curriculamModel.page2bos2; let i=index">
+                            <tr style="text-align: center;" *ngFor="let boSS of curriculamModel.page2bos2; let i=index; last as islast">
                                 <td>
                                     <div class="form-group">
                                         <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
@@ -199,10 +202,15 @@
                                     <div class="form-group" >
                                         <mat-form-field appearance="outline" style="font-size: 10px; width: 400px;">
                                             <input matInput required [(ngModel)]="boSS.nameOfBody" name="nameofBody1{{[i]}}" #namefBody1="ngModel">
+                                            
                                             <mat-error *ngIf="namefBody1.errors?.required">This field is mandatory </mat-error>
+                                            
                                         </mat-form-field>
+                                       
                                     </div>
+                                    
                                 </td>
+                                <td width="5%" style="text-align: left;" *ngIf="islast"><input (click)="del2()" class="btn btn-info" type="button" value="Delete"></td>
                             </tr>
                             
                                 <td colspan="3">
@@ -211,6 +219,11 @@
                                             type="button" value="Add more">
                                     </div>
                                 </td>
+                                    
+                                   
+
+                            
+                                
                             
                         </tbody>
                     </table>
