@@ -34,6 +34,13 @@ export class CurriculamEnrichment4Component implements OnInit {
 
     })
   }
+
+   del():void{
+      console.log(this.curriculamModel.enrichArry.length)
+      if(this.curriculamModel.enrichArry.length > 1){
+     this.curriculamModel.enrichArry.pop();
+    }
+  }
   calculateTotal(element:any){
     this.el_name=element.name.slice(0,-2);
     this.studentsNo=0;

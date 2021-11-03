@@ -24,7 +24,12 @@ export class CurriculamPlanning4Component implements OnInit {
     )
   }
 
-
+del():void{
+      console.log(this.curriculamModel.page4enrol.length)
+      if(this.curriculamModel.page4enrol.length > 1){
+     this.curriculamModel.page4enrol.pop();
+    }
+  }
 
   constructor() { }
 
