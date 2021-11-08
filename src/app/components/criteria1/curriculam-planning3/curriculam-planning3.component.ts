@@ -30,9 +30,13 @@ export class CurriculamPlanning3Component implements OnInit {
         element.nameOfprogram.push(
          0
         )
+        element.interDisciplinary.push(
+          ''
+        )
     }
       i++;
       console.log(element.nameOfprogram);
+      console.log(element.interDisciplinary);
     });
    
   }
