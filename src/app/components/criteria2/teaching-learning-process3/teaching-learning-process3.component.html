@@ -7,10 +7,11 @@
         <div class="form-group">
             <div>Response in 500 words..</div>
             <mat-form-field [style.width.%]="70" appearance="outline">
+                <button (click)="toogle=!toogle" style="margin-left: 90%; margin-bottom: 3%;"><span>{{toogle?'+':'--'}}</span></button>
                 <textarea required name="descriptionn" #descripId="ngModel" class="form-control"
                 [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
                 [(ngModel)]="teachinglearning.description1" (keydown)="wordCounter()" 
-                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+                [attr.disabled]="words >500 ? '' : null" matInput [style.height]="toogle?'10rem':'28rem'"></textarea>
             </mat-form-field>
             <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
             <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
@@ -30,12 +31,14 @@
             <ul>
                 <li>
                     Details of ICT-enabled tools used for teaching and learning &nbsp;
-                    <mat-form-field  appearance="outline" style=" margin-left:3%;width: 50%; font-size: 10px;">
+                    <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
                         <input matInput  name="teachinglearning.itcEnableDetails"
                             [(ngModel)]="teachinglearning.itcEnableDetails">
                     </mat-form-field>
+                    <button (click)="myfunc()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label > OR: </label>
+                        <div style="display: flex;">
                     <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
                         max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
                         [style.width.%]="24" style="margin-left: 39%;">
@@ -45,16 +48,20 @@
                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                    </div>
                     </div>
                 </li><br>
                 <li>
                     List of teachersusing ICT-enabled tools (including LMS) &nbsp;
-                    <mat-form-field  appearance="outline" style= "margin-left:5%; width:50%; font-size: 10px;">
+                    <mat-form-field  appearance="outline" style= " width:50%; font-size: 10px;">
                         <input matInput  name="teachinglearning.itcEnableTeachers"
                             [(ngModel)]="teachinglearning.itcEnableTeachers">
                     </mat-form-field>
+                    <button (click)="myfunc2()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label> OR: </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
                             max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
                             [style.width.%]="24" style="margin-left: 39%;">
@@ -64,23 +71,28 @@
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                        </div>
                     </div>
                 </li><br>
                 <li>
                     Webpage describing the “LMS/ Academic Management System” &nbsp;
-                    <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
+                    <mat-form-field  appearance="outline" style="width: 49%; font-size: 10px;">
                         <input matInput  name="teachinglearning.lmsSystem"
                             [(ngModel)]="teachinglearning.lmsSystem">
                     </mat-form-field>
+                    <button (click)="myfunc3()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                 </li><br>
                 <li>
                     Any other relevant information &nbsp;
-                    <mat-form-field  appearance="outline" style= "margin-left:20%; width:50%; font-size: 10px;">
+                    <mat-form-field  appearance="outline" style= "width:50%; font-size: 10px;">
                         <input matInput  name="teachinglearning.relevantInfo2="
                             [(ngModel)]="teachinglearning.relevantInfo2">
                     </mat-form-field>
+                    <button (click)="myfunc4()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label> OR: </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
                             max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
                             [style.width.%]="24" style="margin-left: 39%;">
@@ -90,6 +102,8 @@
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                        </div>
                     </div>
                 </li>
             </ul>

@@ -9,10 +9,11 @@
             words</div><br>
             <div class="form-group">
                 <mat-form-field [style.width.%]="70" appearance="outline">
+                    <button (click)="toogle=!toogle" style="margin-left: 90%; margin-bottom: 3%;"><span>{{toogle?'+':'--'}}</span></button>
                     <textarea required name="description3" #descripId="ngModel" class="form-control"
                     [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
                     [(ngModel)]="teachinglearning.description3" (keydown)="wordCounter()" 
-                    [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+                    [attr.disabled]="words >500 ? '' : null" matInput [style.height]="toogle?'10rem':'28rem'"></textarea>
                 </mat-form-field>
                 <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
                 <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
@@ -33,6 +34,7 @@
                         <label>Details of University examinations / Continuous Internal Evaluations (CIE) conducted
                             during the last five years
                         </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page17File1" requiredFileSize
                         class="form-control" [style.width.%]="24">
@@ -42,10 +44,13 @@
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                          File size is Not compactable
                          </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                        </div>
                     </li><br>
                     <li>
                         <label>Number of grievances regarding University examinations/Internal Evaluation
                         </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page17File2" requiredFileSize
                         class="form-control" [style.width.%]="24">
@@ -54,11 +59,14 @@
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                          File size is Not compactable
-                         </small>                 
+                         </small>   
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                        </div>
                     </li><br>
                     <li>
                         <label>Any other relevant information
                         </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile17" requiredFileSize
                         class="form-control" [style.width.%]="24">
@@ -67,7 +75,9 @@
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                          File size is Not compactable
-                         </small>        
+                         </small>  
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                        </div>
                     </li>
                 </ul>  
             </div> 

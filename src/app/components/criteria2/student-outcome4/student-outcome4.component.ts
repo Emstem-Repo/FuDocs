@@ -12,6 +12,7 @@ export class StudentOutcome4Component implements OnInit {
   descMin= false;
   descMax = false;
   fileError=false;
+  toogle:boolean=true;
   teachinglearning = new TeachingLearningModel();
 
   constructor() { }
@@ -42,6 +43,33 @@ export class StudentOutcome4Component implements OnInit {
     if(this.words>500)
       this.descMax=true;
     else this.descMax=false;  
+  }
+
+    myfunc(){
+     var url=this.teachinglearning.pTMeeting;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+    myfunc2(){
+     var url=this.teachinglearning.followUpReports;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+   myfunc3(){
+     var url=this.teachinglearning.relevantInfo23;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
   }
 
 

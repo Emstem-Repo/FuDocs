@@ -81,6 +81,7 @@
             <label for="upload">Details of students enrolled in subject-related Certificate/Diploma/Add-on courses
               yearwise
               during the last five years </label>
+              <div style="display: flex;">
             <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
               name="curiculamFile" max-size="2000" [(ngModel)]="curriculamModel.detOfStudEnrolled" requiredFileSize
               class="form-control" [style.width.%]="49">
@@ -90,10 +91,13 @@
             <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
               File size is Not compactable
             </small>
+            <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+            </div>
           </div>
           
           <div class="col form-group d-flex flex-column justify-content-end">
             <label for="upload">Any other relevant information </label>
+            <div style="display: flex;">
             <input #fil1="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
               name="curiculamFileRelevent" [(ngModel)]="curriculamModel.enrichmenntRelev" 
               class="form-control" [style.width.%]="49">
@@ -103,6 +107,8 @@
             <small class="text-danger" [hidden]="!fileError ||  fil1.untouched ">
               File size is Not compactable
             </small>
+            <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+            </div>
           </div>
         </div> <br><br>
         <div class="row mt-3">

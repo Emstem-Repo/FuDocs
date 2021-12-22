@@ -14,6 +14,9 @@ export class CurriculamPlanning1Component implements OnInit {
   file!: File;
   fileError = false;
   curriculamModel=new CurriculamPlanningModel();
+  toogle:boolean=true;
+
+  
   
 
   constructor() { }
@@ -44,5 +47,26 @@ export class CurriculamPlanning1Component implements OnInit {
   btnClick(){
     console.log("Button Clicked")
   }
+  
 
+
+  myfunc(){
+     var url=this.curriculamModel.minutesMeeting;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+    myfunc2(){
+     var url=this.curriculamModel.relevantInfo1;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+    
+  
 }

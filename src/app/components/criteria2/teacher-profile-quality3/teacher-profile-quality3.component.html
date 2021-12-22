@@ -35,7 +35,7 @@
             <div class="col">
                 <label>List of teachers including their designation, qualifications, department and number of
                     years of teaching experience</label>
-                
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page13File1" requiredFileSize
                 class="form-control" [style.width.%]="24">
@@ -45,11 +45,14 @@
               <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
               </small>
+              <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+            </div>
             </div>
         </div><br>
         <div class="row">    
             <div class="col">
                 <label>Any other relevant information</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile13" requiredFileSize
                 class="form-control" [style.width.%]="24">
@@ -59,6 +62,8 @@
               <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
               </small>
+              <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+              </div>
             </div>
         </div>  <br>
         <div class="row">
@@ -75,11 +80,10 @@
             </small>
           </div>
           <div class="col-md-8">
-            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
-              (mouseout)="changeText=false" style="margin-top: 2%;">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" style="margin-top: 2%;">
               <mat-icon>download</mat-icon>
             </button>
-            <span *ngIf="changeText">Download Template</span>
+            <span>&nbsp; Download Template(excel)</span>
           </div>
         </div> <br>
         <div class="row mt-3">

@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>1.2.1.1: Number of courses offered across all programmes during the last five years: &nbsp; </label>
+                    <label><div class="custom-head-num">1.2.1.1: </div>Number of courses offered across all programmes during the last five years: &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput  #coursesOffer="ngModel" name="coursesOffer"
                          [(ngModel)]="curriculamModel.coursesOffered" required pattern="[\d{1,5}]*">
@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>1.2.1.2: Number of inter-disciplinary /inter-departmental courses /training offered during the last five
+                    <label><div class="custom-head-num">1.2.1.2: </div>Number of inter-disciplinary /inter-departmental courses /training offered during the last five
                         years : &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput #trainingOffer="ngModel" name="trainingOffer"
@@ -60,10 +60,10 @@
             </div>
             <div class="col-md-8" >
                 <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"
-                    (mouseover)="changeText=true" (mouseout)="changeText=false" style="margin-top: 2%;">
+                     style="margin-top: 2%;">
                     <mat-icon>download</mat-icon>
                 </button>
-                <span *ngIf="changeText">Download Template</span>
+                <span>&nbsp; Download Template (excel)</span>
             </div><br>
             <span style="margin-top: 1%; font-size: large;">OR:</span>
         </div> <br>
@@ -152,16 +152,18 @@
             <div class="col">
                 <div class="form-group">
                     <label>List of programmes offered year-wise during the last five years&nbsp;</label>
+                    <div style="display: flex;">
                     <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
                     name="bosMeeting" [(ngModel)]="curriculamModel.page3File1" requiredFileSize 
-                    class="form-control" [style.width.%]="49" >
+                    class="form-control" [style.width.%]="44" >
                     <small class="text-danger" *ngIf="fil5.errors ?.formatName">
                         {{fil5.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil5.untouched ">
                         File size is Not compactable
                     </small>
-                
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                </div>
                 </div>
             </div>
             
@@ -170,15 +172,18 @@
                     
                     <label> List of the courses under each programmme where inter-disciplinary/inter-departmental 
                         courses /training were offered year-wise during last five years &nbsp;</label>
+                    <div style="display: flex;">
                     <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
                     name="relevantFile3" [(ngModel)]="curriculamModel.page3File2" requiredFileSize 
-                    class="form-control" [style.width.%]="49">
+                    class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil6.errors ?.formatName">
                         {{fil6.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil6.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                    </div>
                 </div>
             </div>
         </div><br><br>
@@ -186,15 +191,18 @@
             <div class="col">
                 <div class="form-group">
                     <label>Minutes of relevant Academic Council/BoS meetings &nbsp;</label>
+                    <div style="display: flex;">
                     <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="bosMeeting" [(ngModel)]="curriculamModel.page3File3" requiredFileSize class="form-control"
-                        [style.width.%]="49">
+                        [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil5.errors ?.formatName">
                         {{fil5.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil5.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word)</div>
+                    </div>
         
                 </div>
             </div>
@@ -203,15 +211,18 @@
                 <div class="form-group">
         
                     <label> Any other relevant information. &nbsp;</label>
+                    <div style="display: flex;">
                     <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="relevantFile3" [(ngModel)]="curriculamModel.page3File4" requiredFileSize class="form-control"
-                        [style.width.%]="49">
+                        [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil6.errors ?.formatName">
                         {{fil6.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil6.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                    </div>
                 </div>
             </div>
         </div><br>

@@ -113,38 +113,46 @@
                 <div class="col form-group d-flex flex-column justify-content-end">
                     <label for="url">URL for stakeholder feedback report</label>
                     <mat-form-field class="example-full-width " appearance="outline"
-                    style=" font-size: 11px;">
+                    style=" font-size: 11px; width: 40%;">
                         <mat-label>Report URL</mat-label>
                         <input matInput  name="curriculamModel.reportURL"
                             [(ngModel)]="curriculamModel.reportURL">
                     </mat-form-field>
                 </div>
+                <div class="row">
                 <div class="col form-group d-flex flex-column justify-content-end">
                     <label for="upload">Stakeholder feedback reports as stated in the minutes of meetings of the
                         College
                         Council/IQAC/Curriculum Committee</label>
+                        <div style="display: flex;">
                     <input required #fil="ngModel" requiredFileType type="file" name="feedbackReports"
                         [(ngModel)]="curriculamModel.feedbackReports" (change)="fileValidation($event)"
-                        class="form-control" [style.width.%]="80">
+                        class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF, word, excel)</div>
+                    </div>
                 </div>
                 <div class="col form-group d-flex flex-column justify-content-end">
                     <label for="upload">Any other relevant information file</label>
+                    <div style="display: flex;">
                     <input #fil2="ngModel" requiredFileType type="file" name="feedAnyReleventInfo"
                         [(ngModel)]="curriculamModel.feedAnyReleventInfo" (change)="fileValidation($event)"
-                        class="form-control" [style.width.%]="80">
+                        class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil2.errors?.formatName">
                         {{fil2.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!fileError ||  fil2.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                    </div>
                 </div>
+            </div>
             </div><br><br>
             <div class="row mt-3">
                 <div class="col">

@@ -39,6 +39,7 @@ import { StaisfactionSurvey1Component } from './components/criteria2/staisfactio
 import { CurriculamPlanning6Component } from './components/criteria1/curriculam-planning6/curriculam-planning6.component';
 import { MasterAcademicyearComponent } from './components/masterscreen/master-academicyear/master-academicyear.component';
 import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
+import { ReportComponent } from './components/reportscreen/report/report.component';
 
 const routes: Routes = [
   { path: 'FuDocs', component: LoginComponent },
@@ -97,6 +98,7 @@ const routes: Routes = [
   {path:'masterscreen/year',component:MasterAcademicyearComponent},
   
   {path:'masterscreen/reports',component:MasterReportsComponent},
+  {path:'reportscreen/report', component:ReportComponent},
   
   
 
