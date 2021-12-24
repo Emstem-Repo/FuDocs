@@ -12,6 +12,7 @@ export class EvaluationProcess2Component implements OnInit {
   descMin= false;
   descMax = false;
   fileError=false;
+  toogle:boolean=true;
   teachinglearning = new TeachingLearningModel();
 
   constructor() { }

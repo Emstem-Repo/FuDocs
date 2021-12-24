@@ -51,6 +51,7 @@ import { CurriculamPlanning6Component } from './components/criteria1/curriculam-
 import { MasterAcademicyearComponent } from './components/masterscreen/master-academicyear/master-academicyear.component';
 import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { ReportComponent } from './components/reportscreen/report/report.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     CurriculamPlanning6Component,
     MasterAcademicyearComponent,
     MasterReportsComponent,
+    ReportComponent,
     
     
   ],

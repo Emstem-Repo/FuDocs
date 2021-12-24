@@ -57,8 +57,8 @@ export class TeachingLearningModel {
 
 
     public description: string;
-    public reportURL:boolean|'';
-    public relevantInfo:boolean|'';
+    public reportURL:string|'';
+    public relevantInfo:string|'';
 
 
     public descriptionn:string;
@@ -139,9 +139,9 @@ export class TeachingLearningModel {
 
 
 
-    public description2:String|'';
-    public academicCalendar:String|'';
-    public assesmentDates:String|'';
+    public description2:string|'';
+    public academicCalendar:string|'';
+    public assesmentDates:string|'';
     public page16File1:File|null;
 
 
@@ -153,10 +153,10 @@ export class TeachingLearningModel {
 
 
 
-    public description4:String|'';
-    public examReforms:String|'';
+    public description4:string|'';
+    public examReforms:string|'';
     public relevantFile18:File|null;
-    public relevantInfo18:String|'';
+    public relevantInfo18:string|'';
 
 
 
@@ -169,11 +169,11 @@ export class TeachingLearningModel {
     
 
 
-    public description5:String|'';
-    public learningOutcomesDocs:String|'';
-    public learningOutcomesMethod:String|'';
-    public courseOutcomes:String|'';
-    public relevantInfo20:String|'';
+    public description5:string|'';
+    public learningOutcomesDocs:string|'';
+    public learningOutcomesMethod:string|'';
+    public courseOutcomes:string|'';
+    public relevantInfo20:string|'';
 
 
 
@@ -189,19 +189,19 @@ export class TeachingLearningModel {
 
 
     public description6:String|'';
-    public learningOutcomes:String|'';
-    public relevantInfo21:String|'';
+    public learningOutcomes:string|'';
+    public relevantInfo21:string|'';
 
 
 
-    public description7:String|'';
-    public pTMeeting:String|'';
-    public followUpReports:String|'';
-    public relevantInfo23:String|'';
+    public description7:string|'';
+    public pTMeeting:string|'';
+    public followUpReports:string|'';
+    public relevantInfo23:string|'';
 
 
     public page24File1:File|null;
-    public relevantInfo24:String|'';
+    public relevantInfo24:string|'';
 
    
     //new

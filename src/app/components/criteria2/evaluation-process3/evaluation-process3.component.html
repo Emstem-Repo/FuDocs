@@ -21,18 +21,19 @@
         </div>
         <div class="form-group">
             <mat-form-field [style.width.%]="70" appearance="outline">
+                <button (click)="toogle=!toogle" style="margin-left: 90%; margin-bottom: 3%;"><span>{{toogle?'+':'--'}}</span></button>
                 <textarea required name="description4" #descripId="ngModel" class="form-control"
                 [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
                 [(ngModel)]="teachinglearning.description4" (keydown)="wordCounter()" 
-                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+                [attr.disabled]="words >500 ? '' : null" matInput [style.height]="toogle?'10rem':'28rem'"></textarea>
             </mat-form-field>
             <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
             <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
                 Description is required
             </small>
-            <small class="text-danger" [hidden]="!descMin">
+            <!-- <small class="text-danger" [hidden]="!descMin">
                  Minimum 100 Words
-            </small>
+            </small> -->
             <small class="text-danger" [hidden]="!descMax">
                 Maximun 500 Words
             </small>
@@ -45,9 +46,11 @@
                     <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
                           <input matInput  name="teachinglearning.examReforms"
                             [(ngModel)]="teachinglearning.examReforms">
-                    </mat-form-field>    
+                    </mat-form-field>  
+                    <button (click)="myfunc()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label> OR: </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
                             max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control" [style.width.%]="24"
                             style="margin-left: 39%;">
@@ -57,6 +60,8 @@
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                        </div>
                     </div>
                 
                 </li><br>                  
@@ -65,8 +70,10 @@
                     <mat-form-field appearance="outline" style="width: 50%; font-size: 10px;">
                         <input matInput name="teachinglearning.relevantInfo18" [(ngModel)]="teachinglearning.relevantInfo18">
                     </mat-form-field>
+                    <button (click)="myfunc2()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label> OR: </label>
+                    <div style="display: flex;">    
                     <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile18" requiredFileSize
                     class="form-control" [style.width.%]="24" style="margin-left: 39%;">
@@ -76,6 +83,8 @@
                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                      File size is Not compactable
                      </small> 
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                    </div>
                     </div>        
                 </li>
             </ul>  

@@ -29,10 +29,10 @@
             </div>
             <div class="col-md-8">
                 <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"
-                    (mouseover)="changeText=true" (mouseout)="changeText=false" style="margin-top: 2%;">
+                     style="margin-top: 2%;">
                     <mat-icon>download</mat-icon>
                 </button>
-                <span *ngIf="changeText">Download Template</span>
+                <span> &nbsp; Download Template(excel)</span>
             </div><br>
             <span style="margin-top: 1%; font-size: large;">OR:</span>
         </div> <br>
@@ -252,39 +252,50 @@
                             Certificate/Diploma/Add-on courses
                             yearwise
                             during the last five years </label>
+                        <div style="display: flex;">    
                         <input required #fil1="ngModel" requiredFileType type="file" name="nostudUndertakingInAll"
                             [(ngModel)]="curriculamModel.nostudUndertakingInAll" (change)="fileValidation($event)"
-                            class="form-control">
+                            class="form-control" [style.width.%]="49">
                         <small class="text-danger" *ngIf="fil1.errors?.formatName">
                             {{fil1.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil1.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                        </div>
                     </div>
                     <div class="col form-group d-flex flex-column justify-content-end">
                         <label for="upload">Document showing total number of students</label>
+                        <div style="display: flex;">
                         <input required #fil2="ngModel" requiredFileType type="file" name="docShownostudUndertakingInAll"
                             [(ngModel)]="curriculamModel.docShownostudUndertakingInAll"
-                            (change)="fileValidation($event)" class="form-control">
+                            (change)="fileValidation($event)" class="form-control" [style.width.%]="49">
                         <small class="text-danger" *ngIf="fil2.errors?.formatName">
                             {{fil2.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil2.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                        </div>
                     </div>
-                    <div class="col form-group d-flex flex-column justify-content-end">
-                        <label for="upload">Any other relevant information </label>
+                    <div class="row">
+                    <div class="col">
+                        <label for="upload" style="margin-top: 3%;">Any other relevant information </label>
+                        <div style="display: flex;">
                         <input  #fil3="ngModel" requiredFileType type="file" name="anyReleventInfo"
                             [(ngModel)]="curriculamModel.anyReleventInfo" (change)="fileValidation($event)"
-                            class="form-control">
+                            class="form-control" [style.width.%]="25">
                         <small class="text-danger" *ngIf="fil3.errors?.formatName">
                             {{fil3.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil3.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                        </div>
+                    </div>
                     </div>
                 </div><br>
                 <div class="row mt-3">

@@ -10,6 +10,7 @@
         <div class="row">
             <div class="col-md-4">
                 <label>Institutional data in prescribed format.</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page2File2" requiredFileSize
                     class="form-control" [style.width.%]="94">
@@ -19,13 +20,14 @@
                 <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                     File size is Not compactable
                 </small>
+                <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                </div>
             </div> 
             <div class="col-md-8">
-                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
-                    (mouseout)="changeText=false" style="margin-top: 2%;">
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" style="margin-top: 2%;">
                     <mat-icon>download</mat-icon>
                 </button>
-                <span *ngIf="changeText">Download Template</span>
+                <span>&nbsp; Download Template(excel)</span>
             </div><br>
             <span style="margin-top: 1%; font-size: large;">OR:</span>
         </div>
@@ -143,6 +145,7 @@
                     Relevant details certified by the Head of the Institution clearly mentioning the programs
                     that are not covered under CET and the number of applications received for the same
                 </label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile1" requiredFileSize
                 class="form-control" [style.width.%]="24">
@@ -152,6 +155,8 @@
               <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
               </small>
+            <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+            </div>
             </div>
         </div><br><br>
 
@@ -244,6 +249,7 @@
             <div class="col">
                 <label>Data pertaining to the number of sanctioned seats for the various programmes year-wise
                     during the last five years</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page2File1" requiredFileSize
                 class="form-control" [style.width.%]="24">
@@ -253,11 +259,14 @@
                 <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
                 </small>
+                <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                </div>
             </div>
         </div><br><br>
         <div class="row">   
             <div class="col">
                 <label>Any other relevant information.</label>
+                <div style="display: flex;">
                     <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile2" requiredFileSize
                     class="form-control" [style.width.%]="24">
@@ -267,6 +276,8 @@
                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                     File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                    </div>
             </div>
         </div><br>
 

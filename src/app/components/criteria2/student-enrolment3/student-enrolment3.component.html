@@ -21,11 +21,10 @@
             </small>
           </div>
           <div class="col-md-8">
-            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseover)="changeText=true"
-              (mouseout)="changeText=false" style="margin-top: 2%;">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"  style="margin-top: 2%;">
               <mat-icon>download</mat-icon>
             </button>
-            <span *ngIf="changeText">Download Template</span>
+            <span>&nbsp; Download Template(excel)</span>
           </div><br>
           <span style="margin-top: 1%; font-size: large;">OR:</span>
         </div>
@@ -84,35 +83,41 @@
         <div class="row">
             <div class="col">
                 <label>List of students enrolled from other states year-wise during the last 5 years</label>
-                
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page3File1" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="48">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
               <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
               </small>
+              <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+              </div>
             </div>
 
             <div class="col">
                 <label>E-copies of admission letters of the students enrolled from other states</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page3File2" requiredFileSize
-                class="form-control" [style.width.%]="49">
+                class="form-control" [style.width.%]="48">
               <small class="text-danger" *ngIf="fil.errors?.formatName">
                 {{fil.errors ?.formatName.value}} These file extension are not allowed
               </small>
               <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
               </small>
+              <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg)</div>
+              </div>
             </div>
         </div><br>
 
         <div class="row">
             <div class="col">
                 <label>Any other relevant information</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile3" requiredFileSize
                 class="form-control" [style.width.%]="24">
@@ -122,6 +127,8 @@
               <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
               </small>
+              <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+              </div>
             </div>
         </div><br>
 

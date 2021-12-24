@@ -6,10 +6,11 @@
         <div class="form-group">
             <div>Provide a description within 500 words</div>
             <mat-form-field [style.width.%]="70" appearance="outline">
+                <button (click)="toogle=!toogle" style="margin-left: 90%; margin-bottom: 3%;"><span>{{toogle?'+':'--'}}</span></button>
                 <textarea required name="description2" #descripId="ngModel" class="form-control"
                 [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
                 [(ngModel)]="teachinglearning.description2" (keydown)="wordCounter()" 
-                [attr.disabled]="words >500 ? '' : null" matInput></textarea>
+                [attr.disabled]="words >500 ? '' : null" matInput [style.height]="toogle?'10rem':'28rem'"></textarea>
             </mat-form-field>
             <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
             <small class="text-danger" [hidden]="descripId.valid || descripId.untouched">
@@ -32,8 +33,10 @@
                         <input matInput  name="teachinglearning.reportURL"
                             [(ngModel)]="teachinglearning.academicCalendar">
                     </mat-form-field>
+                    <button (click)="myfunc()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label> OR: </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
                             max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
                             [style.width.%]="24" style="margin-left: 39%;">
@@ -43,6 +46,8 @@
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                        </div>
                     </div>
                 </li><br>
                 <li>
@@ -50,9 +55,11 @@
                     <mat-form-field  appearance="outline" style="width: 50%; font-size: 10px;">
                         <input matInput  name="teachinglearning.reportURL"
                             [(ngModel)]="teachinglearning.assesmentDates">
-                    </mat-form-field> 
+                    </mat-form-field>
+                    <button (click)="myfunc2()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                     <div style="text-align: center;">
                         <label> OR: </label>
+                        <div style="display: flex;">
                         <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teachingFile"
                             max-size="2000" [(ngModel)]="teachinglearning.page8File1" requiredFileSize class="form-control"
                             [style.width.%]="24" style="margin-left: 39%;">
@@ -62,11 +69,13 @@
                         <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                        </div>
                     </div>
                 </li>
                 <li>
                     Any other relevant information
-                    
+                    <div style="display: flex;">
                     <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                     name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page16File1" requiredFileSize
                     class="form-control" [style.width.%]="24">
@@ -76,6 +85,8 @@
                     <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                     File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                </div>
                 </li>
             </ul>  
         </div> <br><br>

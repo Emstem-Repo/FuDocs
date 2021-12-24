@@ -8,6 +8,7 @@ import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model
 })
 export class CurriculamPlanning5Component implements OnInit {
 
+  toogle:boolean=true;
   wordCount:any;
   words:any;
   descMin= false;
@@ -57,5 +58,24 @@ export class CurriculamPlanning5Component implements OnInit {
     else this.fileError = false;
   
   }
+
+  myfunc(){
+     var url=this.curriculamModel.listCourses;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+   myfunc2(){
+     var url=this.curriculamModel.relevantInfo5;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
 
 }

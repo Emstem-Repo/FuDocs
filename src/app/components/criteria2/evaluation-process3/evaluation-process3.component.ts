@@ -12,6 +12,7 @@ export class EvaluationProcess3Component implements OnInit {
   descMin= false;
   descMax = false;
   fileError=false;
+  toogle:boolean=true;
   teachinglearning = new TeachingLearningModel();
 
   constructor() { }
@@ -44,4 +45,21 @@ export class EvaluationProcess3Component implements OnInit {
     else this.descMax=false;  
   }
 
+    myfunc(){
+     var url=this.teachinglearning.examReforms;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+    myfunc2(){
+     var url=this.teachinglearning.relevantInfo18;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
 }

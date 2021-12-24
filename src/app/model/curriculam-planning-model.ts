@@ -121,6 +121,8 @@ export class CurriculamPlanningModel {
 
     public page5val: Page5value[];
      public valueaddedOffered:number[];
+
+    
   
 
 
@@ -273,6 +275,8 @@ export class CurriculamPlanningModel {
         }]
 
         this.valueaddedOffered=[];
+
+        
   }
 }
 
