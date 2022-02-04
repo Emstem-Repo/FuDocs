@@ -18,7 +18,7 @@ export class AppComponent {
     this.sideBarOpen = !this.sideBarOpen;
   }
   hasRoute(route: string) {
-    console.log(this.router.url)
+    //console.log(this.router.url)
     return this.router.url.includes(route);
   }
 }

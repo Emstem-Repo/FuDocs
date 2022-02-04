@@ -51,6 +51,7 @@ import { CurriculamPlanning6Component } from './components/criteria1/curriculam-
 import { MasterAcademicyearComponent } from './components/masterscreen/master-academicyear/master-academicyear.component';
 import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ClipboardModule
+    ClipboardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,11 +8,8 @@
                 <div class="form-group">
                     <label for="year">Academic Year : &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 300px;">
-                        <mat-select required #year="ngModel" [(ngModel)]="masterscreens.year"
-                            [class.is-invalid]="year.invalid && year.touched" name="year">
-                            <mat-option *ngFor="let years of masterscreens.AcademicYear" [value]="years">
-                                {{years}}</mat-option>
-                        </mat-select>
+                        
+                        <input type="number" matInput name="masterscreens.year"  #year="ngModel" [(ngModel)]="masterscreens.year">
                         <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
                     </mat-form-field>
                 </div>
@@ -23,8 +20,8 @@
                             <label for="dataEntries">Most recent year for Data entry</label>
                             <mat-radio-group  required
                                 [(ngModel)]="masterscreens.dataEntries" name="dataEntries" #dataEntry="ngModel">
-                                <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
-                                <mat-radio-button class="p-3" value="false">No</mat-radio-button>
+                                <mat-radio-button class="p-3" value="yes">Yes</mat-radio-button>
+                                <mat-radio-button class="p-3" value="no">No</mat-radio-button>
                                 <mat-error [hidden]="dataEntry.valid || dataEntry.untouched">Field is
                                     Required</mat-error>
                             </mat-radio-group>
@@ -35,8 +32,11 @@
 
         <div class="row mt-3">
             <div class="col">
-                <div class="form-group" [style.text-align]="'right'">
-                    <button type="submit" [disabled]="naacFormMasterYear.invalid" class="btn btn-primary">Save</button>
+                <div class="form-group" *ngIf="!edit" [style.text-align]="'right'" id="savebt">
+                    <button type="submit" [disabled]="naacFormMasterYear.invalid"(click)="addAcademicYear()" class="btn btn-primary">Save</button>
+                </div>
+                <div *ngIf="edit" id="updatebt" class="form-group" [style.text-align]="'right'">
+                    <button type="submit" [disabled]="naacFormMasterYear.invalid"(click)="updateAcademicYear()" class="btn btn-primary">Update</button>
                 </div>
             </div>
             <div class="col">
@@ -57,18 +57,14 @@
                 </tr>
             </thead>
             <tbody  style="text-align: center;">
-                <tr>
-                    <td>1</td>
-                    <td>2018</td>
-                    <td>Yes</td>
-                    <td> <mat-icon style="color: green; font-size: large; ">edit</mat-icon><mat-icon style="color:red; font-size: large; ">delete</mat-icon></td>
+                <tr *ngFor="let years of academicYear; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{years.year}}</td>
+                    <td>{{years.dataEntries}}</td>
+                    <td> <mat-icon (click)="editAcademicYear(years)" style="color: green; font-size: large; ">edit</mat-icon>
+                        <mat-icon (click)="deleteAcademicYear(years.id)" style="color:red; font-size: large; ">delete</mat-icon></td>
                 </tr>     
-                <tr>
-                    <td>2</td>
-                    <td>2020</td>
-                    <td>No</td>   
-                    <td><mat-icon style="color: green; font-size: large;">edit</mat-icon><mat-icon style="color: red; font-size: large; ">delete</mat-icon></td>
-                </tr>          
+                         
             </tbody>
         </table>
     </div><br><br><br>
