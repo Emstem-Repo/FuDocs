@@ -66,6 +66,7 @@
             </table><br>
 
             <label style="font-size: large;">List of teachers participated in BOS:</label>
+            <div style="display: flex;">
             <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamCommittee"
                 [(ngModel)]="curriculamModel.teacherBos" requiredFileSize class="form-control" [style.width.%]="24">
             <small class="text-danger" *ngIf="fil3.errors ?.formatName">
@@ -73,7 +74,9 @@
             </small>
             <small class="text-danger" [hidden]="!this.fileError ||  fil3.untouched ">
                 File size is Not compactable
-            </small><br>
+            </small>
+            <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+            </div><br>
             <span style="margin-top: 1%; font-size: large;">OR:</span>
             
             <div class="row">
@@ -154,6 +157,7 @@
 
 
             <label style="font-size: large;">List of teachers participated in Academic council:</label>
+            <div style="display: flex;">
             <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamCommittee"
                 [(ngModel)]="curriculamModel.teacherAcademic" requiredFileSize class="form-control" [style.width.%]="24">
             <small class="text-danger" *ngIf="fil3.errors ?.formatName">
@@ -161,7 +165,9 @@
             </small>
             <small class="text-danger" [hidden]="!this.fileError ||  fil3.untouched ">
                 File size is Not compactable
-            </small><br>
+            </small>
+            <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+            </div><br>
             <span style="margin-top: 1%; font-size: large;">OR:</span>
 
             <div class="row">
@@ -247,16 +253,18 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Scanned copies of the letters supporting the participation of teachers. &nbsp;</label>
+                        <div style="display: flex;">
                         <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
                         name="curiculamCommittee" [(ngModel)]="curriculamModel.page2File1" requiredFileSize 
-                        class="form-control" [style.width.%]="49" >
+                        class="form-control" [style.width.%]="44">
                         <small class="text-danger" *ngIf="fil3.errors ?.formatName">
                             {{fil3.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!this.fileError ||  fil3.untouched ">
                             File size is Not compactable
-                        </small>
-                    
+                        </small>       
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg)</div>
+                        </div>
                     </div>
                 </div>
                 
@@ -264,15 +272,20 @@
                     <div class="form-group">
                         
                         <label>Any other relevant information.  &nbsp;</label>
+
+                        <div style="display: flex;">
                         <input required #fil4="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
                         name="relevantFile2" [(ngModel)]="curriculamModel.page2File2" requiredFileSize 
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="44">
                         <small class="text-danger" *ngIf="fil4.errors ?.formatName">
                             {{fil4.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!this.fileError ||  fil4.untouched ">
                             File size is Not compactable
                         </small>
+                        <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                        </div>
+                       
                     </div>
                 </div>
             </div><br><br>

@@ -13,6 +13,7 @@ export class TeachingLearningProcess3Component implements OnInit {
   descMin= false;
   descMax = false;
   fileError=false;
+  toogle:boolean=true;
 
   teachinglearning = new TeachingLearningModel();
 
@@ -45,5 +46,41 @@ export class TeachingLearningProcess3Component implements OnInit {
         return false;
     }
 }
+
+  myfunc(){
+     var url=this.teachinglearning.itcEnableDetails;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+    myfunc2(){
+     var url=this.teachinglearning.itcEnableTeachers;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+    myfunc3(){
+     var url=this.teachinglearning.lmsSystem;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
+  myfunc4(){
+     var url=this.teachinglearning.relevantInfo2;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
 
 }

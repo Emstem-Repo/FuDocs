@@ -52,6 +52,7 @@ import { MasterAcademicyearComponent } from './components/masterscreen/master-ac
 import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { HttpClientModule } from '@angular/common/http';
+import { ReportComponent } from './components/reportscreen/report/report.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { HttpClientModule } from '@angular/common/http';
     CurriculamPlanning6Component,
     MasterAcademicyearComponent,
     MasterReportsComponent,
+    ReportComponent,
     
     
   ],

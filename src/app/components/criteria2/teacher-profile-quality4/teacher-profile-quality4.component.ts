@@ -32,4 +32,13 @@ export class TeacherProfileQuality4Component implements OnInit {
     }
   }
 
+    myfunc(){
+     var url=this.teachinglearning.heiWebsite;
+    
+	var browserName=navigator.appName; 
+		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
+       
+    
+  }
+
 }

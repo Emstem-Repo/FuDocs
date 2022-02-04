@@ -48,10 +48,10 @@
             </div>
             <div class="col-md-8">
                 <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon"
-                    (mouseover)="changeText=true" (mouseout)="changeText=false" style="margin-top: 2%;">
+                     style="margin-top: 2%;">
                     <mat-icon>download</mat-icon>
                 </button>
-                <span *ngIf="changeText">Download Template</span>
+                <span> &nbsp; Download Template(excel)</span>
             </div><br>
             <span style="margin-top: 1%; font-size: large;">OR:</span>
         </div> <br>
@@ -158,30 +158,36 @@
             <div class="col">
                 <div class="form-group ">
                     <label for="upload"> Brochure or any other documents relating to value added courses. </label>
+                    <div style="display: flex;">
                     <input required #fil9="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="brochure" [(ngModel)]="curriculamModel.page6File1" requiredFileSize 
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil9.errors ?.formatName">
                         {{fil9.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil9.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word)</div>
+                    </div>
                 </div>
             </div>
         
             <div class="col">
                 <div class="form-group ">
                     <label for="upload">List of value-added courses year-wise offered during the last five years. </label>
+                    <div style="display: flex;">
                     <input required #fil10="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="curiculamFile" [(ngModel)]="curriculamModel.page6File2" requiredFileSize 
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil10.errors ?.formatName">
                         {{fil10.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil10.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                    </div>
                 </div>
             </div>
         </div><br><br>
@@ -193,15 +199,18 @@
                 <div class="form-group ">
                     <label for="upload"> List of students enrolled in value-added courses year-wise during the last five years.
                     </label>
+                    <div style="display: flex;">
                     <input required #fil11="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="curiculamFile" [(ngModel)]="curriculamModel.page6File3" requiredFileSize 
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil11.errors ?.formatName">
                         {{fil11.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil11.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(excel)</div>
+                    </div>
                 </div>
             </div>
         
@@ -212,15 +221,18 @@
             <div class="col">
                 <div class="form-group ">
                     <label for="upload"> Any other relevant information. </label>
+                    <div style="display: flex;">
                     <input required #fil12="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                         name="curiculamFile" [(ngModel)]="curriculamModel.page6File4" requiredFileSize 
-                        class="form-control" [style.width.%]="49">
+                        class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil12.errors ?.formatName">
                         {{fil12.errors ?.formatName.value}} These file extension are not allowed
                     </small>
                     <small class="text-danger" [hidden]="!this.fileError ||  fil12.untouched ">
                         File size is Not compactable
                     </small>
+                    <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                    </div>
                 </div>
             </div>
         </div><br>

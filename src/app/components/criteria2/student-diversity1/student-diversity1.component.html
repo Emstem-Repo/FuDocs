@@ -28,6 +28,7 @@
         <div class="row">
             <div class="col">
                 <label>Criteria to identify slow performers and advanced learners and assessment methodology</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File1" requiredFileSize
                 class="form-control" [style.width.%]="49">
@@ -37,10 +38,13 @@
                 <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
                 </small>
+                <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                </div>
             </div>
 
             <div class="col">
                 <label>Details of special programmes for slow performers and advanced learners</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File2" requiredFileSize
                 class="form-control" [style.width.%]="49">
@@ -50,12 +54,15 @@
                 <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
                 </small>
+                <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                </div>
             </div>
         </div><br>
 
         <div class="row">
             <div class="col">
                 <label>Student participation details and outcome records</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.page4File3" requiredFileSize
                 class="form-control" [style.width.%]="49">
@@ -65,10 +72,13 @@
                 <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
                 </small>
+                <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,word,excel)</div>
+                </div>
             </div>
 
             <div class="col">
                 <label>Any other relevant information</label>
+                <div style="display: flex;">
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
                 name="teachingFile" max-size="2000" [(ngModel)]="teachinglearning.relevantFile4" requiredFileSize
                 class="form-control" [style.width.%]="49">
@@ -78,6 +88,8 @@
                 <small class="text-danger" [hidden]="!fileError ||  fil.untouched ">
                 File size is Not compactable
                 </small>
+                <div style="margin-top:1%;margin-left: 1%; color: green;">(PDF,jpeg,word,excel)</div>
+                </div>
             </div>
         </div><br><br>
 

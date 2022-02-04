@@ -87,15 +87,32 @@
 
   
   <mat-list-item (click)="showSubSubMenu3 = !showSubSubMenu3" class="parent">
-    <span class="full-width" *ngIf="isExpanded3 || isShowing3">Master Screen</span>
+    <span class="full-width" *ngIf="isExpanded3 || isShowing3">Configuration Screen</span>
     <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu3}" *ngIf="isExpanded || isShowing3">expand_more
     </mat-icon>
   </mat-list-item>
 <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu3}" *ngIf="isShowing3 || isExpanded3">
   <a mat-list-item routerLinkActive="list-item-active" routerLink="masterscreen/year">Academic Year</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="masterscreen/reports">Reports</a>
+  <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="masterscreen/reports">Reports</a> -->
 </div>
 </mat-nav-list>
+
+<mat-nav-list>
+
+  <mat-divider></mat-divider>
+
+
+
+  <mat-list-item (click)="showSubSubMenu4 = !showSubSubMenu4" class="parent">
+    <span class="full-width" *ngIf="isExpanded4 || isShowing4">Reports</span>
+    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu4}" *ngIf="isExpanded || isShowing4">expand_more
+    </mat-icon>
+  </mat-list-item>
+  <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu4}" *ngIf="isShowing4 || isExpanded4">
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="reportscreen/report">Reports</a>
+  </div>
+</mat-nav-list>
+
 
 
 

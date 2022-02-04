@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <form #naacFormReportScreen="ngForm" name="naacForm" required>
+        <div class="row">
+            <div class="col">
+        <h2>
+            Reports
+        </h2>
+        </div>
+        <div class="col" style="margin-right: 70%;">
+        <mat-form-field appearance="outline" style="font-size: 10px; width: 200px;">
+            <mat-select required #prog="ngModel" [(ngModel)]="reportscreens.nameOfprogram"
+                [class.is-invalid]="prog.invalid && prog.touched" name="prog">
+                <mat-option *ngFor="let t of reportscreens.programInfo" [value]="t.id">{{t.name}}</mat-option>
+            </mat-select>
+            <mat-error [hidden]="prog.valid || prog.untouched">This field is Required</mat-error>
+        </mat-form-field>
+        </div>
+        </div>
+        <h3>
+            Criteria 1
+        </h3>
+        <div class="form-group">
+            <label for="description">1.1 The Institution ensures effective curriculum planning, delivery and evaluation through a
+                well-defined process as
+                prescribed by the respective regulatory councils and the affiliating University.
+            </label>
+            <mat-form-field [style.width.%]="70" appearance="outline">
+                <textarea required name="description" #descripId="ngModel" class="form-control"
+                    [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="8"
+                    [(ngModel)]="reportscreens.description" (keydown)="wordCounter()" [attr.disabled]="words >500 ? '' : null"
+                    matInput></textarea>
+            </mat-form-field>
+            <button cdkCopyToClipboard="{{reportscreens.description}}" class="btn btn-primary"
+               style="margin-left: 5%;" >Copy</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (mouseout)="changeText=false">
+                <mat-icon>download</mat-icon>
+            </button>
+           
+
+            <h3>
+                Criteria 1.1.2
+            </h3>
+            <div >List of teachers participated in BOS:
+                <span style="margin-left: 5%;color: grey;">listBOS.xlxs
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" 
+                    (mouseout)="changeText=false" >
+                    <mat-icon>download</mat-icon>
+                </button>
+               
+                </span>
+            </div><br> 
+            <div>List of teachers participated in Academic Council:
+                <span style="margin-left: 5%; color: grey;" >listAC.xlxs
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" 
+                       >
+                        <mat-icon>download</mat-icon>
+                    </button>    
+                </span>
+            </div>
+            <div>Scanned copies of letters supporting the participation of teachers:
+                <span style="margin-left: 5%;color: grey;">copies.xlxs
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" 
+                    >
+                        <mat-icon>download</mat-icon>
+                    </button>
+                
+                </span>
+            </div>
+            <div>Any other relevant info:
+                <span style="margin-left: 5%;color: grey;">others.xlxs
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon" 
+                        >
+                        <mat-icon>download</mat-icon>
+                    </button>     
+                </span>
+            </div>
+            <br><br><br><br>
+
+
+
+
+        </div>
