@@ -34,9 +34,6 @@ export class MasterAcademicyearComponent implements OnInit {
       this.masterservice.getAcademicYear().subscribe(
         (response:AcademicYear[])=>{
           this.academicYear=response
-        },
-        (error:HttpErrorResponse)=>{
-          alert(error.message)
         }
       )
      
@@ -73,6 +70,7 @@ export class MasterAcademicyearComponent implements OnInit {
       (response:AcademicYear)=>{
         this.acyear=response;
         this.getAcademicYear();
+        this.edit=false;
       },
       (error:HttpErrorResponse)=>{
         alert(error.message);
