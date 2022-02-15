@@ -12,18 +12,20 @@
             <div class="col-lg-6">
                 <div class="card2 card border-0 px-4 py-5 mt-5">
                     
-                   
+                    <form #loginform="ngForm" name="loginform"  (ngSubmit)="login()" required>
                     <div class="row px-3"> <label class="mb-1">
                             <h6 class="mb-0 text-sm">User Name</h6>
-                        </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid User Name"> </div>
+                        </label> <input class="mb-4" type="text" name="email" #uname="ngModel"  [(ngModel)]="loginModel.usermod.userName"  placeholder="Enter a valid User Name"> </div>
                     <div class="row px-3"> <label class="mb-1">
                             <h6 class="mb-0 text-sm">Password</h6>
-                        </label> <input type="password" name="password" placeholder="Enter password"> </div>
+                        </label> <input type="password" name="password" ngModel #pass="ngModel" [(ngModel)]="loginModel.usermod.password" placeholder="Enter password"> </div>
                    
-                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" routerLink='/fudocs/second'>Login</button></div>
+                    <div class="row mb-3 px-3"> <button type="submit"  class="btn btn-blue text-center" >Login</button></div>
+                   
                     <div class="row px-3 mb-4">
                         <div class="custom-control custom-checkbox custom-control-inline"> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a></div> 
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

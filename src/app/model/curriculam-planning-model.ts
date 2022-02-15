@@ -3,6 +3,7 @@ import { Page2Bos } from "../interfaces/page2-bos";
 import { Page3interdisciplinary } from "../interfaces/page3interdisciplinary";
 import { Page4enrolment } from "../interfaces/page4enrolment";
 import { Page5value } from "../interfaces/page5value";
+import { User } from "../interfaces/user";
 
 export class CurriculamPlanningModel {
   public description: string;
@@ -121,6 +122,7 @@ export class CurriculamPlanningModel {
 
     public page5val: Page5value[];
      public valueaddedOffered:number[];
+     public usermod:User;
 
     
   
@@ -276,7 +278,13 @@ export class CurriculamPlanningModel {
 
         this.valueaddedOffered=[];
 
-        
+        this.usermod={
+          id:0,
+          name:'',
+          userName:'',
+          password:'',
+          role:[]
+        }
   }
 }
 
