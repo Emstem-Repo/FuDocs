@@ -26,7 +26,6 @@ export class MasterServiceService {
 
   public getAcademicYear():Observable<AcademicYear[]>{
     const token='Bearer '+localStorage.getItem('token');
-    console.log(token);
      const headers= new HttpHeaders(
         { 'Content-Type': 'application/json', 
           'Authorization':token
@@ -37,7 +36,6 @@ export class MasterServiceService {
   public addAcademicYear(academicyear:AcademicYear):Observable<AcademicYear>{
     console.log(academicyear);
     const token='Bearer '+localStorage.getItem('token');
-    console.log(token);
      const headers= new HttpHeaders(
         { 'Content-Type': 'application/json', 
           'Authorization':token
@@ -49,7 +47,6 @@ export class MasterServiceService {
 
   public updateAcademicYear(academicyear:AcademicYear): Observable<AcademicYear>{
     const token='Bearer '+localStorage.getItem('token');
-    console.log(token);
      const headers= new HttpHeaders(
         { 'Content-Type': 'application/json', 
           'Authorization':token
@@ -65,6 +62,6 @@ export class MasterServiceService {
           'Authorization':token
       })
     console.log(academicYearId);
-    return this.http.post<void>(`${this.apiServiceUrl}/academicYearMaster/deleteAcademicYear`,academicYearId, {headers});
+    return this.http.delete<void>(`${this.apiServiceUrl}/academicYearMaster/deleteAcademicYear/`+academicYearId, {headers});
   }
 }

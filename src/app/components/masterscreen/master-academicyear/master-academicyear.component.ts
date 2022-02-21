@@ -10,6 +10,9 @@ import { MasterServiceService } from 'src/app/service/master-service.service';
   templateUrl: './master-academicyear.component.html',
   styleUrls: ['./master-academicyear.component.css']
 })
+
+
+
 export class MasterAcademicyearComponent implements OnInit {
 
   public edit:boolean=false;
