@@ -282,8 +282,7 @@ export class CurriculamPlanningModel {
           id:0,
           name:'',
           userName:'',
-          password:'',
-          role:[]
+          password:''
         }
   }
 }

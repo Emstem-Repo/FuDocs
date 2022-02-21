@@ -20,4 +20,8 @@ export class HeaderComponent implements OnInit {
     console.log()
     return this.router.url.includes(route);
   }
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/FuDocs');
+  }
 }

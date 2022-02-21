@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -15,7 +15,13 @@ export class MasterServiceService {
   constructor(private http:HttpClient) { }
 
   public getAcademicYear():Observable<AcademicYear[]>{
-    return this.http.get<AcademicYear[]>(`${this.apiServiceUrl}/academicYearMaster/getAcademicYear`);
+    const token='Bearer '+localStorage.getItem('token');
+    console.log(token);
+     const headers= new HttpHeaders(
+        { 'Content-Type': 'application/json', 
+          'Authorization':token
+      })
+    return this.http.get<AcademicYear[]>(`${this.apiServiceUrl}/academicYearMaster/getAcademicYear`,{headers});
   }
 
   public addAcademicYear(academicyear:AcademicYear):Observable<AcademicYear>{

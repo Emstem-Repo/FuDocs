@@ -40,65 +40,67 @@ import { CurriculamPlanning6Component } from './components/criteria1/curriculam-
 import { MasterAcademicyearComponent } from './components/masterscreen/master-academicyear/master-academicyear.component';
 import { MasterReportsComponent } from './components/masterscreen/master-reports/master-reports.component';
 import { ReportComponent } from './components/reportscreen/report/report.component';
+import { AuthGuard } from './shared/auth.guard';
+import { RoleGuard } from './shared/role.guard';
 
 const routes: Routes = [
   { path: 'FuDocs', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent},
-  {path: 'fudocs/second' ,component: CurriculamEnrichment3Component},
-  {path: 'fudocs/curriculamEnrichment3' ,component: CurriculamEnrichment3Component},
-  {path: 'fudocs/curriculamEnrichment4' ,component: CurriculamEnrichment4Component},
-  {path: 'fudocs/feedBack1' ,component: FeedBackFromStakeHoldersComponent},
-  {path: 'fudocs/feedBack2' ,component: FeedbadFromStakeHolder2Component},
-  {path: 'fudocs/curriculam1' ,component: CurriculamPlanning1Component},
-  {path:'fudocs/curriculam2',component:CurriculamPlanning2Component},
-  {path:'fudocs/curriculam3',component:CurriculamPlanning3Component},
-  {path:'fudocs/curriculam4',component:CurriculamPlanning4Component},
-  {path:'fudocs/curriculam5',component:CurriculamPlanning5Component},
-    {path:'fudocs/curriculam6',component:CurriculamPlanning6Component},
+  {path: 'fudocs/second' ,component: CurriculamEnrichment3Component,canActivate:[AuthGuard]},
+  {path: 'fudocs/curriculamEnrichment3' ,component: CurriculamEnrichment3Component,canActivate:[AuthGuard]},
+  {path: 'fudocs/curriculamEnrichment4' ,component: CurriculamEnrichment4Component,canActivate:[AuthGuard]},
+  {path: 'fudocs/feedBack1' ,component: FeedBackFromStakeHoldersComponent,canActivate:[AuthGuard]},
+  {path: 'fudocs/feedBack2' ,component: FeedbadFromStakeHolder2Component,canActivate:[AuthGuard]},
+  {path: 'fudocs/curriculam1' ,component: CurriculamPlanning1Component,canActivate:[AuthGuard]},
+  {path:'fudocs/curriculam2',component:CurriculamPlanning2Component,canActivate:[AuthGuard]},
+  {path:'fudocs/curriculam3',component:CurriculamPlanning3Component,canActivate:[AuthGuard]},
+  {path:'fudocs/curriculam4',component:CurriculamPlanning4Component,canActivate:[AuthGuard]},
+  {path:'fudocs/curriculam5',component:CurriculamPlanning5Component,canActivate:[AuthGuard]},
+    {path:'fudocs/curriculam6',component:CurriculamPlanning6Component,canActivate:[AuthGuard]},
 
 
-  {path:'criteria2/page1',component:StudentEnrolment1Component},  
-  {path:'criteria2/page2',component:StudentEnrolment2Component},
-  {path:'criteria2/page3',component:StudentEnrolment3Component},
-  {path:'criteria2/page4',component:StudentDiversity1Component},
-  {path:'criteria2/page5',component:StudentDiversity2Component},
-  {path:'criteria2/page6',component:StudentDiversity3Component},
+  {path:'criteria2/page1',component:StudentEnrolment1Component,canActivate:[AuthGuard]},  
+  {path:'criteria2/page2',component:StudentEnrolment2Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page3',component:StudentEnrolment3Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page4',component:StudentDiversity1Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page5',component:StudentDiversity2Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page6',component:StudentDiversity3Component,canActivate:[AuthGuard]},
 
     
-  {path:'criteria2/page7',component:TeachingLearningProcess1Component},
-  {path:'criteria2/page8',component:TeachingLearningProcess2Component},
-  {path:'criteria2/page9',component:TeachingLearningProcess3Component},
-  {path:'criteria2/page10',component:TeachingLearningProcess4Component},
+  {path:'criteria2/page7',component:TeachingLearningProcess1Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page8',component:TeachingLearningProcess2Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page9',component:TeachingLearningProcess3Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page10',component:TeachingLearningProcess4Component,canActivate:[AuthGuard]},
   
 
-  {path:'criteria2/page11',component:TeacherProfileQuality1Component},
-  {path:'criteria2/page12',component:TeacherProfileQuality2Component},
-  {path:'criteria2/page13',component:TeacherProfileQuality3Component},
-  {path:'criteria2/page14',component:TeacherProfileQuality4Component},
-  {path:'criteria2/page15',component:TeacherProfileQuality5Component},
+  {path:'criteria2/page11',component:TeacherProfileQuality1Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page12',component:TeacherProfileQuality2Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page13',component:TeacherProfileQuality3Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page14',component:TeacherProfileQuality4Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page15',component:TeacherProfileQuality5Component,canActivate:[AuthGuard]},
   
 
-  {path:'criteria2/page16',component:EvaluationProcess1Component},
-  {path:'criteria2/page17',component:EvaluationProcess2Component},
-  {path:'criteria2/page18',component:EvaluationProcess3Component},
-  {path:'criteria2/page19',component:EvaluationProcess4Component},
+  {path:'criteria2/page16',component:EvaluationProcess1Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page17',component:EvaluationProcess2Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page18',component:EvaluationProcess3Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page19',component:EvaluationProcess4Component,canActivate:[AuthGuard]},
 
   
 
-  {path:'criteria2/page20',component:StudentOutcome1Component},
-  {path:'criteria2/page21',component:StudentOutcome2Component},
-  {path:'criteria2/page22',component:StudentOutcome3Component},
-  {path:'criteria2/page23',component:StudentOutcome4Component},
+  {path:'criteria2/page20',component:StudentOutcome1Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page21',component:StudentOutcome2Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page22',component:StudentOutcome3Component,canActivate:[AuthGuard]},
+  {path:'criteria2/page23',component:StudentOutcome4Component,canActivate:[AuthGuard]},
 
   
-  {path:'criteria2/page24',component:StaisfactionSurvey1Component},
+  {path:'criteria2/page24',component:StaisfactionSurvey1Component,canActivate:[AuthGuard]},
 
 
 
-  {path:'masterscreen/year',component:MasterAcademicyearComponent},
+  {path:'masterscreen/year',component:MasterAcademicyearComponent,canActivate:[RoleGuard]},
   
-  {path:'masterscreen/reports',component:MasterReportsComponent},
-  {path:'reportscreen/report', component:ReportComponent},
+  {path:'masterscreen/reports',component:MasterReportsComponent,canActivate:[AuthGuard]},
+  {path:'reportscreen/report', component:ReportComponent,canActivate:[AuthGuard]},
   
   
 
