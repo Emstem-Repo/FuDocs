@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
     const username=this.loginModel.usermod.userName;
     const password=this.loginModel.usermod.password;
      this.authservice.authenticate(username,password).subscribe( data => {
-       console.log(data.accessToken);
       localStorage.setItem('token',data.access_token);
       localStorage.setItem('refreshToken',data.refresh_token);
       localStorage.setItem('userType',data.role);
