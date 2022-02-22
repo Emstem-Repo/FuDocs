@@ -1,23 +1,49 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AcademicYear } from 'src/app/interfaces/academicYear';
+import { Criteria1Model } from 'src/app/model/criteria1-model';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
+import { Critera1Service } from 'src/app/service/critera1.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-curriculam-planning2',
   templateUrl: './curriculam-planning2.component.html',
   styleUrls: ['./curriculam-planning2.component.css']
 })
+
 export class CurriculamPlanning2Component implements OnInit {
+  private apiServiceUrl = environment.apiBaseUrl;
   file!: File;
   fileError = false;
-  curriculamModel=new CurriculamPlanningModel();
+  curriculamModel=this.cservice.curriculamModel;
+  headers= new HttpHeaders();
 
-  constructor() { }
+  constructor(private cservice:Critera1Service) {}
+
+ 
 
   ngOnInit(): void {
+    if(this.curriculamModel.year.length==0){
+      this.cservice.getAcademicYear();;
+    }
   }
 
+//   public getAcademicYear(){
+//     this.cservice.getAcademicYear().subscribe(
+//       (response:AcademicYear[])=>{
+//         for (var val of response) {
+//           console.log(val.year); 
+//          this.acYeararray.push(val.year);
+//         }
+//       }
+//     )
+   
+// }
+
   addMore():void{
-    this.curriculamModel.page2bos.push({
+    this.curriculamModel.teacherBosParticipatedInbonum.push({
      year:'',
      nameOfBody:'',
      nameOfTeacher:''
@@ -26,16 +52,16 @@ export class CurriculamPlanning2Component implements OnInit {
   }
 
   del():void{
-      console.log(this.curriculamModel.page2bos.length)
-      if(this.curriculamModel.page2bos.length > 1){
-     this.curriculamModel.page2bos.pop();
+      console.log(this.curriculamModel.teacherBosParticipatedInbonum.length)
+      if(this.curriculamModel.teacherBosParticipatedInbonum.length > 1){
+     this.curriculamModel.teacherBosParticipatedInbonum.pop();
     }
   }
 
   
 
   addMore2():void{
-    this.curriculamModel.page2bos2.push({
+    this.curriculamModel.teacherparticipatedinAcademiccouncilnum.push({
      year:'',
      nameOfBody:'',
      nameOfTeacher:''
@@ -44,9 +70,9 @@ export class CurriculamPlanning2Component implements OnInit {
   }
 
     del2():void{
-      console.log(this.curriculamModel.page2bos2.length)
-      if(this.curriculamModel.page2bos2.length > 1){
-     this.curriculamModel.page2bos2.pop();
+      console.log(this.curriculamModel.teacherparticipatedinAcademiccouncilnum.length)
+      if(this.curriculamModel.teacherparticipatedinAcademiccouncilnum.length > 1){
+     this.curriculamModel.teacherparticipatedinAcademiccouncilnum.pop();
     }
   }
 
@@ -63,6 +89,20 @@ export class CurriculamPlanning2Component implements OnInit {
       this.fileError = true;
     else this.fileError = false;
   
+  }
+
+  public saveCriteria(){
+    const acyearsend = {} as Criteria1Model;
+    console.log('insidesaave');
+    this.cservice.addAcademicYear(this.curriculamModel).subscribe(
+      (response:Criteria1Model)=>{
+        //this.acyear=response;
+        //this.getAcademicYear();
+      },
+      (error:HttpErrorResponse)=>{
+        alert(error.message)
+      }
+    )
   }
 
 

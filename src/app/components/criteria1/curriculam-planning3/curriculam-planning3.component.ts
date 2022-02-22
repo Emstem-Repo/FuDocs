@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AcademicYear } from 'src/app/interfaces/academicYear';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
+import { Critera1Service } from 'src/app/service/critera1.service';
 
 @Component({
   selector: 'app-curriculam-planning3',
@@ -11,10 +13,34 @@ export class CurriculamPlanning3Component implements OnInit {
   fileError = false;
   changeText: boolean;
   
-  curriculamModel=new CurriculamPlanningModel();
+  curriculamModel=this.cservice.curriculamModel;
+
+  acYeararray=new Array();
+
+  constructor(private cservice:Critera1Service) {
+    this.changeText = false;
+   }
+
+  ngOnInit(): void {
+    if(this.curriculamModel.year.length==0){
+     this.cservice.getAcademicYear();
+    }
+  }
+
+//   public getAcademicYear(){
+//     this.cservice.getAcademicYear().subscribe(
+//       (response:AcademicYear[])=>{
+//         for (var val of response) {
+//           console.log(val.year); 
+//          this.acYeararray.push(val.year);
+//         }
+//       }
+//     )
+   
+// }
 
   addMore():void{
-    this.curriculamModel.page3inter.push(
+    this.curriculamModel.institutionalData.push(
       {
         year: '',
         nameOfprogram: [0],
@@ -25,7 +51,7 @@ export class CurriculamPlanning3Component implements OnInit {
   addMoreProg(index:number):void{
     console.log(index);
     var i:number=0;
-    this.curriculamModel.page3inter.forEach(element => {
+    this.curriculamModel.institutionalData.forEach(element => {
       if(index==i){
         element.nameOfprogram.push(
          0
@@ -42,16 +68,16 @@ export class CurriculamPlanning3Component implements OnInit {
   }
 
     del():void{
-      console.log(this.curriculamModel.page3inter.length)
-      if(this.curriculamModel.page3inter.length > 1){
-     this.curriculamModel.page3inter.pop();
+      console.log(this.curriculamModel.institutionalData.length)
+      if(this.curriculamModel.institutionalData.length > 1){
+     this.curriculamModel.institutionalData.pop();
     }
   }
 
   addInter(index:number):void{
     console.log(index);
     var i: number=0;
-    this.curriculamModel.page3inter.forEach(element =>{
+    this.curriculamModel.institutionalData.forEach(element =>{
       if(index==i){
         element.interDisciplinary.push(
           ''
@@ -67,12 +93,7 @@ export class CurriculamPlanning3Component implements OnInit {
   
 
 
-  constructor() {
-    this.changeText = false;
-   }
-
-  ngOnInit(): void {
-  }
+  
 
   fileValidation(event: any) {
     this.file = event.target.files[0];

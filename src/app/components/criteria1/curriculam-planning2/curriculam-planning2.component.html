@@ -13,7 +13,7 @@
             <table class="table" style="width: 94%; margin-left: 3%;">
                 <thead>
                     <tr style="text-align: center;">
-                        <th *ngFor="let year of curriculamModel.academicYear">{{year}}</th>
+                        <th *ngFor="let year of curriculamModel.year">{{year}}</th>
                     </tr>
                 </thead> 
                 <tbody>
@@ -21,46 +21,49 @@
                    <td>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput name="noofTeacher1"   
-                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher1" required pattern="[\d{1,5}]*">
+                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher1"
+                         required pattern="[\d{1,5}]*">
                         <mat-error *ngIf="teacher1.errors?.required">This Field is required</mat-error>
                         <mat-error *ngIf="teacher1.errors?.pattern">Only Numbers allowed</mat-error>
                     </mat-form-field>
                    </td>
-
                    <td>
-                       <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                           <input matInput  name="noofTeacher2" 
-                           #teacher2="ngModel" [(ngModel)]="curriculamModel.noofTeacher2" required pattern="[\d{1,5}]*">
-                        <mat-error *ngIf="teacher2.errors?.required">This Field is required</mat-error>
-                        <mat-error *ngIf="teacher2.errors?.pattern">Only Numbers allowed</mat-error>  
-                       </mat-form-field>
+                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
+                        <input matInput name="noofTeacher2"   
+                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher2"
+                         required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="teacher1.errors?.required">This Field is required</mat-error>
+                        <mat-error *ngIf="teacher1.errors?.pattern">Only Numbers allowed</mat-error>
+                    </mat-form-field>
+                   </td>
+                   <td >
+                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
+                        <input matInput name="noofTeacher3"   
+                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher3"
+                         required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="teacher1.errors?.required">This Field is required</mat-error>
+                        <mat-error *ngIf="teacher1.errors?.pattern">Only Numbers allowed</mat-error>
+                    </mat-form-field>
                    </td>
                    <td>
-                       <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;"> 
-                           <input matInput  name="noofTeacher3" 
-                           #teacher3="ngModel" [(ngModel)]="curriculamModel.noofTeacher3" required pattern="[\d{1,5}]*">
-                           <mat-error *ngIf="teacher3.errors?.required">This Field is required</mat-error>
-                           <mat-error *ngIf="teacher3.errors?.pattern">Only Numbers allowed</mat-error>  
-                        </mat-form-field>
+                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
+                        <input matInput name="noofTeacher4"   
+                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher4"
+                         required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="teacher1.errors?.required">This Field is required</mat-error>
+                        <mat-error *ngIf="teacher1.errors?.pattern">Only Numbers allowed</mat-error>
+                    </mat-form-field>
                    </td>
-
-                   <td>
-                       <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                           <input matInput  name="noofTeacher4" 
-                           #teacher4="ngModel" [(ngModel)]="curriculamModel.noofTeacher4" required pattern="[\d{1,5}]*">
-                           <mat-error *ngIf="teacher4.errors?.required">This Field is required</mat-error>
-                           <mat-error *ngIf="teacher4.errors?.pattern">Only Numbers allowed</mat-error>
-                        </mat-form-field>
+                   <td >
+                    <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
+                        <input matInput name="noofTeacher5"   
+                        #teacher1="ngModel" [(ngModel)]="curriculamModel.noofTeacher5"
+                         required pattern="[\d{1,5}]*">
+                        <mat-error *ngIf="teacher1.errors?.required">This Field is required</mat-error>
+                        <mat-error *ngIf="teacher1.errors?.pattern">Only Numbers allowed</mat-error>
+                    </mat-form-field>
                    </td>
-
-                   <td>
-                       <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                           <input matInput  name="noofTeacher5" 
-                           #teacher5="ngModel" [(ngModel)]="curriculamModel.noofTeacher5" required pattern="[\d{1,5}]*">
-                           <mat-error *ngIf="teacher5.errors?.required">This Field is required</mat-error>
-                           <mat-error *ngIf="teacher5.errors?.pattern">Only Numbers allowed</mat-error>                        </mat-form-field>
-
-                   </td>
+                
                 </tr>  
             </tbody>             
             </table><br>
@@ -68,7 +71,7 @@
             <label style="font-size: large;">List of teachers participated in BOS:</label>
             <div style="display: flex;">
             <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamCommittee"
-                [(ngModel)]="curriculamModel.teacherBos" requiredFileSize class="form-control" [style.width.%]="24">
+                [(ngModel)]="curriculamModel.teacherBosParticipatedInbos" requiredFileSize class="form-control" [style.width.%]="24">
             <small class="text-danger" *ngIf="fil3.errors ?.formatName">
                 {{fil3.errors ?.formatName.value}} These file extension are not allowed
             </small>
@@ -91,13 +94,13 @@
                         </thead>
                         <tbody>
 
-                            <tr style="text-align: center;" *ngFor="let boS of curriculamModel.page2bos; let i=index; last as islast">
+                            <tr style="text-align: center;" *ngFor="let boS of curriculamModel.teacherBosParticipatedInbonum; let i=index; last as islast">
                                 <td>
                                     <div class="form-group">
                                         <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
                                             <mat-select required #year="ngModel" [(ngModel)]="boS.year"
                                             [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
-                                            <mat-option *ngFor="let y of curriculamModel.academicYear" [value]="y">{{y}}</mat-option>
+                                            <mat-option *ngFor="let y of curriculamModel.year" [value]="y">{{y}}</mat-option>
                                             </mat-select>
                                             <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
                                         </mat-form-field>
@@ -158,7 +161,7 @@
 
             <label style="font-size: large;">List of teachers participated in Academic council:</label>
             <div style="display: flex;">
-            <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamCommittee"
+            <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="teacherparticipatedinAcademiccouncil"
                 [(ngModel)]="curriculamModel.teacherAcademic" requiredFileSize class="form-control" [style.width.%]="24">
             <small class="text-danger" *ngIf="fil3.errors ?.formatName">
                 {{fil3.errors ?.formatName.value}} These file extension are not allowed
@@ -181,13 +184,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="text-align: center;" *ngFor="let boSS of curriculamModel.page2bos2; let i=index; last as islast">
+                            <tr style="text-align: center;" *ngFor="let boSS of curriculamModel.teacherparticipatedinAcademiccouncilnum; let i=index; last as islast">
                                 <td>
                                     <div class="form-group">
                                         <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
                                             <mat-select required #year1="ngModel" [(ngModel)]="boSS.year"
                                             [class.is-invalid]="year1.invalid && year1.touched" name="year1[{{i}}]">
-                                            <mat-option *ngFor="let y of curriculamModel.academicYear" [value]="y">{{y}}</mat-option>
+                                            <mat-option *ngFor="let y of curriculamModel.year" [value]="y">{{y}}</mat-option>
                                             </mat-select>
                                             <mat-error [hidden]="year1.valid || year1.untouched">Academic Year is Required</mat-error>
                                         </mat-form-field>
@@ -255,7 +258,7 @@
                         <label>Scanned copies of the letters supporting the participation of teachers. &nbsp;</label>
                         <div style="display: flex;">
                         <input required #fil3="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                        name="curiculamCommittee" [(ngModel)]="curriculamModel.page2File1" requiredFileSize 
+                        name="curiculamCommittee" [(ngModel)]="curriculamModel.Scannedcopiesoflettersofsupportingofteachers" requiredFileSize 
                         class="form-control" [style.width.%]="44">
                         <small class="text-danger" *ngIf="fil3.errors ?.formatName">
                             {{fil3.errors ?.formatName.value}} These file extension are not allowed
@@ -275,7 +278,7 @@
 
                         <div style="display: flex;">
                         <input required #fil4="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                        name="relevantFile2" [(ngModel)]="curriculamModel.page2File2" requiredFileSize 
+                        name="relevantFile2" [(ngModel)]="curriculamModel.participationreleventInfo" requiredFileSize 
                         class="form-control" [style.width.%]="44">
                         <small class="text-danger" *ngIf="fil4.errors ?.formatName">
                             {{fil4.errors ?.formatName.value}} These file extension are not allowed
@@ -301,7 +304,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group" [style.text-align]="'right'">
-                    <button type="submit" [disabled]="naacForm2.invalid" class="btn btn-primary">Save</button>
+                    <button type="submit" [disabled]="naacForm2.invalid" (click)="saveCriteria()" class="btn btn-primary">Save</button>
                   </div>
                 </div>
                 <div class="col">

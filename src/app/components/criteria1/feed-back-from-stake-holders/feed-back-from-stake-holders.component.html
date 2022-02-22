@@ -35,7 +35,7 @@
                                 <td>Feedback collected from students
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackStudent"
+                                            required [(ngModel)]="curriculamModel.structerdFeedBackStudent"
                                             name="feedBackStudent" #feedBackStud="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -47,7 +47,7 @@
                                 <td>Feedback collected from teachers
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackTeachers"
+                                            required [(ngModel)]="curriculamModel.structeredFeedBackTeachers"
                                             name="feedBackTeachers" #feedBackTeach="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -59,7 +59,7 @@
                                 <td>Feedback collected from employers
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackEmployers"
+                                            required [(ngModel)]="curriculamModel.structeredFeedBackEmployers"
                                             name="feedBackEmployers" #feedBackEmp="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -71,7 +71,7 @@
                                 <td>Feedback collected from alumni
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackAlumni" name="feedBackAlumni"
+                                            required [(ngModel)]="curriculamModel.structeredFeedBackAlumni" name="feedBackAlumni"
                                             #feedBackAlumni="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -83,7 +83,7 @@
                                 <td>Feedback collected from other professionals
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackProfessionals"
+                                            required [(ngModel)]="curriculamModel.structeredFeedBackProfessionals"
                                             name="feedBackProfessionals" #feedBackOther="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -116,7 +116,7 @@
                     style=" font-size: 11px; width: 40%;">
                         <mat-label>Report URL</mat-label>
                         <input matInput  name="curriculamModel.reportURL"
-                            [(ngModel)]="curriculamModel.reportURL">
+                            [(ngModel)]="curriculamModel.structeredFeeBackLink">
                     </mat-form-field>
                 </div>
                 <div class="row">
@@ -126,7 +126,7 @@
                         Council/IQAC/Curriculum Committee</label>
                         <div style="display: flex;">
                     <input required #fil="ngModel" requiredFileType type="file" name="feedbackReports"
-                        [(ngModel)]="curriculamModel.feedbackReports" (change)="fileValidation($event)"
+                        [(ngModel)]="curriculamModel.structeredFeeBackFile" (change)="fileValidation($event)"
                         class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -141,7 +141,7 @@
                     <label for="upload">Any other relevant information file</label>
                     <div style="display: flex;">
                     <input #fil2="ngModel" requiredFileType type="file" name="feedAnyReleventInfo"
-                        [(ngModel)]="curriculamModel.feedAnyReleventInfo" (change)="fileValidation($event)"
+                        [(ngModel)]="curriculamModel.structeredFeeBackRelevent" (change)="fileValidation($event)"
                         class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil2.errors?.formatName">
                         {{fil2.errors ?.formatName.value}} These file extension are not allowed

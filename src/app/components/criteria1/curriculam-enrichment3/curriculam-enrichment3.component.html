@@ -40,7 +40,7 @@
               <td scope="row" class="c-td-i-typ" style="font-size: 10px; width: 100px;">
                 <mat-form-field appearance="outline">
                   <input name="nOfStudents{{[i]}}" matInput #noStudents="ngModel"
-                    [(ngModel)]="curriculamModel.nOfStudents[i]" required pattern="[\d{1,5}]*">
+                    [(ngModel)]="curriculamModel.nOfStudentsOfavrgValueAdded[i]" required pattern="[\d{1,5}]*">
                   <mat-error *ngIf="noStudents.errors?.required">These fields is mandatory </mat-error>
                   <mat-error *ngIf="noStudents.errors?.pattern">Only numbers Allowed</mat-error>
                 </mat-form-field>
@@ -48,7 +48,7 @@
               </td>
               <td scope="row" class="c-td-i-typ" style="font-size: 10px; width: 100px;">
                 <mat-form-field appearance="outline">
-                  <input name="totalNOfStudents{{[i]}}" matInput [(ngModel)]="curriculamModel.totalNOfStudents[i]"
+                  <input name="totalNOfStudents{{[i]}}" matInput [(ngModel)]="curriculamModel.totalNOfStudentsOfavrgValueAdded[i]"
                     required pattern="[\d{1,5}]*" #totNoStudents="ngModel">
                   <mat-error *ngIf="totNoStudents.errors?.required">These fields is mandatory </mat-error>
                   <mat-error *ngIf="totNoStudents.errors?.pattern">Only numbers Allowed</mat-error>
@@ -56,7 +56,7 @@
               </td>
               <td scope="row" class="c-td-i-typ">
                 <mat-form-field appearance="outline" style="width: 70%; font-size: 10px;">
-                  <input name="weblink{{[i]}}" matInput [(ngModel)]="curriculamModel.weblink[i]" required
+                  <input name="weblink{{[i]}}" matInput [(ngModel)]="curriculamModel.nOfStudentsOfavrgValueAddedLink[i]" required
                      #weblinks="ngModel">
                   <mat-error *ngIf="weblinks.errors?.required">These fields is mandatory </mat-error>
                 </mat-form-field>
@@ -70,7 +70,7 @@
             <div class="form-roup">
               <label for="result">Formula result: &nbsp;</label>
               <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                <input matInput name="formulaResult" #result="ngModel" [(ngModel)]="curriculamModel.formulaResult"
+                <input matInput name="formulaResult" #result="ngModel" [(ngModel)]="curriculamModel.averageFormulaResult"
                   disabled>
               </mat-form-field>
             </div>
@@ -83,7 +83,7 @@
               during the last five years </label>
               <div style="display: flex;">
             <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-              name="curiculamFile" max-size="2000" [(ngModel)]="curriculamModel.detOfStudEnrolled" requiredFileSize
+              name="curiculamFile" max-size="2000" [(ngModel)]="curriculamModel.detailsOfstudentsEnrolledInValueAdded" requiredFileSize
               class="form-control" [style.width.%]="49">
             <small class="text-danger" *ngIf="fil.errors?.formatName">
               {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -99,7 +99,7 @@
             <label for="upload">Any other relevant information </label>
             <div style="display: flex;">
             <input #fil1="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-              name="curiculamFileRelevent" [(ngModel)]="curriculamModel.enrichmenntRelev" 
+              name="curiculamFileRelevent" [(ngModel)]="curriculamModel.detailsOfstudentsEnrolledInValueAddedreleventInfo" 
               class="form-control" [style.width.%]="49">
             <small class="text-danger" *ngIf="fil1.errors?.formatName">
               {{fil.errors ?.formatName.value}} These file extension are not allowed

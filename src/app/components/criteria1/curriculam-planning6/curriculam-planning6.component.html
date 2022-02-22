@@ -12,7 +12,7 @@
                     <thead>
                         <tr style="text-align: center;">
                             <th style="width: 20%;">Year</th>
-                            <th *ngFor="let year of curriculamModel.academicYear">{{year}}</th>
+                            <th *ngFor="let year of curriculamModel.year">{{year}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,7 +20,7 @@
                             <th scope="row" style="text-align: center;">Number of
                                 value-added course offered.
                             </th>
-                            <td *ngFor="let year of curriculamModel.academicYear ; let i= index">
+                            <td *ngFor="let year of curriculamModel.year ; let i= index">
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                                     <input matInput required name="valueaddedOffered{{[i]}}" matInput #valueaddedOffer="ngModel"
                                         [(ngModel)]="curriculamModel.valueaddedOffered[i]" required pattern="[\d{1,5}]*">
@@ -37,7 +37,7 @@
             <div class="col-md-4">
                 <label>Institutional data in prescribed format.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.page6Institutional" requiredFileSize
+                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.valueAddedCoureseInstitutionalFile" requiredFileSize
                     class="form-control" [style.width.%]="94">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                     {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -93,7 +93,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let value of curriculamModel.page5val; let i=index; last as islast" style="text-align: center;">
+                        <tr *ngFor="let value of curriculamModel.valueAddedCoureseInstitutionalList; let i=index; last as islast" style="text-align: center;">
         
                             <td>
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
@@ -160,7 +160,7 @@
                     <label for="upload"> Brochure or any other documents relating to value added courses. </label>
                     <div style="display: flex;">
                     <input required #fil9="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                        name="brochure" [(ngModel)]="curriculamModel.page6File1" requiredFileSize 
+                        name="brochure" [(ngModel)]="curriculamModel.brochureOrOtherDocumentsOfvalueAddedCourses" requiredFileSize 
                         class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil9.errors ?.formatName">
                         {{fil9.errors ?.formatName.value}} These file extension are not allowed
@@ -178,7 +178,7 @@
                     <label for="upload">List of value-added courses year-wise offered during the last five years. </label>
                     <div style="display: flex;">
                     <input required #fil10="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                        name="curiculamFile" [(ngModel)]="curriculamModel.page6File2" requiredFileSize 
+                        name="curiculamFile" [(ngModel)]="curriculamModel.valueAddedCouresesLastFiveYear" requiredFileSize 
                         class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil10.errors ?.formatName">
                         {{fil10.errors ?.formatName.value}} These file extension are not allowed
@@ -201,7 +201,7 @@
                     </label>
                     <div style="display: flex;">
                     <input required #fil11="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                        name="curiculamFile" [(ngModel)]="curriculamModel.page6File3" requiredFileSize 
+                        name="curiculamFile" [(ngModel)]="curriculamModel.valueAddedCouresesStudentList" requiredFileSize 
                         class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil11.errors ?.formatName">
                         {{fil11.errors ?.formatName.value}} These file extension are not allowed
@@ -223,7 +223,7 @@
                     <label for="upload"> Any other relevant information. </label>
                     <div style="display: flex;">
                     <input required #fil12="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                        name="curiculamFile" [(ngModel)]="curriculamModel.page6File4" requiredFileSize 
+                        name="curiculamFile" [(ngModel)]="curriculamModel.valueAddedCouresesReleventInfo" requiredFileSize 
                         class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil12.errors ?.formatName">
                         {{fil12.errors ?.formatName.value}} These file extension are not allowed

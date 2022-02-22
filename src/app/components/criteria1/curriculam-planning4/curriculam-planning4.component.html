@@ -17,13 +17,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                      <tr  *ngFor="let enrol of curriculamModel.page4enrol ; let i=index; last as islast" style="text-align: center;">
+                      <tr  *ngFor="let enrol of curriculamModel.coursesvstotalstudents ; let i=index; last as islast" style="text-align: center;">
                           <td>
                               <div class="form-group">
                                   <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
                                     <mat-select required #year="ngModel" [(ngModel)]="enrol.yearOfEnrol"
                                     [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
-                                    <mat-option *ngFor="let yea of curriculamModel.academicYear" [value]="yea">{{yea}}</mat-option>
+                                    <mat-option *ngFor="let yea of curriculamModel.year" [value]="yea">{{yea}}</mat-option>
                                     </mat-select>
                                     <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
                                   </mat-form-field>
@@ -90,7 +90,7 @@
                     <label>Details of students enrolled in the value-added courses: </label>
                     <div style="display: flex;">
                     <input required #fil7="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                    name="studentsEnro" [(ngModel)]="curriculamModel.page4File1" requiredFileSize 
+                    name="studentsEnro" [(ngModel)]="curriculamModel.studentsEnrolledInTheValueAddedCourses" requiredFileSize 
                     class="form-control" [style.width.%]="49" >
                     <small class="text-danger" *ngIf="fil7.errors ?.formatName">
                         {{fil7.errors ?.formatName.value}} These file extension are not allowed
@@ -107,7 +107,7 @@
                     <label for="upload"> Any other relevant information. </label>
                     <div style="display: flex;">
                     <input required #fil8="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                    name="relevantFile4" [(ngModel)]="curriculamModel.page4File2" requiredFileSize 
+                    name="relevantFile4" [(ngModel)]="curriculamModel.coursesvstotalstudentsReleventInfo" requiredFileSize 
                     class="form-control" [style.width.%]="49" >
                     <small class="text-danger" *ngIf="fil8.errors ?.formatName">
                         {{fil8.errors ?.formatName.value}} These file extension are not allowed

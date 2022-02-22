@@ -3,6 +3,7 @@ import {MatTableModule} from '@angular/material/table';
 import { NgModel } from '@angular/forms';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
 import { FormArray } from '@angular/forms';
+import { Critera1Service } from 'src/app/service/critera1.service';
 
 @Component({
   selector: 'app-curriculam-enrichment3',
@@ -11,12 +12,12 @@ import { FormArray } from '@angular/forms';
 })
 export class CurriculamEnrichment3Component implements OnInit {
 
-  curriculamModel=new CurriculamPlanningModel();
+  curriculamModel=this.cservice.curriculamModel;
 
   
   fileError=false;
 
-  constructor() { }
+  constructor(private cservice:Critera1Service) { }
 
   ngOnInit(): void {
   }

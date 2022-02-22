@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
+import { Critera1Service } from 'src/app/service/critera1.service';
 
 @Component({
   selector: 'app-curriculam-planning5',
@@ -16,22 +17,22 @@ export class CurriculamPlanning5Component implements OnInit {
   file!: File;
   fileError = false;
 
-  curriculamModel=new CurriculamPlanningModel();
+  curriculamModel=this.cservice.curriculamModel;
 
-  addMore():void{
-    this.curriculamModel.page5val.push(
-      {
-        valueAdded:'',
-    courseCode: '',
-    yearOfOffering: '',
-    courseOccured: '',
-    noOfStudents: '',
-    uploadDoc: null
-      }
-    )
-  }
+  // addMore():void{
+  //   this.curriculamModel.page5val.push(
+  //     {
+  //       valueAdded:'',
+  //   courseCode: '',
+  //   yearOfOffering: '',
+  //   courseOccured: '',
+  //   noOfStudents: '',
+  //   uploadDoc: null
+  //     }
+  //   )
+  // }
 
-  constructor() { }
+  constructor(private cservice:Critera1Service) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +40,7 @@ export class CurriculamPlanning5Component implements OnInit {
     
   @ViewChild("descripId") descrip!: ElementRef;
   wordCounter(){
-    this.wordCount=this.curriculamModel.descriptionn ? this.curriculamModel.descriptionn.split(/\s+/) :0;
+    this.wordCount=this.curriculamModel.curriculamEnrichmentDescription ? this.curriculamModel.curriculamEnrichmentDescription.split(/\s+/) :0;
     this.words = this.wordCount ? this.wordCount.length : 0;
     if(this.words < 100)
       this.descMin=true;
@@ -60,7 +61,7 @@ export class CurriculamPlanning5Component implements OnInit {
   }
 
   myfunc(){
-     var url=this.curriculamModel.listCourses;
+     var url=this.curriculamModel.curriculamEnrichListOfCoursesLink;
     
 	var browserName=navigator.appName; 
 		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");
@@ -69,7 +70,7 @@ export class CurriculamPlanning5Component implements OnInit {
   }
 
    myfunc2(){
-     var url=this.curriculamModel.relevantInfo5;
+     var url=this.curriculamModel.curriculamEnrichmentReleventInfoLink;
     
 	var browserName=navigator.appName; 
 		window.open(url,"verifyy","left=20,top=20,width=900,height=900,toolbar=1,resizable=0,scrollbars=1");

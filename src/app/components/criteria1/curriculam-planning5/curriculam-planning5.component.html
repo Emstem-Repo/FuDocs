@@ -14,7 +14,7 @@
             <button (click)="toogle=!toogle" style="margin-left: 90%; margin-bottom: 3%;"><span>{{toogle?'+':'--'}}</span></button>
             <textarea required name="descriptionn" #descripId="ngModel" class="form-control"
             [class.is-invalid]="descripId.invalid && descripId.touched" cols="90" rows="10"
-            [(ngModel)]="curriculamModel.descriptionn" (keydown)="wordCounter()" 
+            [(ngModel)]="curriculamModel.curriculamEnrichmentDescription" (keydown)="wordCounter()" 
             [attr.disabled]="words >500 ? '' : null" matInput [style.height]="toogle?'10rem':'28rem'"></textarea>
         </mat-form-field>
         <div style="margin-left: 60%;">Words: <span id="wordCount">{{ words }}/500</span></div>
@@ -34,14 +34,14 @@
             <li>
                 List of courses with their description.&nbsp;
                 <mat-form-field appearance="outline" style=" margin-left: 1%; width: 50%; font-size: 10px;">
-                    <input matInput name="teachinglearning.reportURL" [(ngModel)]="curriculamModel.listCourses">
+                    <input matInput name="teachinglearning.reportURL" [(ngModel)]="curriculamModel.curriculamEnrichListOfCoursesLink">
                 </mat-form-field>
                 <button (click)="myfunc()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                 <div style="text-align: center;">
                     <label> OR: </label>
                     <div style="display: flex;">
                     <input required #fil9="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="brochure"
-                        [(ngModel)]="curriculamModel.page5File1" requiredFileSize class="form-control"
+                        [(ngModel)]="curriculamModel.curriculamEnrichListOfCoursesFile" requiredFileSize class="form-control"
                          [style.width.%]="24" style="margin-left: 39%;">
                     <small class="text-danger" *ngIf="fil9.errors ?.formatName">
                         {{fil9.errors ?.formatName.value}} These file extension are not allowed
@@ -56,14 +56,14 @@
             <li>
                 Any other relevant information.&nbsp;
                 <mat-form-field appearance="outline" style=" margin-left: 1%; width: 50%; font-size: 10px;">
-                    <input matInput name="teachinglearning.reportURL" [(ngModel)]="curriculamModel.relevantInfo5">
+                    <input matInput name="teachinglearning.reportURL" [(ngModel)]="curriculamModel.curriculamEnrichmentReleventInfoLink">
                 </mat-form-field>
                 <button (click)="myfunc2()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                 <div style="text-align: center;">
                     <label> OR: </label>
                     <div style="display: flex;">
                     <input required #fil10="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamFile"
-                        [(ngModel)]="curriculamModel.page5File2" requiredFileSize class="form-control"
+                        [(ngModel)]="curriculamModel.curriculamEnrichListOfReleventInfoFile" requiredFileSize class="form-control"
                         [style.width.%]="24" style="margin-left: 39%;">
                     <small class="text-danger" *ngIf="fil10.errors ?.formatName">
                         {{fil10.errors ?.formatName.value}} These file extension are not allowed

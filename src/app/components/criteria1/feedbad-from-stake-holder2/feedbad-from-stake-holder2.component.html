@@ -39,7 +39,7 @@
                                 <td>
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedbackResultOnWebsite"
+                                            required [(ngModel)]="curriculamModel.feedBackwebSite"
                                             name="feedbackResultOnWebsite" #feedBackStud="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -51,7 +51,7 @@
                                 <td>
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackCollectedAndActionTaken"
+                                            required [(ngModel)]="curriculamModel.feedbackCollectAnalyzeAction"
                                             name="feedBackCollectedAndActionTaken" #feedBackTeach="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -63,7 +63,7 @@
                                 <td>
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedBackCollectedAndAnalysed"
+                                            required [(ngModel)]="curriculamModel.feedbackCollectAnalyze"
                                             name="feedBackCollectedAndAnalysed" #feedBackEmp="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -75,7 +75,7 @@
                                 <td>
                                     <div class="form-group border" [style.margin-top]="'3.5%'">
                                         <mat-radio-group [style.text-align]="'bottom'" aria-label="Select an option"
-                                            required [(ngModel)]="curriculamModel.feedbackCollected"
+                                            required [(ngModel)]="curriculamModel.feedbackCollect"
                                             name="feedbackCollected" #feedBackAlumni="ngModel">
                                             <mat-radio-button class="p-3" value="true">Yes</mat-radio-button>
                                             <mat-radio-button class="p-3" value="false">No</mat-radio-button>
@@ -97,7 +97,7 @@
                     <mat-form-field class="example-full-width" style="width: 40%;font-size: 11px;" appearance="outline">
                         <mat-label>Report URL</mat-label>
                         <input matInput name="curriculamModel.feedbackResultURL"
-                            [(ngModel)]="curriculamModel.feedbackResultURL" >
+                            [(ngModel)]="curriculamModel.optionsBasedFeeBackLink" >
                     </mat-form-field>
                 </div>
             </div><br>
@@ -108,7 +108,7 @@
                         meetings of the College Council/IQAC</label>
                     <div style="display: flex;">    
                     <input required #fil="ngModel" requiredFileType type="file" name="actionTakenFeedbackReports"
-                        [(ngModel)]="curriculamModel.actionTakenFeedbackReports" (change)="fileValidation($event)"
+                        [(ngModel)]="curriculamModel.optionsBasedFeeBackFile" (change)="fileValidation($event)"
                         class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil.errors?.formatName">
                         {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -123,7 +123,7 @@
                     <label for="upload">Any other relevant information file</label>
                     <div style="display: flex;">
                     <input #fil2="ngModel" requiredFileType type="file" name="feedBack2ReleventIno"
-                        [(ngModel)]="curriculamModel.feedBack2ReleventIno" (change)="fileValidation($event)"
+                        [(ngModel)]="curriculamModel.optionsBasedFeeBackRelevent" (change)="fileValidation($event)"
                         class="form-control" [style.width.%]="49">
                     <small class="text-danger" *ngIf="fil2.errors?.formatName">
                         {{fil2.errors ?.formatName.value}} These file extension are not allowed

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AcademicYear } from 'src/app/interfaces/academicYear';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
+import { Critera1Service } from 'src/app/service/critera1.service';
 
 @Component({
   selector: 'app-curriculam-planning6',
@@ -12,11 +14,34 @@ export class CurriculamPlanning6Component implements OnInit {
   descMax = false;
   file!: File;
   fileError = false;
+  acYeararray=new Array();
+  curriculamModel=this.cservice.curriculamModel;
 
-  curriculamModel=new CurriculamPlanningModel();
+  constructor(private cservice:Critera1Service) { 
+    this.changeText = false;
+  }
+  ngOnInit(): void {
+    if(this.curriculamModel.year.length==0){
+      this.cservice.getAcademicYear();
+    }
+  }
+
+ 
+
+//   public getAcademicYear(){
+//     this.cservice.getAcademicYear().subscribe(
+//       (response:AcademicYear[])=>{
+//         for (var val of response) {
+//           console.log(val.year); 
+//          this.acYeararray.push(val.year);
+//         }
+//       }
+//     )
+   
+// }
 
    addMore():void{
-    this.curriculamModel.page5val.push(
+    this.curriculamModel.valueAddedCoureseInstitutionalList.push(
       {
         valueAdded:'',
     courseCode: '',
@@ -29,17 +54,14 @@ export class CurriculamPlanning6Component implements OnInit {
   }
    
   del():void{
-      console.log(this.curriculamModel.page5val.length)
-      if(this.curriculamModel.page5val.length > 1){
-     this.curriculamModel.page5val.pop();
+      console.log(this.curriculamModel.valueAddedCoureseInstitutionalList.length)
+      if(this.curriculamModel.valueAddedCoureseInstitutionalList.length > 1){
+     this.curriculamModel.valueAddedCoureseInstitutionalList.pop();
     }
   }
-  constructor() { 
-    this.changeText = false;
-  }
+  
 
-  ngOnInit(): void {
-  }
+  
   fileValidation(event: any) {
     this.file = event.target.files[0];
     console.log('inside change event  ' + this.file.size)

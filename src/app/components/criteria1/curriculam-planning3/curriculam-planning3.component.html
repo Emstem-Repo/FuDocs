@@ -11,7 +11,7 @@
                     <label><div class="custom-head-num">1.2.1.1: </div>Number of courses offered across all programmes during the last five years: &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput  #coursesOffer="ngModel" name="coursesOffer"
-                         [(ngModel)]="curriculamModel.coursesOffered" required pattern="[\d{1,5}]*">
+                         [(ngModel)]="curriculamModel.coursesOfferedDuringLastYear" required pattern="[\d{1,5}]*">
                          <mat-error *ngIf="coursesOffer.errors?.required">This field is required </mat-error>
                          <mat-error *ngIf="coursesOffer.errors?.pattern">Only numbers Allowed</mat-error>                    </mat-form-field>
                 </div>
@@ -25,7 +25,7 @@
                         years : &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput #trainingOffer="ngModel" name="trainingOffer"
-                         [(ngModel)]="curriculamModel.trainingOffered" required pattern="[\d{1,5}]*">
+                         [(ngModel)]="curriculamModel.trainingOfferedLastFiveYear" required pattern="[\d{1,5}]*">
                         <mat-error *ngIf="trainingOffer.errors?.required">This field is required </mat-error>
                         <mat-error *ngIf="trainingOffer.errors?.pattern">Only numbers Allowed</mat-error>                    </mat-form-field>
                 </div> 
@@ -49,7 +49,7 @@
             <div class="col-md-4" >
                 <label>Institutional data in prescribed format.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.page3Institutional" requiredFileSize
+                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.institutionalDataPrescribed" requiredFileSize
                     class="form-control" [style.width.%]="94">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                     {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -81,13 +81,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="text-align: center;" *ngFor="let inter of curriculamModel.page3inter; let i=index;last as islast">
+                        <tr style="text-align: center;" *ngFor="let inter of curriculamModel.institutionalData; let i=index;last as islast">
                             <td>
                                 <div class="form-group">
                                     <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
                                         <mat-select required #year="ngModel" [(ngModel)]="inter.year"
                                         [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
-                                        <mat-option *ngFor="let ye of curriculamModel.academicYear" [value]="ye">{{ye}}</mat-option>
+                                        <mat-option *ngFor="let ye of curriculamModel.year" [value]="ye">{{ye}}</mat-option>
                                         </mat-select>
                                         <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
                                     </mat-form-field>
@@ -154,7 +154,7 @@
                     <label>List of programmes offered year-wise during the last five years&nbsp;</label>
                     <div style="display: flex;">
                     <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                    name="bosMeeting" [(ngModel)]="curriculamModel.page3File1" requiredFileSize 
+                    name="bosMeeting" [(ngModel)]="curriculamModel.listOfProgrammesDuringLastFiveYears" requiredFileSize 
                     class="form-control" [style.width.%]="44" >
                     <small class="text-danger" *ngIf="fil5.errors ?.formatName">
                         {{fil5.errors ?.formatName.value}} These file extension are not allowed
@@ -174,7 +174,7 @@
                         courses /training were offered year-wise during last five years &nbsp;</label>
                     <div style="display: flex;">
                     <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                    name="relevantFile3" [(ngModel)]="curriculamModel.page3File2" requiredFileSize 
+                    name="relevantFile3" [(ngModel)]="curriculamModel.listOfCoursesTrainingWereOfferedYarWise" requiredFileSize 
                     class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil6.errors ?.formatName">
                         {{fil6.errors ?.formatName.value}} These file extension are not allowed
@@ -193,7 +193,7 @@
                     <label>Minutes of relevant Academic Council/BoS meetings &nbsp;</label>
                     <div style="display: flex;">
                     <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                        name="bosMeeting" [(ngModel)]="curriculamModel.page3File3" requiredFileSize class="form-control"
+                        name="bosMeeting" [(ngModel)]="curriculamModel.minutesOfRelevantAcademicCouncilMeetings" requiredFileSize class="form-control"
                         [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil5.errors ?.formatName">
                         {{fil5.errors ?.formatName.value}} These file extension are not allowed
@@ -213,7 +213,7 @@
                     <label> Any other relevant information. &nbsp;</label>
                     <div style="display: flex;">
                     <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                        name="relevantFile3" [(ngModel)]="curriculamModel.page3File4" requiredFileSize class="form-control"
+                        name="relevantFile3" [(ngModel)]="curriculamModel.departmentTrainingOtherRelevantInfo" requiredFileSize class="form-control"
                         [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil6.errors ?.formatName">
                         {{fil6.errors ?.formatName.value}} These file extension are not allowed

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
+import { Critera1Service } from 'src/app/service/critera1.service';
 
 @Component({
   selector: 'app-curriculam-enrichment4',
@@ -9,21 +10,24 @@ import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model
 export class CurriculamEnrichment4Component implements OnInit {
   
 
-  curriculamModel=new CurriculamPlanningModel();
+  curriculamModel=this.cservice.curriculamModel;
   el_name:String='';
   studentsNo:Number=0;
   file!: File;
   fileError=false;
   changeText: boolean;
   
-  constructor() { 
+  constructor(private cservice:Critera1Service) { 
     this.changeText = false;
   }
 
   ngOnInit(): void {
+    if(this.curriculamModel.year.length==0){
+      this.cservice.getAcademicYear();
+    }
   }
   addMore():void{
-    this.curriculamModel.enrichArry.push({
+    this.curriculamModel.fieldVisitList.push({
      programId: '',
      nostudUndertakingVisits:'',
      nostudUndertakingClinicaalVisits: '',
@@ -36,9 +40,9 @@ export class CurriculamEnrichment4Component implements OnInit {
   }
 
    del():void{
-      console.log(this.curriculamModel.enrichArry.length)
-      if(this.curriculamModel.enrichArry.length > 1){
-     this.curriculamModel.enrichArry.pop();
+      console.log(this.curriculamModel.fieldVisitList.length)
+      if(this.curriculamModel.fieldVisitList.length > 1){
+     this.curriculamModel.fieldVisitList.pop();
     }
   }
   calculateTotal(element:any){
@@ -46,42 +50,42 @@ export class CurriculamEnrichment4Component implements OnInit {
     this.studentsNo=0;
     console.log(this.el_name);
     if(this.el_name=='nostudUndertakingVisits' && element.value!=0){
-     this.curriculamModel.enrichArry.forEach(element => {
+     this.curriculamModel.fieldVisitList.forEach(element => {
         console.log(element.nostudUndertakingVisits);
         this.studentsNo=Number(this.studentsNo)+Number(element.nostudUndertakingVisits)
         this.curriculamModel.totalNostudUndertakingVisits=Number(this.studentsNo);
       });
     }
     else if(this.el_name=='nostudUndertakingClinicaalVisits' && element.value!=0){
-      this.curriculamModel.enrichArry.forEach(element => {
+      this.curriculamModel.fieldVisitList.forEach(element => {
          console.log(element.nostudUndertakingVisits);
          this.studentsNo=Number(this.studentsNo)+Number(element.nostudUndertakingClinicaalVisits)
          this.curriculamModel.totalNostudUndertakingClinicaalVisits=Number(this.studentsNo);
        });
      }
      else if(this.el_name=='nostudUndertakingResearchProject' && element.value!=0){
-      this.curriculamModel.enrichArry.forEach(element => {
+      this.curriculamModel.fieldVisitList.forEach(element => {
          console.log(element.nostudUndertakingVisits);
          this.studentsNo=Number(this.studentsNo)+Number(element.nostudUndertakingResearchProject)
          this.curriculamModel.totalNostudUndertakingResearchProject=Number(this.studentsNo);
        });
      }
     else if(this.el_name=='nostudUndertakingIndustryVisits' && element.value!=0){
-      this.curriculamModel.enrichArry.forEach(element => {
+      this.curriculamModel.fieldVisitList.forEach(element => {
          console.log(element.nostudUndertakingVisits);
          this.studentsNo=Number(this.studentsNo)+Number(element.nostudUndertakingIndustryVisits)
          this.curriculamModel.totalNostudUndertakingIndustryVisits=Number(this.studentsNo);
        });
      }
      else if(this.el_name=='nostudUndertakingCommunityPosting' && element.value!=0){
-      this.curriculamModel.enrichArry.forEach(element => {
+      this.curriculamModel.fieldVisitList.forEach(element => {
          console.log(element.nostudUndertakingVisits);
          this.studentsNo=Number(this.studentsNo)+Number(element.nostudUndertakingCommunityPosting)
          this.curriculamModel.totalNostudUndertakingCommunityPosting=Number(this.studentsNo);
        });
      }
      else if(this.el_name=='nostudUndertakingInAll' && element.value!=0){
-      this.curriculamModel.enrichArry.forEach(element => {
+      this.curriculamModel.fieldVisitList.forEach(element => {
          console.log(element.nostudUndertakingVisits);
          this.studentsNo=Number(this.studentsNo)+Number(element.nostudUndertakingInAll)
          this.curriculamModel.totalNostudUndertakingInAll=Number(this.studentsNo);

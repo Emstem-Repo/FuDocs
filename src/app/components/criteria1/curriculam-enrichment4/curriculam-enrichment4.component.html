@@ -17,7 +17,7 @@
             <div class="col-md-4">
                 <label>Institutional data in prescribed format.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.page8Institutional" requiredFileSize
+                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.percentageOfStudentsFieldVisitFile" requiredFileSize
                     class="form-control" [style.width.%]="100">
                     
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
@@ -55,7 +55,7 @@
 
                 <div class="row seven-cols">
                     <div class="container dbordercont" style="text-align: center;">
-                        <tr *ngFor="let enrich of curriculamModel.enrichArry;let i=index;last as islast">
+                        <tr *ngFor="let enrich of curriculamModel.fieldVisitList;let i=index;last as islast">
                             <td class="col-md-1">
                                 <div class="form-group">
                                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
@@ -225,7 +225,7 @@
                         <div class="form-group">
                             <label>Total number of students in the institution &nbsp;</label>
                             <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                                <input matInput required name="student" #student="ngModel" [(ngModel)]="curriculamModel.numberOfStudents8"
+                                <input matInput required name="student" #student="ngModel" [(ngModel)]="curriculamModel.totNoresult"
                                     [class.is-invalid]="student.invalid && student.touched">
                                 <mat-error [hidden]="student.valid || student.untouched">This field is Required</mat-error>
                             </mat-form-field>
@@ -238,7 +238,7 @@
                         <div class="form-group">
                             <label>Result  &nbsp;</label>
                             <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                                <input matInput required name="result" #result="ngModel" [(ngModel)]="curriculamModel.result8"
+                                <input matInput required name="result" #result="ngModel" [(ngModel)]="curriculamModel.formulafieldVisit"
                                     [class.is-invalid]="result.invalid && result.touched">
                                 <mat-error [hidden]="result.valid || result.untouched">This field is Required</mat-error>
                             </mat-form-field>
@@ -285,7 +285,7 @@
                         <label for="upload" style="margin-top: 3%;">Any other relevant information </label>
                         <div style="display: flex;">
                         <input  #fil3="ngModel" requiredFileType type="file" name="anyReleventInfo"
-                            [(ngModel)]="curriculamModel.anyReleventInfo" (change)="fileValidation($event)"
+                            [(ngModel)]="curriculamModel.fieldVisitReleventInfo" (change)="fileValidation($event)"
                             class="form-control" [style.width.%]="25">
                         <small class="text-danger" *ngIf="fil3.errors?.formatName">
                             {{fil3.errors ?.formatName.value}} These file extension are not allowed

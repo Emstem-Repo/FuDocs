@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurriculamPlanningModel } from 'src/app/model/curriculam-planning-model';
+import { Critera1Service } from 'src/app/service/critera1.service';
 
 @Component({
   selector: 'app-feedbad-from-stake-holder2',
@@ -10,9 +11,9 @@ export class FeedbadFromStakeHolder2Component implements OnInit {
   file!: File;
   fileError=false;
 
-  curriculamModel=new CurriculamPlanningModel();
+  curriculamModel=this.cservice.curriculamModel;
 
-  constructor() { }
+  constructor(private cservice:Critera1Service) { }
 
   ngOnInit(): void {
   }
