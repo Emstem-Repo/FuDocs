@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(private loginservice: LoginServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private authservice:AuthenticationServiceService) {localStorage.clear()}
+    private authservice:AuthenticationServiceService,
+    private reqDataService:LoginServiceService) {localStorage.clear()}
 
     authRequest:any={
       "username":this.loginModel.usermod.userName,
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token',data.access_token);
       localStorage.setItem('refreshToken',data.refresh_token);
       localStorage.setItem('userType',data.role);
-
+      this.reqDataService.setRequiredData();
       //this.isLoginFailed = false;
       //this.isLoggedIn = true;
       this.router.navigateByUrl('/fudocs/second');
