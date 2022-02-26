@@ -13,20 +13,22 @@ export class Critera1Service {
   curriculamModel=new Criteria1Model();
   acYeararray=new Array();
 
-  constructor(private http:HttpClient) {
-    this.getAcademicYear().subscribe(
-      (response:AcademicYear[])=>{
-        console.log(response);
-        for (var val of response) {
-          console.log(val);
-         this.acYeararray.push(val.year);
-        }
-        this.curriculamModel.year=this.acYeararray;
-        console.log(this.curriculamModel.year);
-      }
-    )
-   }
+  constructor(private http:HttpClient) {}
 
+public callRequiredData(){
+
+  //academic year
+  this.getAcademicYear().subscribe(
+    (response:AcademicYear[])=>{
+      for (var val of response) {
+       this.acYeararray.push(val.year);
+      }
+      this.curriculamModel.year=this.acYeararray;
+    }
+  )
+//academic year end
+
+}
   
 
 
@@ -39,7 +41,7 @@ export class Critera1Service {
     return this.http.get<AcademicYear[]>(`${this.apiServiceUrl}/academicYearMaster/getAcademicYear`,{headers});
   }
 
-  public addAcademicYear(model:Criteria1Model):Observable<Criteria1Model>{
+  public addCriteria(model:Criteria1Model):Observable<Criteria1Model>{
     const token='Bearer '+localStorage.getItem('token');
      const headers= new HttpHeaders(
         { 'Content-Type': 'application/json', 
