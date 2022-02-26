@@ -73,7 +73,7 @@ export class CurriculamPlanning1Component implements OnInit {
   public saveCriteria(){
     const acyearsend = {} as Criteria1Model;
     console.log('insidesaave');
-    this.servic.addAcademicYear(this.curriculamModel).subscribe(
+    this.servic.addCriteria(this.curriculamModel).subscribe(
       (response:Criteria1Model)=>{
         //this.acyear=response;
         //this.getAcademicYear();
