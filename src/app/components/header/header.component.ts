@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     localStorage.clear();
+   // window.location.reload();
     this.router.navigateByUrl('/FuDocs');
   }
 }

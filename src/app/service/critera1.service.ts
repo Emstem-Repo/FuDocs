@@ -11,19 +11,20 @@ import { Criteria1Model } from '../model/criteria1-model';
 export class Critera1Service {
   private apiServiceUrl = environment.apiBaseUrl;
   curriculamModel=new Criteria1Model();
-  acYeararray=new Array();
+  
 
   constructor(private http:HttpClient) {}
 
 public callRequiredData(){
-
+  let acYeararray=new Array();
   //academic year
   this.getAcademicYear().subscribe(
+   
     (response:AcademicYear[])=>{
       for (var val of response) {
-       this.acYeararray.push(val.year);
+       acYeararray.push(val.year);
       }
-      this.curriculamModel.year=this.acYeararray;
+      this.curriculamModel.year=acYeararray;
     }
   )
 //academic year end
