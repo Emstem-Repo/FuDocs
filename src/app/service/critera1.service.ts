@@ -18,9 +18,11 @@ export class Critera1Service {
       (response:AcademicYear[])=>{
         console.log(response);
         for (var val of response) {
+          console.log(val);
          this.acYeararray.push(val.year);
         }
         this.curriculamModel.year=this.acYeararray;
+        console.log(this.curriculamModel.year);
       }
     )
    }
