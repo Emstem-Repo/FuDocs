@@ -27,11 +27,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let number of curriculamModel.year; let i = index">
+            <!-- <tr *ngFor="let number of curriculamModel.year; let i = index">
               <td scope="row" class="c-td-i-typ">
 
                 <mat-form-field appearance="fill" style="font-size: 10px; width: 100px;">
-                  <!-- <mat-label>Year</mat-label> -->
                   <input style="text-align: center;" matInput name="year[{{i}}]" #year[i]="ngModel"
                     [(ngModel)]="curriculamModel.year[i]" disabled>
 
@@ -61,13 +60,13 @@
                   <mat-error *ngIf="weblinks.errors?.required">These fields is mandatory </mat-error>
                 </mat-form-field>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
 
         </table>
         <div class="row">
           <div class="col md-5">
-            <div class="form-roup">
+            <div class="form-group">
               <label for="result">Formula result: &nbsp;</label>
               <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                 <input matInput name="formulaResult" #result="ngModel" [(ngModel)]="curriculamModel.averageFormulaResult"
@@ -82,8 +81,8 @@
               yearwise
               during the last five years </label>
               <div style="display: flex;">
-            <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-              name="curiculamFile" max-size="2000" [(ngModel)]="curriculamModel.detailsOfstudentsEnrolledInValueAdded" requiredFileSize
+            <input required #fil="ngModel" requiredFileType type="file" name="curiculamFile"
+             [(ngModel)]="curriculamModel.detailsOfstudentsEnrolledInValueAdded" (change)="fileValidation($event)"
               class="form-control" [style.width.%]="49">
             <small class="text-danger" *ngIf="fil.errors?.formatName">
               {{fil.errors ?.formatName.value}} These file extension are not allowed

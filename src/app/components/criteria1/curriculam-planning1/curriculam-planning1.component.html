@@ -39,14 +39,14 @@
                     <li>
                         Minutes of the meeting of the college curriculum committee. &nbsp;
                         <mat-form-field appearance="outline" style="width: 50%; font-size: 10px;">
-                            <input matInput name="curriculamModel.minutesMeeting" [(ngModel)]="curriculamModel.minutesOfMeetingCurriculamCommiteeLink">
+                            <input matInput required name="curriculamModel.minutesMeeting" [(ngModel)]="curriculamModel.minutesOfMeetingCurriculamCommiteeLink">
                         </mat-form-field>
                         <button (click)="myfunc()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                         <div style="text-align: center;">
                             <label> OR: </label>
                             <div style="display: flex;">
                             <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="curiculamFile"
-                                [(ngModel)]="curriculamModel.minutesOfMeetingCurriculamCommiteeFile" requiredFileSize
+                                [(ngModel)]="curriculamModel.minutesOfMeetingCurriculamCommiteeFile" 
                                  class="form-control" [style.width.%]="24" style="margin-left: 39%;">
                             <small class="text-danger" *ngIf="fil.errors ?.formatName">
                                 {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -62,14 +62,14 @@
                     <li>
                         Any other relevant information. &nbsp;
                         <mat-form-field appearance="outline" style="width: 50%; font-size: 10px;">
-                            <input matInput name="curriculamModel.relevantInfo1" [(ngModel)]="curriculamModel.curriculamPlanningReleventInfoLink">
+                            <input matInput required name="curriculamModel.relevantInfo1" [(ngModel)]="curriculamModel.curriculamPlanningReleventInfoLink">
                         </mat-form-field>
                         <button (click)="myfunc2()" style="margin-left: 3%;" class="btn btn-info">Verify</button>
                         <div style="text-align: center;">
                             <label> OR: </label>
                             <div style="display: flex;">
                             <input required #fil1="ngModel" (change)="fileValidation($event)" requiredFileType type="file" name="relevantFile1"
-                                [(ngModel)]="curriculamModel.curriculamPlanningReleventInfoFile" requiredFileSize
+                                [(ngModel)]="curriculamModel.curriculamPlanningReleventInfoFile" 
                                  class="form-control" [style.width.%]="24" style="margin-left: 39%;">
                             <small class="text-danger" *ngIf="fil1.errors ?.formatName">
                                 {{fil1.errors ?.formatName.value}} These file extension are not allowed

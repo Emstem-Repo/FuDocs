@@ -21,8 +21,8 @@
                           <td>
                               <div class="form-group">
                                   <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
-                                    <mat-select required #year="ngModel" [(ngModel)]="enrol.yearOfEnrol"
-                                    [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]">
+                                    <mat-select  #year="ngModel" [(ngModel)]="enrol.yearOfEnrol"
+                                    [class.is-invalid]="year.invalid && year.touched" name="year[{{i}}]" required>
                                     <mat-option *ngFor="let yea of curriculamModel.year" [value]="yea">{{yea}}</mat-option>
                                     </mat-select>
                                     <mat-error [hidden]="year.valid || year.untouched">Academic Year is Required</mat-error>
@@ -34,7 +34,7 @@
                               <div class="form-group">
                                   <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
                                       <input  matInput name="studentsEnrol{{[i]}}" #noStudentEnro="ngModel" 
-                                      [(ngModel)]="enrol.studentsEnrol" required pattern="[\d{1,5}]*">
+                                      [(ngModel)]="enrol.studentsEnrol"  pattern="[\d{1,5}]*" required>
                                       <mat-error *ngIf="noStudentEnro.errors?.required">This field is required </mat-error>
                                       <mat-error *ngIf="noStudentEnro.errors?.pattern">Only numbers Allowed</mat-error>
                                   </mat-form-field>
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 150px;">
                                     <input matInput name="totalStudents{{[i]}}" #noTotal="ngModel"
-                                    [(ngModel)]="enrol.totalStudents" required pattern="[\d{1,5}]*">
+                                    [(ngModel)]="enrol.totalStudents" pattern="[\d{1,5}]*" required>
                                     <mat-error *ngIf="noTotal.errors?.required">This field is required </mat-error>
                                       <mat-error *ngIf="noTotal.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>    
@@ -89,9 +89,9 @@
                 <div class="form-group ">
                     <label>Details of students enrolled in the value-added courses: </label>
                     <div style="display: flex;">
-                    <input required #fil7="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                    <input #fil7="ngModel" (change)="fileValidation($event)"  type="file" 
                     name="studentsEnro" [(ngModel)]="curriculamModel.studentsEnrolledInTheValueAddedCourses" requiredFileSize 
-                    class="form-control" [style.width.%]="49" >
+                    class="form-control" [style.width.%]="49" required>
                     <small class="text-danger" *ngIf="fil7.errors ?.formatName">
                         {{fil7.errors ?.formatName.value}} These file extension are not allowed
                     </small>
@@ -106,9 +106,9 @@
                 <div class="form-group ">
                     <label for="upload"> Any other relevant information. </label>
                     <div style="display: flex;">
-                    <input required #fil8="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                    <input #fil8="ngModel" (change)="fileValidation($event)"  type="file" 
                     name="relevantFile4" [(ngModel)]="curriculamModel.coursesvstotalstudentsReleventInfo" requiredFileSize 
-                    class="form-control" [style.width.%]="49" >
+                    class="form-control" [style.width.%]="49" required >
                     <small class="text-danger" *ngIf="fil8.errors ?.formatName">
                         {{fil8.errors ?.formatName.value}} These file extension are not allowed
                     </small>

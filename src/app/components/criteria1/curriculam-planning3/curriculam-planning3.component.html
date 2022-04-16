@@ -11,7 +11,7 @@
                     <label><div class="custom-head-num">1.2.1.1: </div>Number of courses offered across all programmes during the last five years: &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput  #coursesOffer="ngModel" name="coursesOffer"
-                         [(ngModel)]="curriculamModel.coursesOfferedDuringLastYear" required pattern="[\d{1,5}]*">
+                         [(ngModel)]="curriculamModel.coursesOfferedDuringLastYear" pattern="[\d{1,5}]*" required>
                          <mat-error *ngIf="coursesOffer.errors?.required">This field is required </mat-error>
                          <mat-error *ngIf="coursesOffer.errors?.pattern">Only numbers Allowed</mat-error>                    </mat-form-field>
                 </div>
@@ -25,7 +25,7 @@
                         years : &nbsp; </label>
                     <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
                         <input matInput #trainingOffer="ngModel" name="trainingOffer"
-                         [(ngModel)]="curriculamModel.trainingOfferedLastFiveYear" required pattern="[\d{1,5}]*">
+                         [(ngModel)]="curriculamModel.trainingOfferedLastFiveYear"  pattern="[\d{1,5}]*" required>
                         <mat-error *ngIf="trainingOffer.errors?.required">This field is required </mat-error>
                         <mat-error *ngIf="trainingOffer.errors?.pattern">Only numbers Allowed</mat-error>                    </mat-form-field>
                 </div> 
@@ -37,8 +37,8 @@
                 <div class="form-group">
                 <label>Result as per formula: &nbsp;</label>
                 <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                    <input matInput required name="formula" #formula="ngModel"
-                     [(ngModel)]="curriculamModel.formula3" [class.is-invalid]="formula.invalid && formula.touched">
+                    <input matInput  name="formula" #formula="ngModel"
+                     [(ngModel)]="curriculamModel.formula3" [class.is-invalid]="formula.invalid && formula.touched" required>
                      <mat-error [hidden]="formula.valid || formula.untouched">This field is Required</mat-error>
                 </mat-form-field>
                 </div>
@@ -49,7 +49,7 @@
             <div class="col-md-4" >
                 <label>Institutional data in prescribed format.</label>
                 <input required #fil="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
-                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.institutionalDataPrescribed" requiredFileSize
+                    name="InstitutionalFile" max-size="2000" [(ngModel)]="curriculamModel.institutionalDataPrescribed" 
                     class="form-control" [style.width.%]="94">
                 <small class="text-danger" *ngIf="fil.errors?.formatName">
                     {{fil.errors ?.formatName.value}} These file extension are not allowed
@@ -154,7 +154,7 @@
                     <label>List of programmes offered year-wise during the last five years&nbsp;</label>
                     <div style="display: flex;">
                     <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
-                    name="bosMeeting" [(ngModel)]="curriculamModel.listOfProgrammesDuringLastFiveYears" requiredFileSize 
+                    name="bosMeeting" [(ngModel)]="curriculamModel.listOfProgrammesDuringLastFiveYears"  
                     class="form-control" [style.width.%]="44" >
                     <small class="text-danger" *ngIf="fil5.errors ?.formatName">
                         {{fil5.errors ?.formatName.value}} These file extension are not allowed
@@ -173,7 +173,7 @@
                     <label> List of the courses under each programmme where inter-disciplinary/inter-departmental 
                         courses /training were offered year-wise during last five years &nbsp;</label>
                     <div style="display: flex;">
-                    <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file" 
+                    <input required #fil6="ngModel" (change)="fileValidation($event)"  type="file" 
                     name="relevantFile3" [(ngModel)]="curriculamModel.listOfCoursesTrainingWereOfferedYarWise" requiredFileSize 
                     class="form-control" [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil6.errors ?.formatName">
@@ -192,7 +192,7 @@
                 <div class="form-group">
                     <label>Minutes of relevant Academic Council/BoS meetings &nbsp;</label>
                     <div style="display: flex;">
-                    <input required #fil5="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    <input required #fil5="ngModel" (change)="fileValidation($event)" type="file"
                         name="bosMeeting" [(ngModel)]="curriculamModel.minutesOfRelevantAcademicCouncilMeetings" requiredFileSize class="form-control"
                         [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil5.errors ?.formatName">
@@ -212,7 +212,7 @@
         
                     <label> Any other relevant information. &nbsp;</label>
                     <div style="display: flex;">
-                    <input required #fil6="ngModel" (change)="fileValidation($event)" requiredFileType type="file"
+                    <input required #fil6="ngModel" (change)="fileValidation($event)"  type="file"
                         name="relevantFile3" [(ngModel)]="curriculamModel.departmentTrainingOtherRelevantInfo" requiredFileSize class="form-control"
                         [style.width.%]="44">
                     <small class="text-danger" *ngIf="fil6.errors ?.formatName">

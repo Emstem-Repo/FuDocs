@@ -22,8 +22,8 @@
                             </th>
                             <td *ngFor="let year of curriculamModel.year ; let i= index">
                                 <mat-form-field appearance="outline" style="font-size: 10px; width: 100px;">
-                                    <input matInput required name="valueaddedOffered{{[i]}}" matInput #valueaddedOffer="ngModel"
-                                        [(ngModel)]="curriculamModel.valueaddedOffered[i]" required pattern="[\d{1,5}]*">
+                                    <input matInput  name="valueaddedOffered{{[i]}}" matInput #valueaddedOffer="ngModel"
+                                        [(ngModel)]="curriculamModel.valueaddedOffered[i]"  pattern="[\d{1,5}]*">
                                     <mat-error *ngIf="valueaddedOffer.errors?.required">This field is mandatory </mat-error>
                                     <mat-error *ngIf="valueaddedOffer.errors?.pattern">Only numbers Allowed</mat-error>
                                 </mat-form-field>

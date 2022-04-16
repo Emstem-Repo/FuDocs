@@ -253,9 +253,9 @@
                             yearwise
                             during the last five years </label>
                         <div style="display: flex;">    
-                        <input required #fil1="ngModel" requiredFileType type="file" name="nostudUndertakingInAll"
+                        <input #fil1="ngModel" requiredFileType type="file" name="nostudUndertakingInAll"
                             [(ngModel)]="curriculamModel.nostudUndertakingInAll" (change)="fileValidation($event)"
-                            class="form-control" [style.width.%]="49">
+                            class="form-control" [style.width.%]="49" required>
                         <small class="text-danger" *ngIf="fil1.errors?.formatName">
                             {{fil1.errors ?.formatName.value}} These file extension are not allowed
                         </small>
@@ -268,10 +268,10 @@
                     <div class="col form-group d-flex flex-column justify-content-end">
                         <label for="upload">Document showing total number of students</label>
                         <div style="display: flex;">
-                        <input required #fil2="ngModel" requiredFileType type="file" name="docShownostudUndertakingInAll"
+                        <input  #fil2="ngModel" requiredFileType type="file" name="docShownostudUndertakingInAll"
                             [(ngModel)]="curriculamModel.docShownostudUndertakingInAll"
                             (change)="fileValidation($event)" class="form-control" [style.width.%]="49">
-                        <small class="text-danger" *ngIf="fil2.errors?.formatName">
+                        <small class="text-danger" *ngIf="fil2.errors?.formatName" required>
                             {{fil2.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil2.untouched ">
@@ -286,8 +286,8 @@
                         <div style="display: flex;">
                         <input  #fil3="ngModel" requiredFileType type="file" name="anyReleventInfo"
                             [(ngModel)]="curriculamModel.fieldVisitReleventInfo" (change)="fileValidation($event)"
-                            class="form-control" [style.width.%]="25">
-                        <small class="text-danger" *ngIf="fil3.errors?.formatName">
+                            class="form-control" [style.width.%]="25" required>
+                        <small class="text-danger" *ngIf="fil3.errors?.formatName" >
                             {{fil3.errors ?.formatName.value}} These file extension are not allowed
                         </small>
                         <small class="text-danger" [hidden]="!fileError ||  fil3.untouched ">
